@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick Dodson, GTM &amp; Business Development</title>
+<meta name="description" content="Relationship-led growth carried by AI, data, and automation. A consultative selling motion I built and ran, with the research, timing, and coverage load now handled by a system, so the relationship stays human at the point of contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Perspective Suite shared shell (inlined; source: assets/suite.css) ===== */
+/* ============================================================
+   Perspective Suite - shared shell
+   Paper-and-forest design system. One frame, every page inherits.
+   Page-specific diagram CSS lives in each page's own <style> block.
+   ============================================================ */
+
+:root{
+  --ink:#181b1a; --graphite:#2b302e; --gray:#5b6360; --muted:#79817d;
+  --paper:#e9ebe9; --card:#ffffff; --line:#d4d8d5;
+  --green:#1e4d34; --green2:#2c6a48; --greenwash:#eef3ef; --greenline:#cde0d3;
+  --umber:#824f30; --umber2:#9c6741; --umberwash:#f2ebe3; --umberline:#e3d3c4;
+  --disp:"Barlow Condensed",Arial,sans-serif;
+  --body:"Inter",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--green2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:.01em;margin:0;text-wrap:balance}
+p{margin:0 0 16px;text-wrap:pretty}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin:0 0 14px}
+.eyebrow.g{color:var(--green2)}
+
+/* ---- top bar: shared brand + suite nav ---- */
+.top{position:sticky;top:0;z-index:40;background:rgba(233,235,233,.9);
+  backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink);font-weight:500;white-space:nowrap}
+.brand b{color:var(--green)}
+.brand a{color:inherit}
+.brand a:hover{text-decoration:none}
+.nav{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);margin-left:20px}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a.here{color:var(--green);font-weight:500}
+.nav a.hub{color:var(--umber)}
+@media(max-width:900px){.nav a{margin-left:14px;font-size:11px}}
+
+/* "Other perspectives" dropdown (no-JS, touch-safe via <details>) */
+.drop{position:relative;margin-left:20px}
+.drop>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.drop>summary::-webkit-details-marker{display:none}
+.drop>summary::after{content:" \25BE";color:var(--umber);margin-left:3px}
+.drop>summary:hover{color:var(--ink)}
+.drop.hascur>summary{color:var(--green);font-weight:500}
+.dropmenu{position:absolute;right:0;top:calc(100% + 12px);background:var(--card);border:1px solid var(--line);
+  min-width:210px;padding:6px 0;box-shadow:0 8px 28px rgba(24,27,26,.12);z-index:50}
+.dropmenu a{display:block;margin:0;padding:10px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--gray)}
+.dropmenu a:hover{background:var(--greenwash);color:var(--ink);text-decoration:none}
+.dropmenu a.here{color:var(--green);font-weight:500}
+@media(max-width:900px){.drop{margin-left:14px}.drop>summary{font-size:11px}}
+
+/* ---- hero ---- */
+.hero{padding:70px 0 54px;border-bottom:1px solid var(--line)}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--umber);margin-bottom:20px}
+.hero h1{font-size:clamp(34px,5.6vw,58px);font-weight:700;letter-spacing:0;max-width:20ch}
+.hero .lede{font-size:19px;max-width:66ch;margin-top:22px;color:var(--graphite)}
+.hero .lede2{font-size:16px;max-width:66ch;margin-top:14px;color:var(--gray)}
+.hero .rule{width:60px;height:3px;background:var(--umber);margin:26px 0 0}
+.hero .disciplines{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.hero .disciplines span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);
+  background:var(--card);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
+
+/* ---- section shell ---- */
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:80ch;margin-bottom:32px}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:600}
+.sec-head .sub{color:var(--gray);margin-top:12px;font-size:16.5px;max-width:72ch}
+
+/* ---- diagram shell (site convention) ---- */
+.dwrap{border:1px solid var(--line);background:var(--card);padding:26px 26px 28px;margin:6px 0 4px}
+.dcap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:22px}
+.dcap b{color:var(--umber)}
+.note{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;margin-top:20px;max-width:72ch;line-height:1.6}
+
+/* ---- reusable POV callout pair (opinionated vs observer) ---- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:680px){.pair{grid-template-columns:1fr}}
+.pcard{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--green);padding:20px 22px}
+.pcard.um{border-top-color:var(--umber)}
+.pcard .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pcard h4{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--graphite);line-height:1.55;margin:0}
+.implic{margin-top:16px;background:var(--umberwash);border:1px solid var(--umberline);border-radius:2px;padding:22px 26px}
+.implic .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--umber);margin-bottom:8px}
+.implic p{font-size:15px;color:var(--graphite);line-height:1.6;margin:0}
+.implic.g{background:var(--greenwash);border-color:var(--greenline)}
+.implic.g .lab{color:var(--green2)}
+
+/* ---- the POV "sermon" block (first-person, opinionated) ---- */
+.pov{max-width:76ch}
+.pov p{font-size:17px;color:var(--graphite);margin:0 0 18px}
+.pov p strong{color:var(--ink);font-weight:600}
+.povmark{border-left:3px solid var(--umber);background:var(--umberwash);padding:20px 24px;margin:8px 0 24px}
+.povmark p{margin:0;font-size:17px;color:var(--graphite)}
+.povmark.g{border-left-color:var(--green);background:var(--greenwash)}
+
+/* ---- reusable maturity / readiness ladder ---- */
+.mat{display:flex;flex-direction:column;gap:6px}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--paper);border:1px solid var(--line);padding:16px 18px;align-items:start}
+.stage .sn{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--muted);line-height:1;text-align:center}
+.stage .sname{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:4px}
+.stage .slook{font-size:14px;color:var(--graphite);line-height:1.5;margin:0 0 8px}
+.stage .snext{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--gray);line-height:1.45}
+.stage .snext b{color:var(--umber);font-weight:500}
+.stage.top{border-color:var(--greenline);background:var(--greenwash);border-left:3px solid var(--green)}
+.stage.top .sn{color:var(--green)}
+.stage.top .snext b{color:var(--green2)}
+
+/* ---- generic content cards (record, method) ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.gcard{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--green);padding:22px 24px}
+.gcard.um{border-top-color:var(--umber)}
+.gcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.gcard h3{font-family:var(--disp);font-weight:600;font-size:21px;color:var(--ink);margin-bottom:8px}
+.gcard p{font-size:14.5px;color:var(--graphite);line-height:1.55;margin:0}
+.gcard .metrics{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+.gcard .metric b{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--green);display:block;line-height:1.1}
+.gcard.um .metric b{color:var(--umber)}
+.gcard .metric span{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- where to go ---- */
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:680px){.routes{grid-template-columns:1fr}}
+.route{border:1px solid var(--line);background:var(--card);padding:24px}
+.route.umber{border-top:3px solid var(--umber)}
+.route.green{border-top:3px solid var(--green)}
+.route h3{font-family:var(--disp);font-weight:600;font-size:22px;margin-bottom:8px}
+.route p{font-size:15px;color:var(--gray);margin-bottom:16px}
+.route .go{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+
+/* ---- footer ---- */
+footer{padding:40px 0 60px}
+footer .fx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:baseline}
+footer .fname{font-family:var(--disp);font-weight:600;font-size:20px;color:var(--ink)}
+footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
+
+/* ---- shared pill component (layer stacks) ---- */
+.pills{display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-family:var(--body);font-size:11.5px;padding:3px 9px;border-radius:2px;background:var(--card);color:var(--graphite);border:1px solid var(--line)}
+.pill.hl{background:var(--umberwash);border-color:var(--umberline);color:var(--umber);font-weight:600}
+.pill.g{background:var(--greenwash);border-color:var(--greenline);color:var(--green);font-weight:600}
+
+</style>
+<style>
+  .compare-lead{font-family:var(--disp);font-weight:600;font-size:22px;color:var(--ink);margin:30px 0 16px;max-width:60ch}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.compare{grid-template-columns:1fr}}
+  .col{border:1px solid var(--line);background:var(--card);padding:22px 24px}
+  .col.old{border-top:3px solid var(--gray)}
+  .col.sys{border-top:3px solid var(--green)}
+  .col .clab{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;color:var(--muted)}
+  .col.sys .clab{color:var(--green2)}
+  .cl{margin:0;padding:0;list-style:none}
+  .cl li{position:relative;padding-left:20px;margin-bottom:11px;font-size:14.5px;color:var(--graphite);line-height:1.5}
+  .cl li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gray)}
+  .col.sys .cl li::before{background:var(--green)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><a href="index.html">Patrick&nbsp;Dodson&nbsp;<b>/</b>&nbsp;Experience&nbsp;Portfolio</a></div>
+    <nav class="nav">
+      <a href="adoption-change.html">Adoption &amp; Change</a>
+      <a href="gtm-bizdev.html" class="here">GTM &amp; BizDev</a>
+      <details class="drop">
+        <summary>Exposure &amp; Perspective</summary>
+        <div class="dropmenu">
+          <a href="data-analytics.html">Data &amp; Analytics</a>
+          <a href="ai-factory.html">AI Factory</a>
+        </div>
+      </details>
+      <a href="index.html" class="hub">Hub</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Business Development &amp; GTM &middot; Professional services &middot; Relationship-led, AI-native</div>
+    <h1>Relationship-led growth, carried by AI and data.</h1>
+    <p class="lede">Business development used to scale on effort. Show up enough, and the network renewed itself: rooms, hallway conversations, the conference circuit, clients who got promoted and brought you along. Then the flow of opportunities slowed, a little at first, and now the shortfall is obvious. Buyers arrive late with their minds mostly made up, and if you do not have a relationship inside the account, you are pitching against someone who does.</p>
+    <p class="lede2">The best work in professional services still arrives through people and effort. What changed is that AI, data, and automation can now carry the research, timing, and coverage load that used to cap how many relationships one person could find, nurture, and convert. I build the system that puts the right practitioners in front of the right prospect at the right moment, with a real reason to engage, and keeps the relationship human at the point of contact.</p>
+    <div class="rule"></div>
+    <div class="disciplines">
+      <span>Consultative selling</span>
+      <span>Relationship pipeline</span>
+      <span>Signal &amp; timing</span>
+      <span>Data &amp; analytics</span>
+      <span>AI-assisted research</span>
+      <span>Clay-native execution</span>
+    </div>
+  </div>
+</header>
+
+<!-- THESIS -->
+<section id="thesis">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow g">The thesis</div>
+      <h2>What's changed, and what to do about it.</h2>
+      <p class="sub">Why the traditional professional-services playbook is not delivering like it used to, the model that works instead, and how I would build and run it.</p>
+    </div>
+    <div class="pov">
+      <p>The doer-seller model rested on a bet that the network would keep renewing itself through sheer presence. That bet is failing. Buyers self-educate, arrive late, and decide early, and the seller with an existing relationship inside the account wins before the formal process starts. Effort alone does not fix a coverage and timing problem, and adding headcount just multiplies the same manual limits.</p>
+    </div>
+
+    <div class="compare-lead">The solve is a system that is sustainable and compounds value across the firm.</div>
+    <div class="compare">
+      <div class="col old">
+        <div class="clab">The doer-seller default</div>
+        <ul class="cl">
+          <li>Growth rests on one or two rainmakers, and leaves when they do.</li>
+          <li>Little tooling. Under pressure it reverts to the same familiar contacts and cold, generic outreach.</li>
+          <li>No strategic read on which accounts, clients, or signals to pursue.</li>
+          <li>Warm paths stumbled upon rather than identified and plotted.</li>
+        </ul>
+      </div>
+      <div class="col sys">
+        <div class="clab">The system I design and run</div>
+        <ul class="cl">
+          <li>Predictable across the firm's collective network, not resting on any one person or happenstance.</li>
+          <li>AI, data, and automation drive targeting and timing, scored against ideal account, client, and signal profiles.</li>
+          <li>Warm paths surfaced from where clients and colleagues have moved.</li>
+          <li>Person to person at the point of contact, by the owner of the connection. The relationship stays respected and protected.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The method</div>
+      <h2>A practice built over two decades, with an AI execution layer built over the last two years.</h2>
+      <p class="sub">The consultative discipline is not new. The way it now runs is.</p>
+    </div>
+    <div class="grid">
+      <div class="gcard">
+        <div class="tag">Operating principles</div>
+        <h3>Consultative selling, the way I practice it</h3>
+        <p>Fight unnecessary complexity, put the client at the center, co-create so people defend what they helped build, and earn the right to pitch by being useful first. Revenue follows relevance.</p>
+      </div>
+      <div class="gcard um">
+        <div class="tag">Relationship pipeline</div>
+        <h3>Buyer psychology and the warm-path reality</h3>
+        <p>Influencers open doors that decision-makers keep shut, most buyers are not in market when you reach them, and a warm introduction still converts several times better than a cold one. The system is built around that reality rather than against it.</p>
+      </div>
+      <div class="gcard">
+        <div class="tag">Execution layer</div>
+        <h3>How I would run it</h3>
+        <p>Signal detection, enrichment, scoring, and prospect dossiers that used to take days to compile are now produced in hours, aligning a team for strategic pursuit against the accounts and moments that actually matter.</p>
+      </div>
+      <div class="gcard um">
+        <div class="tag">Origin &middot; the field guide</div>
+        <h3>The Account Services method</h3>
+        <p>The consultative approach I authored and coached to a business-development team: how buyers actually choose, where a seller earns trusted-advisor status, and why the work is won before the buying cycle starts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section id="record">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow g">Track record</div>
+      <h2>I have already built and carried this motion.</h2>
+      <p class="sub">Business development I led and delivered, and the data discipline underneath it. Figures are measured and drawn from my full career record.</p>
+    </div>
+    <div class="grid">
+
+      <div class="gcard">
+        <div class="tag">XPLANE &middot; 2008 to 2016</div>
+        <h3>Built and ran the selling motion</h3>
+        <p>Designed and coached the consultative approach a ten-plus-person team ran daily, carried the number myself, and built the CRM and KPI system behind it.</p>
+        <div class="metrics">
+          <div class="metric"><b>$6.8 to 10.9M</b><span>Revenue, 2007 to 2010</span></div>
+          <div class="metric"><b>~50%</b><span>Proposal win rate</span></div>
+        </div>
+      </div>
+
+      <div class="gcard um">
+        <div class="tag">Momentive / SurveyMonkey &middot; 2019</div>
+        <h3>Stood up an expansion function from scratch</h3>
+        <p>Established a new expansion motion inside Customer Success, hired the team, and built the workflows bridging sales and success.</p>
+        <div class="metrics">
+          <div class="metric"><b>$4M</b><span>Pipeline, first 9 months</span></div>
+          <div class="metric"><b>$800K+</b><span>Bookings, first 9 months</span></div>
+        </div>
+      </div>
+
+      <div class="gcard">
+        <div class="tag">Data &amp; analytics</div>
+        <h3>The measurement discipline under the selling</h3>
+        <p>CRM and KPI systems, executive BI dashboards, a reframe that turned a communications ask into a data problem, and labeled ROI and effort models built bottom-up with the assumptions written down.</p>
+      </div>
+
+      <div class="gcard um">
+        <div class="tag">The through-line</div>
+        <h3>One motion, three eras</h3>
+        <p>Communications agency pitching to clients, media, and industry analysts; then the consultative services sale; then the AI-native execution layer. The discipline held and developed over time. The recent tooling enhanced it rather than replacing it.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO GO -->
+<section id="talk">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Where to go</div>
+      <h2>Want to learn more?</h2>
+    </div>
+    <div class="routes">
+      <div class="route green">
+        <h3>My perspective on the data &amp; analytics space</h3>
+        <p>My perspective on the data and analytics sector, and where I think the industry keeps leaving value on the table.</p>
+        <a class="go" href="data-analytics.html">Data &amp; analytics &rarr;</a>
+      </div>
+      <div class="route umber">
+        <h3>Open a conversation</h3>
+        <p>If you are building a growth motion in professional services and it still rests on one or two rainmakers and collective manual effort, I would want to understand where the pipeline actually breaks down today, and which relationships are going unworked.</p>
+        <a class="go" href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fx">
+    <div class="fname">Patrick Dodson</div>
+    <div class="fmeta">Portland, OR &middot; <a href="https://www.linkedin.com/in/patrickdodson" target="_blank" rel="noopener">linkedin.com/in/patrickdodson</a> &middot; <a href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

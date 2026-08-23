@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick Dodson, The AI Factory Stack: from procured to adopted</title>
+<meta name="description" content="A neutral map of the AI factory infrastructure stack, GPU compute to storage to orchestration, and the one argument on it that is mine: the gap between capacity procured and applied AI a business adopts and finance can measure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Perspective Suite shared shell (inlined; source: assets/suite.css) ===== */
+/* ============================================================
+   Perspective Suite - shared shell
+   Paper-and-forest design system. One frame, every page inherits.
+   Page-specific diagram CSS lives in each page's own <style> block.
+   ============================================================ */
+
+:root{
+  --ink:#181b1a; --graphite:#2b302e; --gray:#5b6360; --muted:#79817d;
+  --paper:#e9ebe9; --card:#ffffff; --line:#d4d8d5;
+  --green:#1e4d34; --green2:#2c6a48; --greenwash:#eef3ef; --greenline:#cde0d3;
+  --umber:#824f30; --umber2:#9c6741; --umberwash:#f2ebe3; --umberline:#e3d3c4;
+  --disp:"Barlow Condensed",Arial,sans-serif;
+  --body:"Inter",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--green2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:.01em;margin:0;text-wrap:balance}
+p{margin:0 0 16px;text-wrap:pretty}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin:0 0 14px}
+.eyebrow.g{color:var(--green2)}
+
+/* ---- top bar: shared brand + suite nav ---- */
+.top{position:sticky;top:0;z-index:40;background:rgba(233,235,233,.9);
+  backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink);font-weight:500;white-space:nowrap}
+.brand b{color:var(--green)}
+.brand a{color:inherit}
+.brand a:hover{text-decoration:none}
+.nav{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);margin-left:20px}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a.here{color:var(--green);font-weight:500}
+.nav a.hub{color:var(--umber)}
+@media(max-width:900px){.nav a{margin-left:14px;font-size:11px}}
+
+/* "Other perspectives" dropdown (no-JS, touch-safe via <details>) */
+.drop{position:relative;margin-left:20px}
+.drop>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.drop>summary::-webkit-details-marker{display:none}
+.drop>summary::after{content:" \25BE";color:var(--umber);margin-left:3px}
+.drop>summary:hover{color:var(--ink)}
+.drop.hascur>summary{color:var(--green);font-weight:500}
+.dropmenu{position:absolute;right:0;top:calc(100% + 12px);background:var(--card);border:1px solid var(--line);
+  min-width:210px;padding:6px 0;box-shadow:0 8px 28px rgba(24,27,26,.12);z-index:50}
+.dropmenu a{display:block;margin:0;padding:10px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--gray)}
+.dropmenu a:hover{background:var(--greenwash);color:var(--ink);text-decoration:none}
+.dropmenu a.here{color:var(--green);font-weight:500}
+@media(max-width:900px){.drop{margin-left:14px}.drop>summary{font-size:11px}}
+
+/* ---- hero ---- */
+.hero{padding:70px 0 54px;border-bottom:1px solid var(--line)}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--umber);margin-bottom:20px}
+.hero h1{font-size:clamp(34px,5.6vw,58px);font-weight:700;letter-spacing:0;max-width:20ch}
+.hero .lede{font-size:19px;max-width:66ch;margin-top:22px;color:var(--graphite)}
+.hero .lede2{font-size:16px;max-width:66ch;margin-top:14px;color:var(--gray)}
+.hero .rule{width:60px;height:3px;background:var(--umber);margin:26px 0 0}
+.hero .disciplines{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.hero .disciplines span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);
+  background:var(--card);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
+
+/* ---- section shell ---- */
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:80ch;margin-bottom:32px}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:600}
+.sec-head .sub{color:var(--gray);margin-top:12px;font-size:16.5px;max-width:72ch}
+
+/* ---- diagram shell (site convention) ---- */
+.dwrap{border:1px solid var(--line);background:var(--card);padding:26px 26px 28px;margin:6px 0 4px}
+.dcap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:22px}
+.dcap b{color:var(--umber)}
+.note{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;margin-top:20px;max-width:72ch;line-height:1.6}
+
+/* ---- reusable POV callout pair (opinionated vs observer) ---- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:680px){.pair{grid-template-columns:1fr}}
+.pcard{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--green);padding:20px 22px}
+.pcard.um{border-top-color:var(--umber)}
+.pcard .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pcard h4{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--graphite);line-height:1.55;margin:0}
+.implic{margin-top:16px;background:var(--umberwash);border:1px solid var(--umberline);border-radius:2px;padding:22px 26px}
+.implic .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--umber);margin-bottom:8px}
+.implic p{font-size:15px;color:var(--graphite);line-height:1.6;margin:0}
+.implic.g{background:var(--greenwash);border-color:var(--greenline)}
+.implic.g .lab{color:var(--green2)}
+
+/* ---- the POV "sermon" block (first-person, opinionated) ---- */
+.pov{max-width:76ch}
+.pov p{font-size:17px;color:var(--graphite);margin:0 0 18px}
+.pov p strong{color:var(--ink);font-weight:600}
+.povmark{border-left:3px solid var(--umber);background:var(--umberwash);padding:20px 24px;margin:8px 0 24px}
+.povmark p{margin:0;font-size:17px;color:var(--graphite)}
+.povmark.g{border-left-color:var(--green);background:var(--greenwash)}
+
+/* ---- reusable maturity / readiness ladder ---- */
+.mat{display:flex;flex-direction:column;gap:6px}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--paper);border:1px solid var(--line);padding:16px 18px;align-items:start}
+.stage .sn{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--muted);line-height:1;text-align:center}
+.stage .sname{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:4px}
+.stage .slook{font-size:14px;color:var(--graphite);line-height:1.5;margin:0 0 8px}
+.stage .snext{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--gray);line-height:1.45}
+.stage .snext b{color:var(--umber);font-weight:500}
+.stage.top{border-color:var(--greenline);background:var(--greenwash);border-left:3px solid var(--green)}
+.stage.top .sn{color:var(--green)}
+.stage.top .snext b{color:var(--green2)}
+
+/* ---- generic content cards (record, method) ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.gcard{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--green);padding:22px 24px}
+.gcard.um{border-top-color:var(--umber)}
+.gcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.gcard h3{font-family:var(--disp);font-weight:600;font-size:21px;color:var(--ink);margin-bottom:8px}
+.gcard p{font-size:14.5px;color:var(--graphite);line-height:1.55;margin:0}
+.gcard .metrics{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+.gcard .metric b{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--green);display:block;line-height:1.1}
+.gcard.um .metric b{color:var(--umber)}
+.gcard .metric span{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- where to go ---- */
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:680px){.routes{grid-template-columns:1fr}}
+.route{border:1px solid var(--line);background:var(--card);padding:24px}
+.route.umber{border-top:3px solid var(--umber)}
+.route.green{border-top:3px solid var(--green)}
+.route h3{font-family:var(--disp);font-weight:600;font-size:22px;margin-bottom:8px}
+.route p{font-size:15px;color:var(--gray);margin-bottom:16px}
+.route .go{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+
+/* ---- footer ---- */
+footer{padding:40px 0 60px}
+footer .fx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:baseline}
+footer .fname{font-family:var(--disp);font-weight:600;font-size:20px;color:var(--ink)}
+footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
+
+/* ---- shared pill component (layer stacks) ---- */
+.pills{display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-family:var(--body);font-size:11.5px;padding:3px 9px;border-radius:2px;background:var(--card);color:var(--graphite);border:1px solid var(--line)}
+.pill.hl{background:var(--umberwash);border-color:var(--umberline);color:var(--umber);font-weight:600}
+.pill.g{background:var(--greenwash);border-color:var(--greenline);color:var(--green);font-weight:600}
+
+</style>
+<style>
+  /* factory stack, single-column layer diagram (observer map) */
+  .fstack{display:flex;flex-direction:column;gap:8px}
+  .flyr{background:var(--paper);border:1px solid var(--line);border-left-width:3px;border-left-style:solid;padding:14px 18px}
+  .flyr .lh{display:flex;align-items:baseline;gap:11px;margin-bottom:5px;flex-wrap:wrap}
+  .flyr .ln{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+  .flyr .ln2{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink)}
+  .flyr .ld{font-size:13px;color:var(--gray);line-height:1.45;margin-bottom:9px;max-width:76ch}
+  .f-applied{border-left-color:var(--green);background:var(--greenwash);border-color:var(--greenline)}
+  .f-applied .ln2{color:var(--green)}
+  .f-serve{border-left-color:var(--green2)}
+  .f-orch{border-left-color:var(--gray)}
+  .f-store{border-left-color:var(--umber2)}
+  .f-net{border-left-color:var(--gray)}
+  .f-gpu{border-left-color:var(--umber);background:var(--umberwash);border-color:var(--umberline)}
+  .f-gpu .ln2{color:var(--umber)}
+  .f-fac{border-left-color:var(--muted)}
+  .fnote{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+  .band{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  @media(max-width:680px){.band{grid-template-columns:1fr}}
+  .bcard{background:var(--paper);border:1px solid var(--line);padding:20px 22px}
+  .bcard.a{border-left:3px solid var(--umber);background:var(--umberwash)}
+  .bcard.b{border-left:3px solid var(--gray)}
+  .bcard b{font-family:var(--disp);font-weight:600;font-size:16px}
+  .bcard.a b{color:var(--umber)}
+  .bcard p{font-size:13.5px;color:var(--graphite);line-height:1.55;margin:6px 0 0}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><a href="index.html">Patrick&nbsp;Dodson&nbsp;<b>/</b>&nbsp;Experience&nbsp;Portfolio</a></div>
+    <nav class="nav">
+      <a href="adoption-change.html">Adoption &amp; Change</a>
+      <a href="gtm-bizdev.html">GTM &amp; BizDev</a>
+      <details class="drop hascur">
+        <summary>Exposure &amp; Perspective</summary>
+        <div class="dropmenu">
+          <a href="data-analytics.html">Data &amp; Analytics</a>
+          <a href="ai-factory.html" class="here">AI Factory</a>
+        </div>
+      </details>
+      <a href="index.html" class="hub">Hub</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">AI Factory Stack &middot; Exposure &amp; perspective</div>
+    <h1>Technical capacity gets procured. Business outcomes stall.</h1>
+    <p class="lede">The industry is pouring capital into AI factories: GPU clusters, high-performance networking, AI-optimized storage, and the orchestration that runs them. The engineering is real and the spend is enormous. The value keeps stalling one layer above the hardware, where a built capability has to become applied use a business adopts and finance can measure.</p>
+    <p class="lede2">That layer is the one I have worked in my whole career, across enterprise hardware, semiconductor manufacturing, venture-backed startups, and internet governance. The engineers understand the factory; my work has always been to get the honest version of what it is for out of them and carry it to a business that has learned to distrust the hype, or grown fatigued by experiments that never produce a personal or business benefit. I have not sold or built GPU, networking, or storage infrastructure. What I bring sits one level up, and that is exactly where this spend keeps stalling and putting the investment beneath it at risk.</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<!-- 1 · HOW THE SPACE WORKS -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The terrain, described neutrally</div>
+      <h2>The factory, by layer.</h2>
+      <p class="sub">This is the stack as the infrastructure market frames it, read from the physical layer up to the applied one. I am describing what each layer does and who the named players are as a sense-making exercise, not a build recommendation. The integration model that assembles it is architecture-led and multi-OEM: validated designs that combine components from several vendors into one system, rather than a single-vendor appliance.</p>
+    </div>
+
+    <div class="dwrap">
+      <div class="dcap">Figure 1 &middot; <b>The AI factory stack</b>, physical layer up to applied outcome</div>
+      <div class="fstack">
+
+        <div class="flyr f-applied">
+          <div class="lh"><span class="ln">L7</span><span class="ln2">Applied outcome</span><span class="fnote">Where value is made or lost</span></div>
+          <div class="ld">Where potential takes shape, and business value is created or squandered. A decision made differently, a process automated, a customer experience moved. Everything below exists to serve this layer, and it is the one the market spends the least deliberate effort on.</div>
+        </div>
+        <div class="flyr f-serve">
+          <div class="lh"><span class="ln">L6</span><span class="ln2">Models &amp; serving</span></div>
+          <div class="ld">Training and inference platforms, foundation and fine-tuned models, and the software that serves them to applications at production latency.</div>
+          <div class="pills"><span class="pill">Foundation models</span><span class="pill">Inference serving</span><span class="pill">Fine-tuning platforms</span><span class="pill">MLOps</span></div>
+        </div>
+        <div class="flyr f-orch">
+          <div class="lh"><span class="ln">L5</span><span class="ln2">Orchestration &amp; scheduling</span></div>
+          <div class="ld">Cluster management that shares expensive accelerators across jobs and teams, schedules training and inference workloads, and keeps utilization high.</div>
+          <div class="pills"><span class="pill">Kubernetes</span><span class="pill">Slurm</span><span class="pill">Run:ai</span><span class="pill">Ray</span></div>
+        </div>
+        <div class="flyr f-store">
+          <div class="lh"><span class="ln">L4</span><span class="ln2">AI-optimized storage</span></div>
+          <div class="ld">Parallel, high-throughput storage that feeds data to the accelerators fast enough to keep them busy, since an idle GPU is the most expensive thing in the room.</div>
+          <div class="pills"><span class="pill">VAST Data</span><span class="pill">WEKA</span><span class="pill">DDN</span><span class="pill">Pure Storage</span></div>
+        </div>
+        <div class="flyr f-net">
+          <div class="lh"><span class="ln">L3</span><span class="ln2">High-performance networking</span></div>
+          <div class="ld">The fabric that binds many accelerators into one machine, so a training run spans thousands of chips as if they were one. The interconnect is often the difference between a cluster that scales and one that does not.</div>
+          <div class="pills"><span class="pill">InfiniBand</span><span class="pill">RoCE / Ethernet</span><span class="pill">NVLink</span></div>
+        </div>
+        <div class="flyr f-gpu">
+          <div class="lh"><span class="ln">L2</span><span class="ln2">Accelerated compute</span><span class="fnote">Where spend concentrates</span></div>
+          <div class="ld">The accelerators themselves, GPUs and custom silicon, where the majority of the capital and the market attention lands.</div>
+          <div class="pills"><span class="pill hl">NVIDIA</span><span class="pill">AMD Instinct</span><span class="pill">Custom silicon (TPU, Trainium)</span></div>
+        </div>
+        <div class="flyr f-fac">
+          <div class="lh"><span class="ln">L1</span><span class="ln2">Facility, power &amp; cooling</span></div>
+          <div class="ld">Data center space, power delivery, and cooling. Once an afterthought, now frequently the binding constraint on how much factory can actually be stood up.</div>
+          <div class="pills"><span class="pill">Data center capacity</span><span class="pill">Power</span><span class="pill">Liquid cooling</span></div>
+        </div>
+
+      </div>
+
+      <div class="band">
+        <div class="bcard b">
+          <b>How the market sells it</b>
+          <p>The prevailing model is architecture-led and multi-OEM: an integrator validates a reference design that combines compute, networking, and storage from several vendors into one supported system. The value proposition is the integration and the validation, not any single component.</p>
+        </div>
+        <div class="bcard a">
+          <b>Where the spend concentrates</b>
+          <p>Capital and attention cluster at L1 and L2, the facility and the accelerators, because that is where the scarcity and the headlines are. The layers that turn capacity into a usable, governed platform get less deliberate attention, and the applied layer above them gets the least.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · WHERE THE INDUSTRY MISSTEPS -->
+<section id="gap">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Where the industry missteps</div>
+      <h2>The infrastructure-to-applied gap.</h2>
+      <p class="sub">The stack above is the market's map, described as I find it. What follows is my perspective on the state of play in this environment.</p>
+    </div>
+    <div class="pov">
+      <p>Watch where the money goes and where the attention follows, and the shape is unmistakable. The capital pours into the bottom two layers, the facility and the accelerators, because that is where the scarcity is. That is the investment, not the value. The value is claimed at the top layer, the applied outcome, in board decks and press releases. In between sits the gap where the value is actually created, and no amount of additional compute or press release closes it, because it was never a compute or a PR problem.</p>
+      <div class="povmark">
+        <p>The buyer procures the factory and assumes the outcome will follow. It does not. The same thing happens here that happened with the data platform one layer up: the capability gets built, and nobody translated it into applied use a business adopts and finance can measure.</p>
+      </div>
+      <p>None of that capacity produces a business result on its own, no matter how much of it a company buys. The result shows up only when people work differently because of what the factory makes possible, and getting there is a human problem the hardware budget never touches. More networking will not move it. More storage will not move it. What moves it is adoption, governance, and honest measurement, and those are practices a business runs, not components an integrator ships.</p>
+      <p>That translation, from built capability to an outcome the C-suite recognizes, is where my skillset is best deployed. It is the layer above the infrastructure, where a career spent getting organizations to actually change how they work meets two years of building on these tools closely enough to separate what is real and useful from what is merely sold or shown on a slide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · READINESS LADDER -->
+<section id="readiness">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow g">Where you are</div>
+      <h2>From procured to adopted.</h2>
+      <p class="sub">A readiness ladder for the same terrain, framed by what is actually true of the outcome rather than what was installed. Most reported spend clusters on the earliest rungs; most claimed value is asserted at the final one; the deliberate work happens on the middle rungs, which stay ambiguous and under-addressed.</p>
+    </div>
+
+    <div class="dwrap">
+      <div class="dcap">Figure 2 &middot; <b>AI factory readiness</b>, capacity procured to business adopted</div>
+      <div class="mat">
+        <div class="stage">
+          <div class="sn">1</div>
+          <div>
+            <div class="sname">Procured</div>
+            <p class="slook">The capacity is bought or reserved. Compute, networking, and storage exist on the balance sheet and in the data center. The narrative is about scale.</p>
+            <div class="snext"><b>To advance:</b> a running platform, where the cluster is orchestrated, utilized, and shared rather than sitting idle.</div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="sn">2</div>
+          <div>
+            <div class="sname">Operational</div>
+            <p class="slook">The factory runs. Jobs are scheduled, utilization is managed, models train and serve. The infrastructure team can point to a working platform.</p>
+            <div class="snext"><b>To advance:</b> real workloads tied to a business use, not benchmarks and internal experiments.</div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="sn">3</div>
+          <div>
+            <div class="sname">Applied</div>
+            <p class="slook">Production use cases run on the platform and touch real work. Something a team does is now done with AI in the loop rather than in a pilot.</p>
+            <div class="snext"><b>To advance:</b> the rung the market skips, where the people whose work it touches actually adopt it as the default way of working.</div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="sn">4</div>
+          <div>
+            <div class="sname">Adopted</div>
+            <p class="slook">The new way is the default rather than the exception. The workforce changed how it works, the old workaround is gone, and the change held past the launch.</p>
+            <div class="snext"><b>To advance:</b> the measurement that lets finance connect the adoption to a number, not an anecdote.</div>
+          </div>
+        </div>
+        <div class="stage top">
+          <div class="sn">5</div>
+          <div>
+            <div class="sname">Measurably improving the business</div>
+            <p class="slook">The outcome shows up where a CFO looks: cost, cycle time, revenue, risk. The factory stops being a capacity story and becomes the engine that drives business results, with a clear line back to the spend.</p>
+            <div class="snext"><b>The frontier that matters:</b> almost all reported investment sits at rungs one and two, the value is claimed at rung five, and rungs three and four, the adoption work, are where the gap actually lives.</div>
+          </div>
+        </div>
+      </div>
+      <p class="note">This ladder describes the path to business value, not the infrastructure underneath it. It is the frame I would use with a business audience to locate where a stalled AI investment is actually stuck, which is almost never the layer getting the most budget.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO GO -->
+<section id="talk">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Where to go</div>
+      <h2>Want to go further?</h2>
+    </div>
+    <div class="routes">
+      <div class="route umber">
+        <h3>The same gap, one layer up</h3>
+        <p>The data and analytics page runs the identical argument at the platform level: the stack gets built, and the business never adopts it or sees the value.</p>
+        <a class="go" href="data-analytics.html">Data &amp; analytics &rarr;</a>
+      </div>
+      <div class="route green">
+        <h3>Where the change discipline comes from</h3>
+        <p>The change and adoption record this whole argument stands on: fifteen years making complex change land inside enterprises.</p>
+        <a class="go" href="adoption-change.html">AI adoption &amp; change &rarr;</a>
+      </div>
+    </div>
+    <div class="routes" style="margin-top:16px">
+      <div class="route umber">
+        <h3>Open a conversation</h3>
+        <p>If you are selling or standing up AI factory capacity and the question underneath the deal is whether the customer will adopt it and prove it moved the business, that translation is where I would be a useful contributor.</p>
+        <a class="go" href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fx">
+    <div class="fname">Patrick Dodson</div>
+    <div class="fmeta">Portland, OR &middot; <a href="https://www.linkedin.com/in/patrickdodson" target="_blank" rel="noopener">linkedin.com/in/patrickdodson</a> &middot; <a href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick Dodson, Data &amp; Analytics: from platform to adopted value</title>
+<meta name="description" content="A practitioner's read on the data and analytics stack, and the gap the industry keeps leaving: the platform gets built, and the business never adopts it or sees the value.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Perspective Suite shared shell (inlined; source: assets/suite.css) ===== */
+/* ============================================================
+   Perspective Suite - shared shell
+   Paper-and-forest design system. One frame, every page inherits.
+   Page-specific diagram CSS lives in each page's own <style> block.
+   ============================================================ */
+
+:root{
+  --ink:#181b1a; --graphite:#2b302e; --gray:#5b6360; --muted:#79817d;
+  --paper:#e9ebe9; --card:#ffffff; --line:#d4d8d5;
+  --green:#1e4d34; --green2:#2c6a48; --greenwash:#eef3ef; --greenline:#cde0d3;
+  --umber:#824f30; --umber2:#9c6741; --umberwash:#f2ebe3; --umberline:#e3d3c4;
+  --disp:"Barlow Condensed",Arial,sans-serif;
+  --body:"Inter",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--green2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:.01em;margin:0;text-wrap:balance}
+p{margin:0 0 16px;text-wrap:pretty}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin:0 0 14px}
+.eyebrow.g{color:var(--green2)}
+
+/* ---- top bar: shared brand + suite nav ---- */
+.top{position:sticky;top:0;z-index:40;background:rgba(233,235,233,.9);
+  backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink);font-weight:500;white-space:nowrap}
+.brand b{color:var(--green)}
+.brand a{color:inherit}
+.brand a:hover{text-decoration:none}
+.nav{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);margin-left:20px}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a.here{color:var(--green);font-weight:500}
+.nav a.hub{color:var(--umber)}
+@media(max-width:900px){.nav a{margin-left:14px;font-size:11px}}
+
+/* "Other perspectives" dropdown (no-JS, touch-safe via <details>) */
+.drop{position:relative;margin-left:20px}
+.drop>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.drop>summary::-webkit-details-marker{display:none}
+.drop>summary::after{content:" \25BE";color:var(--umber);margin-left:3px}
+.drop>summary:hover{color:var(--ink)}
+.drop.hascur>summary{color:var(--green);font-weight:500}
+.dropmenu{position:absolute;right:0;top:calc(100% + 12px);background:var(--card);border:1px solid var(--line);
+  min-width:210px;padding:6px 0;box-shadow:0 8px 28px rgba(24,27,26,.12);z-index:50}
+.dropmenu a{display:block;margin:0;padding:10px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--gray)}
+.dropmenu a:hover{background:var(--greenwash);color:var(--ink);text-decoration:none}
+.dropmenu a.here{color:var(--green);font-weight:500}
+@media(max-width:900px){.drop{margin-left:14px}.drop>summary{font-size:11px}}
+
+/* ---- hero ---- */
+.hero{padding:70px 0 54px;border-bottom:1px solid var(--line)}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--umber);margin-bottom:20px}
+.hero h1{font-size:clamp(34px,5.6vw,58px);font-weight:700;letter-spacing:0;max-width:20ch}
+.hero .lede{font-size:19px;max-width:66ch;margin-top:22px;color:var(--graphite)}
+.hero .lede2{font-size:16px;max-width:66ch;margin-top:14px;color:var(--gray)}
+.hero .rule{width:60px;height:3px;background:var(--umber);margin:26px 0 0}
+.hero .disciplines{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.hero .disciplines span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);
+  background:var(--card);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
+
+/* ---- section shell ---- */
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:80ch;margin-bottom:32px}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:600}
+.sec-head .sub{color:var(--gray);margin-top:12px;font-size:16.5px;max-width:72ch}
+
+/* ---- diagram shell (site convention) ---- */
+.dwrap{border:1px solid var(--line);background:var(--card);padding:26px 26px 28px;margin:6px 0 4px}
+.dcap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:22px}
+.dcap b{color:var(--umber)}
+.note{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;margin-top:20px;max-width:72ch;line-height:1.6}
+
+/* ---- reusable POV callout pair (opinionated vs observer) ---- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:680px){.pair{grid-template-columns:1fr}}
+.pcard{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--green);padding:20px 22px}
+.pcard.um{border-top-color:var(--umber)}
+.pcard .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pcard h4{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--graphite);line-height:1.55;margin:0}
+.implic{margin-top:16px;background:var(--umberwash);border:1px solid var(--umberline);border-radius:2px;padding:22px 26px}
+.implic .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--umber);margin-bottom:8px}
+.implic p{font-size:15px;color:var(--graphite);line-height:1.6;margin:0}
+.implic.g{background:var(--greenwash);border-color:var(--greenline)}
+.implic.g .lab{color:var(--green2)}
+
+/* ---- the POV "sermon" block (first-person, opinionated) ---- */
+.pov{max-width:76ch}
+.pov p{font-size:17px;color:var(--graphite);margin:0 0 18px}
+.pov p strong{color:var(--ink);font-weight:600}
+.povmark{border-left:3px solid var(--umber);background:var(--umberwash);padding:20px 24px;margin:8px 0 24px}
+.povmark p{margin:0;font-size:17px;color:var(--graphite)}
+.povmark.g{border-left-color:var(--green);background:var(--greenwash)}
+
+/* ---- reusable maturity / readiness ladder ---- */
+.mat{display:flex;flex-direction:column;gap:6px}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--paper);border:1px solid var(--line);padding:16px 18px;align-items:start}
+.stage .sn{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--muted);line-height:1;text-align:center}
+.stage .sname{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:4px}
+.stage .slook{font-size:14px;color:var(--graphite);line-height:1.5;margin:0 0 8px}
+.stage .snext{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--gray);line-height:1.45}
+.stage .snext b{color:var(--umber);font-weight:500}
+.stage.top{border-color:var(--greenline);background:var(--greenwash);border-left:3px solid var(--green)}
+.stage.top .sn{color:var(--green)}
+.stage.top .snext b{color:var(--green2)}
+
+/* ---- generic content cards (record, method) ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.gcard{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--green);padding:22px 24px}
+.gcard.um{border-top-color:var(--umber)}
+.gcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.gcard h3{font-family:var(--disp);font-weight:600;font-size:21px;color:var(--ink);margin-bottom:8px}
+.gcard p{font-size:14.5px;color:var(--graphite);line-height:1.55;margin:0}
+.gcard .metrics{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+.gcard .metric b{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--green);display:block;line-height:1.1}
+.gcard.um .metric b{color:var(--umber)}
+.gcard .metric span{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- where to go ---- */
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:680px){.routes{grid-template-columns:1fr}}
+.route{border:1px solid var(--line);background:var(--card);padding:24px}
+.route.umber{border-top:3px solid var(--umber)}
+.route.green{border-top:3px solid var(--green)}
+.route h3{font-family:var(--disp);font-weight:600;font-size:22px;margin-bottom:8px}
+.route p{font-size:15px;color:var(--gray);margin-bottom:16px}
+.route .go{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+
+/* ---- footer ---- */
+footer{padding:40px 0 60px}
+footer .fx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:baseline}
+footer .fname{font-family:var(--disp);font-weight:600;font-size:20px;color:var(--ink)}
+footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
+
+/* ---- shared pill component (layer stacks) ---- */
+.pills{display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-family:var(--body);font-size:11.5px;padding:3px 9px;border-radius:2px;background:var(--card);color:var(--graphite);border:1px solid var(--line)}
+.pill.hl{background:var(--umberwash);border-color:var(--umberline);color:var(--umber);font-weight:600}
+.pill.g{background:var(--greenwash);border-color:var(--greenline);color:var(--green);font-weight:600}
+
+</style>
+<style>
+  /* ---- 1 · transition timeline (page-specific diagram) ---- */
+  .tl{position:relative;display:flex;flex-direction:column;gap:0}
+  .tl::before{content:"";position:absolute;left:11px;top:10px;bottom:10px;width:2px;background:var(--line)}
+  .tl-item{display:flex;gap:20px;padding:15px 0;position:relative}
+  .tl-dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--gray);background:var(--card);flex:none;z-index:1;margin-top:2px}
+  .tl-era{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:120px;padding-top:5px;flex:none}
+  .tl-body h3{font-family:var(--disp);font-weight:600;font-size:20px;color:var(--ink);margin-bottom:5px}
+  .tl-body p{font-size:14.5px;color:var(--graphite);line-height:1.55;margin:0;max-width:70ch}
+  @media(max-width:680px){
+    .tl-item{flex-wrap:wrap;gap:12px}
+    .tl-era{min-width:0;order:3;padding-top:0;padding-left:44px}
+    .tl-body{flex:1 1 100%;order:2;padding-left:44px}
+    .tl::before{left:11px}
+  }
+  /* ---- 2 · platform stack (page-specific diagram) ---- */
+  .stack{display:grid;grid-template-columns:1fr 220px 220px;gap:10px 22px}
+  .lyr{grid-column:1;background:var(--paper);border:1px solid var(--line);border-left-width:3px;border-left-style:solid;padding:13px 18px}
+  .lyr .lh{display:flex;align-items:baseline;gap:11px;margin-bottom:5px}
+  .lyr .ln{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+  .lyr .ln2{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--ink)}
+  .lyr .ld{font-size:12px;color:var(--gray);line-height:1.4;margin-bottom:8px}
+  .l6{border-left-color:var(--umber);grid-row:1}
+  .l5{border-left-color:var(--gray);grid-row:2}
+  .l4{border-left-color:var(--green2);grid-row:3}
+  .l3{border-left-color:var(--umber2);grid-row:4}
+  .l2{border-left-color:var(--gray);grid-row:5}
+  .l1{border-left-color:var(--muted);grid-row:6}
+  .xl{border-radius:2px;padding:15px 17px;display:flex;flex-direction:column}
+  .xl .xlab{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px}
+  .xl .xn{font-family:var(--disp);font-weight:600;font-size:15px;line-height:1.2;margin-bottom:7px}
+  .xl .xd{font-size:11.5px;color:var(--graphite);line-height:1.45;margin-bottom:12px}
+  .xl .xf{margin-top:auto;padding-top:9px;border-top:1px solid var(--line);font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .xl-lake{grid-column:2;grid-row:1 / span 4;background:var(--umberwash);border:1.5px dashed var(--umberline)}
+  .xl-lake .xlab,.xl-lake .xn{color:var(--umber)}
+  .xl-ai{grid-column:3;grid-row:1 / span 3;background:var(--greenwash);border:1.5px dashed var(--greenline)}
+  .xl-ai .xlab,.xl-ai .xn{color:var(--green)}
+  .summ{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  .scard{background:var(--paper);border:1px solid var(--line);padding:20px 22px}
+  .scard.lk{border-left:3px solid var(--gray)}
+  .scard.ct{border-left:3px solid var(--umber);background:var(--umberwash)}
+  .scard b{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:.01em}
+  .scard.ct b{color:var(--umber)}
+  .scard p{font-size:13.5px;color:var(--graphite);line-height:1.55;margin:6px 0 0}
+  @media(max-width:820px){
+    .stack{grid-template-columns:1fr}
+    .l1,.l2,.l3,.l4,.l5,.l6,.xl-lake,.xl-ai{grid-column:1;grid-row:auto}
+    .summ{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><a href="index.html">Patrick&nbsp;Dodson&nbsp;<b>/</b>&nbsp;Experience&nbsp;Portfolio</a></div>
+    <nav class="nav">
+      <a href="adoption-change.html">Adoption &amp; Change</a>
+      <a href="gtm-bizdev.html">GTM &amp; BizDev</a>
+      <details class="drop hascur">
+        <summary>Exposure &amp; Perspective</summary>
+        <div class="dropmenu">
+          <a href="data-analytics.html" class="here">Data &amp; Analytics</a>
+          <a href="ai-factory.html">AI Factory</a>
+        </div>
+      </details>
+      <a href="index.html" class="hub">Hub</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Data &amp; Analytics &middot; Exposure &amp; perspective</div>
+    <h1>The data platform gets built. The value stalls.</h1>
+    <p class="lede">I have spent a career moving through technical domains, from enterprise hardware and printing to semiconductor manufacturing, venture-backed startups, and the technical and policy governance of the internet. In every one the job underneath was the same: stand between the people who build the technology and understand how remarkable it is, and the people who have to adopt it and are mostly asking "so what." Translate the first into the second, and move the organization past both the builder's certainty and the entrenched skepticism that meets it.</p>
+    <p class="lede2">Data and analytics is one more of those domains, and I come at it the way I have for years. Not as the deepest engineer in the room, but as the person who can sit with that engineer, pull the honest version of what the technology is for out of the conversation, and put it in front of someone wary of the usual promises in a way that holds up. I have built on these tools by hand enough to keep myself honest about what is real, and to learn where to poke when it sounds too good to be true. What follows is a map of the terrain and the gap I keep watching organizations fall into.</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<!-- 1 · TRANSITION -->
+<section id="transition">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow g">The pattern</div>
+      <h2>Every data architecture era is basically trying to re-solve the same problem.</h2>
+      <p class="sub">A business needs to record what happens reliably and analyze it flexibly, and those two jobs pull the architecture in opposite directions. Each era is a different treaty between them, and each transition follows the same shape: the new platform augments the incumbent, then becomes the system of record.</p>
+    </div>
+
+    <div class="dwrap">
+      <div class="dcap">Figure 1 &middot; <b>The data architecture transition</b>, 1990s to today</div>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-dot" style="border-color:var(--muted)"></div>
+          <div class="tl-era">1990s to 2000s</div>
+          <div class="tl-body">
+            <h3>The data warehouse</h3>
+            <p>Analysis split off from operations. Data was copied out of the systems running the business into a separate, governed store built only for reporting, reshaped on the way in. Trustworthy and fast for structured reports, but rigid, expensive, and blind to anything that was not rows and columns.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="border-color:var(--gray)"></div>
+          <div class="tl-era">2010s</div>
+          <div class="tl-body">
+            <h3>The data lake</h3>
+            <p>Cheap object storage inverted the model: store everything now in any format, decide what it means later. Scale and flexibility for machine learning arrived, but without structure many lakes became swamps, and most teams ended up running a lake and a warehouse side by side, reconciling two versions of the truth.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="border-color:var(--green2)"></div>
+          <div class="tl-era">Late 2010s to 2020s</div>
+          <div class="tl-body">
+            <h3>The lakehouse</h3>
+            <p>A software layer over cheap storage gave the lake the reliability and governance of a warehouse: transactional integrity, enforced schema, and time travel. One copy of the data could finally serve both business intelligence and AI, retiring the two-system split.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="border-color:var(--umber)"></div>
+          <div class="tl-era">2025 and beyond</div>
+          <div class="tl-body">
+            <h3>The agentic data platform</h3>
+            <p>The current transition. With the open table format settled, storage lock-in stopped being the deciding factor and the contest moved up to the catalog, governance, and the context an autonomous agent needs to query data safely. The platform is becoming less where data lives and more where governed agents do the work.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pair">
+        <div class="pcard">
+          <div class="lab">The recurring tension</div>
+          <h4>Record versus analyze</h4>
+          <p>Systems that reliably record what happens pull the architecture one way; systems that flexibly analyze it pull the other. Warehouse, lake, and lakehouse are each a different treaty between those two jobs. Naming which side a platform was built for predicts where it will strain.</p>
+        </div>
+        <div class="pcard um">
+          <div class="lab">The 2026 resolution</div>
+          <h4>Open format, contested control</h4>
+          <p>A shared open table format now spans every major engine, so keeping one copy of data and querying it from many engines is normal, and storage lock-in is largely dead as a strategic lever. The competition moved one layer up, to the catalog and governance plane that decides whether an architecture is interoperable, trustworthy, and ready for agents.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The terrain, described neutrally</div>
+      <h2>The stack, by layer.</h2>
+      <p class="sub">A modern lakehouse is not one product. It is a set of layers, and most confusion comes from expecting one layer to do a job another was built for. Read bottom to top, storage up to consumption. The platforms most people name sit across several layers at once. I describe this as a map, not a recommendation.</p>
+    </div>
+
+    <div class="dwrap">
+      <div class="dcap">Figure 2 &middot; <b>The data &amp; AI platform stack</b>, and what bundles it</div>
+      <div class="stack">
+        <div class="lyr l6">
+          <div class="lh"><span class="ln">L6</span><span class="ln2">Consumption &amp; BI / AI</span></div>
+          <div class="ld">Where people and agents reach the data: dashboards, notebooks, natural-language and agent interfaces</div>
+          <div class="pills"><span class="pill">Tableau</span><span class="pill">Power BI</span><span class="pill">Looker</span><span class="pill">Notebooks</span><span class="pill">AI agents</span></div>
+        </div>
+        <div class="lyr l5">
+          <div class="lh"><span class="ln">L5</span><span class="ln2">Compute &amp; query engines</span></div>
+          <div class="ld">Interchangeable engines that read and write the shared tables; swappable without moving the data</div>
+          <div class="pills"><span class="pill g">Spark</span><span class="pill">Trino</span><span class="pill">DuckDB</span><span class="pill">Flink</span><span class="pill">Snowflake</span><span class="pill">BigQuery</span></div>
+        </div>
+        <div class="lyr l4">
+          <div class="lh"><span class="ln">L4</span><span class="ln2">Catalog &amp; governance</span></div>
+          <div class="ld">The control plane: tracks tables, enforces access, coordinates concurrent writes, vends credentials</div>
+          <div class="pills"><span class="pill g">Unity Catalog</span><span class="pill g">Apache Polaris</span><span class="pill">AWS Glue</span><span class="pill">Nessie</span></div>
+        </div>
+        <div class="lyr l3">
+          <div class="lh"><span class="ln">L3</span><span class="ln2">Table format</span></div>
+          <div class="ld">Turns a pile of files into a reliable table: transactional integrity, schema, versioning, time travel</div>
+          <div class="pills"><span class="pill hl">Apache Iceberg</span><span class="pill">Delta Lake</span><span class="pill">Apache Hudi</span></div>
+        </div>
+        <div class="lyr l2">
+          <div class="lh"><span class="ln">L2</span><span class="ln2">File format</span></div>
+          <div class="ld">Column-oriented files optimized for analytics, so wide scans over billions of rows stay fast</div>
+          <div class="pills"><span class="pill">Parquet</span><span class="pill">ORC</span><span class="pill">Avro</span></div>
+        </div>
+        <div class="lyr l1">
+          <div class="lh"><span class="ln">L1</span><span class="ln2">Object storage</span></div>
+          <div class="ld">Cheap, durable storage for raw bytes; the foundation everything else is layered on top of</div>
+          <div class="pills"><span class="pill">Amazon S3</span><span class="pill">Azure Data Lake Storage</span><span class="pill">Google Cloud Storage</span><span class="pill">MinIO</span></div>
+        </div>
+
+        <div class="xl xl-lake">
+          <div class="xlab">Cross-layer</div>
+          <div class="xn">Lakehouse platforms</div>
+          <div class="xd">Managed platforms that bundle table format, catalog, engine, and consumption into one governed system, rather than assembling best-of-breed parts.</div>
+          <div class="pills"><span class="pill">Databricks</span><span class="pill">Snowflake</span><span class="pill">Microsoft Fabric</span><span class="pill">BigLake</span></div>
+          <div class="xf">Spans L3 to L6</div>
+        </div>
+        <div class="xl xl-ai">
+          <div class="xlab">Emerging</div>
+          <div class="xn">Agentic &amp; context layer</div>
+          <div class="xd">Serves governed, semantic context to autonomous agents, through model-context protocols and semantic models, so agents can query data without a human in the loop.</div>
+          <div class="pills"><span class="pill">Agent frameworks</span><span class="pill">Semantic layer</span><span class="pill">MCP servers</span></div>
+          <div class="xf">Spans L4 to L6</div>
+        </div>
+      </div>
+
+      <div class="summ">
+        <div class="scard lk">
+          <b>Where the platforms sit</b>
+          <p>Databricks, Snowflake, and Microsoft Fabric bundle the middle and upper layers into one managed platform, on the bet that unified governance beats stitching best-of-breed tools together. As a rough guide, Databricks leans toward teams that build and train models; Snowflake toward teams that consume and analyze.</p>
+        </div>
+        <div class="scard ct">
+          <b>Why the catalog is the decision</b>
+          <p>With the table format adopted across every major engine, the format no longer creates lock-in. The catalog and governance layer is where interoperability, access control, and agent-ready context are won or lost, which is why the platform choice increasingly hinges on L4, not L1.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · WHERE THE INDUSTRY MISSTEPS -->
+<section id="gap">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Where the industry missteps</div>
+      <h2>The data-to-insights gap.</h2>
+      <p class="sub">Everything above is real engineering, and most of it is done well. The problem is not the stack. The problem is what happens after it is stood up, if what comes next is not anticipated and planned for.</p>
+    </div>
+    <div class="pov">
+      <p>The dominant pattern I watch is engineering-led: build the platform, migrate the data, install the agentic tooling, and then go looking for the business problem it was supposed to solve. It is the same failure mode I have watched for twenty years in every other technology wave, and it produces the same result. A capable platform, a proud data team, but end users or buyers not understanding what exactly to do with it, and a CFO who cannot find the return on the investment.</p>
+      <div class="povmark">
+        <p>The industry solved the engineering and skipped the adoption and value translation. That is why the business cannot see the value yet. The data got governed. The <strong>work</strong> never changed.</p>
+      </div>
+      <p>A platform does not create value. A decision made differently because of it does, and the distance between those two is human, not architectural. It is the analyst still running their old spreadsheet because no one showed them why the governed table is worth trusting, and the executive who funded the whole migration and cannot name one business outcome resulting from the investment. Closing that gap is its own discipline, and it is the one the industry keeps treating as someone else's job.</p>
+      <p>That discipline is my ground. I do not build the data platforms, but I have worked close enough to them to assess the terrain quickly, ask the questions that open up insights and possibilities, then help map a path through to the other side so organizations can improve and change how they work. The correction is not more platform. It is to start from the outcome a business leader would recognize and work back to where in the stack, and the organization, the obstacles exist.</p>
+    </div>
+    <div class="implic g">
+      <div class="lab">What this changes about the question</div>
+      <p>The useful question is almost never "which platform." It is "which specific outcome does finance need to see, and which single step on the maturity ladder below is actually blocking it." Answer that, and most of the platform debate resolves itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · MATURITY -->
+<section id="maturity">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow g">Where you are</div>
+      <h2>The data maturity ladder.</h2>
+      <p class="sub">Most organizations sit at an earlier stage than they think, and the value of the stack above is capped by the rung they are actually on. Each rung is defined by what the organization can actually do with its data, not by which tools are installed. This is the frame I would use to place a team and name the real obstacle before recommending anything, because prescription before diagnosis is malpractice.</p>
+    </div>
+
+    <div class="dwrap">
+      <div class="dcap">Figure 3 &middot; <b>Data &amp; analytics maturity</b>, five rungs, frontier framed as adopted value</div>
+      <div class="mat">
+        <div class="stage">
+          <div class="sn">1</div>
+          <div>
+            <div class="sname">Reactive</div>
+            <p class="slook">Reporting is manual and after the fact. Spreadsheets, one-off exports, and numbers that do not reconcile between teams.</p>
+            <div class="snext"><b>To advance:</b> a single governed source of truth, so people stop arguing about whose number is right.</div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="sn">2</div>
+          <div>
+            <div class="sname">Foundational</div>
+            <p class="slook">A warehouse or BI layer exists. Dashboards are trusted for structured reporting, but the data is siloed and slow to change.</p>
+            <div class="snext"><b>To advance:</b> cheap open storage and a table format, so unstructured data and machine learning join the same foundation.</div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="sn">3</div>
+          <div>
+            <div class="sname">Integrated</div>
+            <p class="slook">A governed lakehouse serves BI and data science from one copy of the data. Access, lineage, and quality are managed centrally.</p>
+            <div class="snext"><b>To advance:</b> models and agents running in production against that governed data, not just explored in notebooks.</div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="sn">4</div>
+          <div>
+            <div class="sname">Predictive</div>
+            <p class="slook">Machine learning and agents run in production and feed decisions. Features, models, and monitoring are managed as first-class assets.</p>
+            <div class="snext"><b>To advance:</b> the rung most teams skip, getting the organization to actually adopt what the platform makes possible, and proving the result to finance.</div>
+          </div>
+        </div>
+        <div class="stage top">
+          <div class="sn">5</div>
+          <div>
+            <div class="sname">Adopted, and the value is visible to finance</div>
+            <p class="slook">The organization changed how it works because of the platform, the new way is the default rather than the exception, and the outcome shows up in a number a CFO recognizes. This is the rung that justifies everything below it.</p>
+            <div class="snext"><b>Where the gap is:</b> most enterprises sit between rungs two and three, most investment is aimed at rung four, and almost no one is deliberately building toward rung five.</div>
+          </div>
+        </div>
+      </div>
+      <p class="note">Maturity ladders are a lens, not a verdict. A team can be advanced in one domain and reactive in another, and the useful question is rarely the overall rung but which specific step is blocking the outcome the business actually wants.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO GO -->
+<section id="talk">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Where to go</div>
+      <h2>Want to go further?</h2>
+    </div>
+    <div class="routes">
+      <div class="route umber">
+        <h3>One layer down the stack</h3>
+        <p>The same gap, at the infrastructure level: capital pours into GPU clusters and networking, and the value stalls at the same place. My perspective on the AI factory stack, one layer down.</p>
+        <a class="go" href="ai-factory.html">The AI factory stack &rarr;</a>
+      </div>
+      <div class="route green">
+        <h3>Where the change discipline comes from</h3>
+        <p>The change and adoption record underneath this whole perspective: fifteen years making complex change land inside enterprises.</p>
+        <a class="go" href="adoption-change.html">AI adoption &amp; change &rarr;</a>
+      </div>
+    </div>
+    <div class="routes" style="margin-top:16px">
+      <div class="route umber">
+        <h3>Open a conversation</h3>
+        <p>If you are building a data and analytics practice or bringing AI into a delivery organization, I would want to hear where the work is getting stuck today, and which rung of the ladder above the team is actually on.</p>
+        <a class="go" href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fx">
+    <div class="fname">Patrick Dodson</div>
+    <div class="fmeta">Portland, OR &middot; <a href="https://www.linkedin.com/in/patrickdodson" target="_blank" rel="noopener">linkedin.com/in/patrickdodson</a> &middot; <a href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

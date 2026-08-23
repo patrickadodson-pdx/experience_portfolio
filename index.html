@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick Dodson, Experience Portfolio</title>
+<meta name="description" content="Patrick Dodson: AI adoption and change, and go-to-market, with two adjacent reads on data and analytics and AI infrastructure. The constraint on AI moved from building it to adopting it and proving it moved the business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Perspective Suite shared shell (inlined; source: assets/suite.css) ===== */
+/* ============================================================
+   Perspective Suite - shared shell
+   Paper-and-forest design system. One frame, every page inherits.
+   Page-specific diagram CSS lives in each page's own <style> block.
+   ============================================================ */
+
+:root{
+  --ink:#181b1a; --graphite:#2b302e; --gray:#5b6360; --muted:#79817d;
+  --paper:#e9ebe9; --card:#ffffff; --line:#d4d8d5;
+  --green:#1e4d34; --green2:#2c6a48; --greenwash:#eef3ef; --greenline:#cde0d3;
+  --umber:#824f30; --umber2:#9c6741; --umberwash:#f2ebe3; --umberline:#e3d3c4;
+  --disp:"Barlow Condensed",Arial,sans-serif;
+  --body:"Inter",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--green2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:.01em;margin:0;text-wrap:balance}
+p{margin:0 0 16px;text-wrap:pretty}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin:0 0 14px}
+.eyebrow.g{color:var(--green2)}
+
+/* ---- top bar: shared brand + suite nav ---- */
+.top{position:sticky;top:0;z-index:40;background:rgba(233,235,233,.9);
+  backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink);font-weight:500;white-space:nowrap}
+.brand b{color:var(--green)}
+.brand a{color:inherit}
+.brand a:hover{text-decoration:none}
+.nav{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);margin-left:20px}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a.here{color:var(--green);font-weight:500}
+.nav a.hub{color:var(--umber)}
+@media(max-width:900px){.nav a{margin-left:14px;font-size:11px}}
+
+/* "Other perspectives" dropdown (no-JS, touch-safe via <details>) */
+.drop{position:relative;margin-left:20px}
+.drop>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.drop>summary::-webkit-details-marker{display:none}
+.drop>summary::after{content:" \25BE";color:var(--umber);margin-left:3px}
+.drop>summary:hover{color:var(--ink)}
+.drop.hascur>summary{color:var(--green);font-weight:500}
+.dropmenu{position:absolute;right:0;top:calc(100% + 12px);background:var(--card);border:1px solid var(--line);
+  min-width:210px;padding:6px 0;box-shadow:0 8px 28px rgba(24,27,26,.12);z-index:50}
+.dropmenu a{display:block;margin:0;padding:10px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--gray)}
+.dropmenu a:hover{background:var(--greenwash);color:var(--ink);text-decoration:none}
+.dropmenu a.here{color:var(--green);font-weight:500}
+@media(max-width:900px){.drop{margin-left:14px}.drop>summary{font-size:11px}}
+
+/* ---- hero ---- */
+.hero{padding:70px 0 54px;border-bottom:1px solid var(--line)}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--umber);margin-bottom:20px}
+.hero h1{font-size:clamp(34px,5.6vw,58px);font-weight:700;letter-spacing:0;max-width:20ch}
+.hero .lede{font-size:19px;max-width:66ch;margin-top:22px;color:var(--graphite)}
+.hero .lede2{font-size:16px;max-width:66ch;margin-top:14px;color:var(--gray)}
+.hero .rule{width:60px;height:3px;background:var(--umber);margin:26px 0 0}
+.hero .disciplines{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.hero .disciplines span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);
+  background:var(--card);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
+
+/* ---- section shell ---- */
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:80ch;margin-bottom:32px}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:600}
+.sec-head .sub{color:var(--gray);margin-top:12px;font-size:16.5px;max-width:72ch}
+
+/* ---- diagram shell (site convention) ---- */
+.dwrap{border:1px solid var(--line);background:var(--card);padding:26px 26px 28px;margin:6px 0 4px}
+.dcap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:22px}
+.dcap b{color:var(--umber)}
+.note{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;margin-top:20px;max-width:72ch;line-height:1.6}
+
+/* ---- reusable POV callout pair (opinionated vs observer) ---- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:680px){.pair{grid-template-columns:1fr}}
+.pcard{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--green);padding:20px 22px}
+.pcard.um{border-top-color:var(--umber)}
+.pcard .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pcard h4{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--graphite);line-height:1.55;margin:0}
+.implic{margin-top:16px;background:var(--umberwash);border:1px solid var(--umberline);border-radius:2px;padding:22px 26px}
+.implic .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--umber);margin-bottom:8px}
+.implic p{font-size:15px;color:var(--graphite);line-height:1.6;margin:0}
+.implic.g{background:var(--greenwash);border-color:var(--greenline)}
+.implic.g .lab{color:var(--green2)}
+
+/* ---- the POV "sermon" block (first-person, opinionated) ---- */
+.pov{max-width:76ch}
+.pov p{font-size:17px;color:var(--graphite);margin:0 0 18px}
+.pov p strong{color:var(--ink);font-weight:600}
+.povmark{border-left:3px solid var(--umber);background:var(--umberwash);padding:20px 24px;margin:8px 0 24px}
+.povmark p{margin:0;font-size:17px;color:var(--graphite)}
+.povmark.g{border-left-color:var(--green);background:var(--greenwash)}
+
+/* ---- reusable maturity / readiness ladder ---- */
+.mat{display:flex;flex-direction:column;gap:6px}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--paper);border:1px solid var(--line);padding:16px 18px;align-items:start}
+.stage .sn{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--muted);line-height:1;text-align:center}
+.stage .sname{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:4px}
+.stage .slook{font-size:14px;color:var(--graphite);line-height:1.5;margin:0 0 8px}
+.stage .snext{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--gray);line-height:1.45}
+.stage .snext b{color:var(--umber);font-weight:500}
+.stage.top{border-color:var(--greenline);background:var(--greenwash);border-left:3px solid var(--green)}
+.stage.top .sn{color:var(--green)}
+.stage.top .snext b{color:var(--green2)}
+
+/* ---- generic content cards (record, method) ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.gcard{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--green);padding:22px 24px}
+.gcard.um{border-top-color:var(--umber)}
+.gcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.gcard h3{font-family:var(--disp);font-weight:600;font-size:21px;color:var(--ink);margin-bottom:8px}
+.gcard p{font-size:14.5px;color:var(--graphite);line-height:1.55;margin:0}
+.gcard .metrics{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+.gcard .metric b{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--green);display:block;line-height:1.1}
+.gcard.um .metric b{color:var(--umber)}
+.gcard .metric span{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- where to go ---- */
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:680px){.routes{grid-template-columns:1fr}}
+.routes.onecol{grid-template-columns:1fr}
+.route{border:1px solid var(--line);background:var(--card);padding:24px}
+.route.umber{border-top:3px solid var(--umber)}
+.route.green{border-top:3px solid var(--green)}
+.route h3{font-family:var(--disp);font-weight:600;font-size:22px;margin-bottom:8px}
+.route p{font-size:15px;color:var(--gray);margin-bottom:16px}
+.route .go{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+
+/* ---- footer ---- */
+footer{padding:40px 0 60px}
+footer .fx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:baseline}
+footer .fname{font-family:var(--disp);font-weight:600;font-size:20px;color:var(--ink)}
+footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
+
+/* ---- shared pill component (layer stacks) ---- */
+.pills{display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-family:var(--body);font-size:11.5px;padding:3px 9px;border-radius:2px;background:var(--card);color:var(--graphite);border:1px solid var(--line)}
+.pill.hl{background:var(--umberwash);border-color:var(--umberline);color:var(--umber);font-weight:600}
+.pill.g{background:var(--greenwash);border-color:var(--greenline);color:var(--green);font-weight:600}
+
+</style>
+<style>
+  .hubhero{padding:84px 0 60px;border-bottom:1px solid var(--line)}
+  .hubhero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--umber);margin-bottom:22px}
+  .hubhero h1{font-size:clamp(28px,4.4vw,47px);font-weight:700;max-width:none;letter-spacing:0;line-height:1.07}
+  .hbrk{display:inline}
+  @media(max-width:680px){.hbrk{display:none}}
+  .hubhero .lede{font-size:19px;max-width:840px;margin-top:24px;color:var(--graphite)}
+  .hubhero .lede2{font-size:16px;max-width:840px;margin-top:14px;color:var(--gray)}
+  .hubhero .rule{width:60px;height:3px;background:var(--umber);margin:28px 0 0}
+  .primary{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  @media(max-width:720px){.primary{grid-template-columns:1fr}}
+  .pspoke{border:1px solid var(--line);background:var(--card);padding:30px 32px;display:flex;flex-direction:column;border-top:4px solid var(--green)}
+  .pspoke .snum{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .pspoke h3{font-family:var(--disp);font-weight:700;font-size:30px;color:var(--ink);margin-bottom:12px;line-height:1.04}
+  .pspoke p{font-size:15.5px;color:var(--graphite);line-height:1.58;margin:0 0 22px}
+  .pspoke .go{margin-top:auto;font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+  .other{margin-top:40px;border-top:1px solid var(--line);padding-top:34px}
+  .other .op-head{max-width:70ch;margin-bottom:20px}
+  .other .op-head .eyebrow{color:var(--gray)}
+  .other .op-head p{font-size:15px;color:var(--gray);margin:0;max-width:64ch}
+  .op-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);background:var(--paper)}
+  .op-item{display:flex;align-items:baseline;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line)}
+  .op-item:last-child{border-bottom:none}
+  .op-item:hover{background:var(--card);text-decoration:none}
+  .op-item .op-name{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);flex:none;min-width:190px}
+  .op-item .op-desc{font-size:14px;color:var(--gray);line-height:1.5;flex:1}
+  .op-item .op-go{font-family:var(--mono);font-size:14px;color:var(--umber);flex:none}
+  @media(max-width:640px){
+    .op-item{flex-wrap:wrap;gap:6px}
+    .op-item .op-name{min-width:0;flex:1 1 100%}
+  }
+
+  /* portfolio layout: main column + right sidebar */
+  .pf-sec{padding:60px 0;border-bottom:1px solid var(--line)}
+  .pf-layout{display:grid;grid-template-columns:1fr 260px;gap:46px;align-items:start}
+  @media(max-width:920px){.pf-layout{grid-template-columns:1fr;gap:0}}
+  .pf-main{min-width:0}
+  .pf-block{margin-bottom:54px}
+  .pf-block:last-child{margin-bottom:0}
+  .pf-head{max-width:80ch;margin-bottom:26px}
+  .pf-head .eyebrow{margin-bottom:12px}
+  .pf-head h2{font-family:var(--disp);font-weight:600;font-size:clamp(24px,3vw,32px);color:var(--ink)}
+  .pf-head .sub{color:var(--gray);margin-top:12px;font-size:16px;max-width:70ch}
+  .pf-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px}
+  @media(max-width:560px){.pf-cards{grid-template-columns:1fr}}
+  .pf-card{border:1px solid var(--line);background:var(--card);padding:26px 26px 24px;display:flex;flex-direction:column;border-top:4px solid var(--green)}
+  .pf-card .tg{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .pf-card h3{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--ink);margin-bottom:11px;line-height:1.05}
+  .pf-card p{font-size:14.5px;color:var(--graphite);line-height:1.55;margin:0 0 20px}
+  .pf-card .go{margin-top:auto;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+  .pf-pov p{font-size:16.5px;color:var(--graphite);margin:0 0 18px;max-width:76ch}
+  .pf-conv{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--umber);padding:24px;max-width:640px}
+  .pf-conv h3{font-family:var(--disp);font-weight:600;font-size:22px;margin-bottom:8px}
+  .pf-conv p{font-size:15px;color:var(--gray);margin-bottom:16px}
+  .pf-conv .go{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+  /* right sidebar */
+  .pf-side{position:sticky;top:80px}
+  @media(max-width:920px){.pf-side{position:static;margin-top:46px}}
+  .pf-panel{border:1px solid var(--line);background:var(--paper);border-top:3px solid var(--umber);padding:22px 22px 6px}
+  .pf-panel .eyebrow{color:var(--umber);margin-bottom:12px}
+  .pf-panel .intro{font-size:13.5px;color:var(--gray);line-height:1.55;margin:0 0 6px}
+  .pf-link{display:block;border-top:1px solid var(--line);padding:16px 0 4px;margin-top:12px}
+  .pf-link:hover{text-decoration:none}
+  .pf-link .nm{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--disp);font-weight:600;font-size:18px;color:var(--ink)}
+  .pf-link .nm .ar{font-family:var(--mono);color:var(--umber);font-size:13px}
+  .pf-link .ds{display:block;font-size:12.5px;color:var(--gray);line-height:1.5;margin-top:5px}
+  .pf-link:hover .nm{color:var(--green)}
+
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand"><a href="index.html">Patrick&nbsp;Dodson&nbsp;<b>/</b>&nbsp;Experience&nbsp;Portfolio</a></div>
+    <nav class="nav">
+      <a href="adoption-change.html">Adoption &amp; Change</a>
+      <a href="gtm-bizdev.html">GTM &amp; BizDev</a>
+      <details class="drop">
+        <summary>Exposure &amp; Perspective</summary>
+        <div class="dropmenu">
+          <a href="data-analytics.html">Data &amp; Analytics</a>
+          <a href="ai-factory.html">AI Factory</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</div>
+
+<header class="hubhero">
+  <div class="wrap">
+    <div class="kicker">Translating technology into value</div>
+    <h1>Turning the promise of what technology can do<br class="hbrk"> into business value people actually realize.</h1>
+    <p class="lede">Two decades (plus) spent in the technology industry, consistently focused on clarifying complexity and translating strategy into action, and expressed through multiple roles: marketing and communications; business development; account management; change management; program leadership; executive and board counsel; strategy and management consulting; AI GTM Engineering and Strategy.</p>
+    <p class="lede2">Core strengths discovered and developed along the way: a knack for quickly assessing complicated situations, clarifying complexity or uncertainty, and converting insights into strategies teams can align on and execute to create new value.</p>
+    <p class="lede2">This site provides a portfolio of sorts, organizing my skills and strengths across two primary roles and spaces I have excelled in, and providing more background and context on the work I have done.</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<section class="pf-sec">
+  <div class="wrap">
+    <div class="pf-layout">
+
+      <div class="pf-main">
+        <div class="pf-block">
+          <div class="pf-head">
+            <div class="eyebrow g">My experience &amp; expertise</div>
+            <h2>Where I have fought the battles and lived to tell the tales.</h2>
+            <p class="sub">Two domains I can speak to without qualification: enterprise change and adoption, and how a firm finds and wins its clients. Success in both hinged on translating technology's potential into value the end users recognized and acted on.</p>
+          </div>
+          <div class="pf-cards">
+            <a class="pf-card" href="adoption-change.html">
+              <div class="tg">Enterprise change and adoption</div>
+              <h3>AI Adoption &amp; Change</h3>
+              <p>Twenty-five years understanding and communicating technology to non-technical stakeholders, the last fifteen making complex change land inside enterprises, now grounded in practitioner-level experience building AI systems firsthand. A demonstrated knack for discovering the real problem under the stated one, then activating the adoption that makes a new way of working the default rather than the exception.</p>
+              <span class="go">Read it &rarr;</span>
+            </a>
+            <a class="pf-card" href="gtm-bizdev.html">
+              <div class="tg">How a firm finds and wins clients</div>
+              <h3>GTM &amp; BizDev</h3>
+              <p>A naturally investigative, consultative selling motion built to put structure to ambiguity. I developed, codified, and ran this model with my own teams, and have since enhanced it with the strategic use of AI and automation to offload the research, timing, and account and contact targeting. The relationship-led, person-to-person engagement stays, now with sharper focus and greater scale than it had before.</p>
+              <span class="go">Read it &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="pf-block">
+          <div class="pf-head">
+            <div class="eyebrow">The through-line</div>
+            <h2>Why these fit together.</h2>
+          </div>
+          <div class="pf-pov">
+            <p>Potential is everything a technology could do. Value is the part of that potential an organization actually captures, and getting the two working in concert is the real trick. Potential shows up with no clear map for adoption or an authentic picture of how people behave or the environments they work in, so most of it goes unrealized. Closing that distance is a human problem: engaging with what the engineers built, making sense of what they actually intended, and mapping both onto the outcomes the people inside the business are already trying to reach, in terms they can understand and act on.</p>
+            <p>The industry's dominant weakness is really its core strength over-extended. It is an engineering culture and worldview, pushed past its natural boundaries without a counterweight, and it shows up as the familiar habit of building a capability, then going looking for the problem it solves, then assuming those with that problem see the value in the solution the same way as those who built the technology. That cycle results in impressive demos, slick slide decks, but stalled pilots and a finance team that cannot find the return on the investment. The correction is not more engineering. It is to make sure engineering does not walk that road alone, but alongside someone who can weigh, from the side of the person and the business, what is actually worth building, and why, in terms that get the support and funding necessary to achieve the desired outcome.</p>
+            <p>I have spent a career addressing this challenge, from communications and influence, to business development and sales, to change and adoption. Always technology focused, in multiple industries, from retail and consumer goods to B2B tech, from semiconductors and internet infrastructure to telecommunications and manufacturing. For the last two years I have found new inspiration in the exciting emergence of applied AI solutions, moving from strategy to fingers on keyboards to gain first-hand understanding of what these new tools and platforms can actually do to help improve the work people do and the outcomes they can produce.</p>
+          </div>
+        </div>
+
+        <div class="pf-block">
+          <div class="pf-conv">
+            <h3>Open a conversation</h3>
+            <p>If you have technology that should be delivering more value than it is, whether the gap is getting an organization to adopt it or getting a market to buy it, that is the conversation I want to have.</p>
+            <a class="go" href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="pf-side">
+        <div class="pf-panel">
+          <div class="eyebrow">Exposure &amp; perspective</div>
+          <p class="intro">My perspectives on adjacent technical fields I have encountered along my journey. These are my thoughts and ideas, and represent a sense-making effort of the terrain, trends, relationships, and interdependencies within and across complex systems.</p>
+          <a class="pf-link" href="data-analytics.html">
+            <span class="nm">Data &amp; Analytics <span class="ar">&rarr;</span></span>
+            <span class="ds">The data-to-insights gap: the data platform gets built, and the business never adopts it or sees the value.</span>
+          </a>
+          <a class="pf-link" href="ai-factory.html">
+            <span class="nm">AI Factory Stack <span class="ar">&rarr;</span></span>
+            <span class="ds">The infrastructure-to-applied gap: capacity gets procured, and the outcome stalls one layer above the hardware.</span>
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fx">
+    <div class="fname">Patrick Dodson</div>
+    <div class="fmeta">Portland, OR &middot; <a href="https://www.linkedin.com/in/patrickdodson" target="_blank" rel="noopener">linkedin.com/in/patrickdodson</a> &middot; <a href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
