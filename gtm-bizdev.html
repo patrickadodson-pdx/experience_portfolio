@@ -175,6 +175,114 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
   .cl li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gray)}
   .col.sys .cl li::before{background:var(--green)}
 </style>
+<style>
+/* --- experience launcher --- */
+.triX{cursor:pointer;display:block;margin-top:6px}
+.triX:focus-visible{outline:2px solid var(--green2);outline-offset:3px}
+.triX .tri{transition:box-shadow .16s ease}
+.triX:hover .tri{box-shadow:0 10px 26px rgba(24,27,26,.10)}
+.triX:hover .tri-cta{background:var(--greenwash);color:var(--green)}
+.tri{display:flex;align-items:stretch;border:1px solid var(--line);background:var(--card);overflow:hidden}
+.tri-panel{flex:1;padding:24px 22px 26px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.tri-panel.p1{background:var(--card)}
+.tri-panel.p2{background:var(--umberwash)}
+.tri-panel.p3{background:var(--greenwash)}
+.tri-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+.tri-viz{width:100%;max-width:196px}
+.tri-viz svg{width:100%;height:auto;display:block}
+.tri-h{font-family:var(--disp);font-weight:600;font-size:20px;line-height:1.12;color:var(--ink);text-wrap:balance;margin:2px 0 0}
+.tri-arrow{display:flex;align-items:center;justify-content:center;padding:0 5px;background:var(--paper);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.tri-arrow svg{width:12px;height:22px}
+.tri-arrow path{fill:none;stroke:var(--gray);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.7}
+.tv .card{fill:var(--card);stroke:var(--line);stroke-width:1}
+.tv .dash{stroke-dasharray:4 3;stroke-width:1.5;fill:none}
+.tv .dash.um{stroke:var(--umber2)}
+.tv .dash.gr{stroke:var(--green2)}
+.tv .bar{fill:var(--gray)}
+.tv .b1{fill:var(--paper);stroke:var(--gray);stroke-opacity:.5;stroke-width:1}
+.tv .b2{fill:#fff;stroke:var(--umber);stroke-opacity:.7;stroke-width:1}
+.tv .b3{fill:#fff;stroke:var(--green);stroke-opacity:.7;stroke-width:1}
+.tri-cta{border:1px solid var(--line);border-top:none;background:var(--paper);padding:13px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);text-align:center;transition:background .16s ease,color .16s ease}
+.tri-cta span{font-size:14px}
+@media(max-width:720px){.tri{flex-direction:column}.tri-arrow{border-left:none;border-right:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 0}.tri-arrow svg{transform:rotate(90deg)}}
+/* --- overlay --- */
+.expo{position:fixed;inset:0;z-index:80;background:var(--paper);display:none;flex-direction:column}
+.expo[data-open="true"]{display:flex}
+.expo-bar{display:flex;align-items:center;justify-content:space-between;padding:11px 20px;border-bottom:1px solid var(--line);background:var(--card);flex:none}
+.expo-t{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--ink)}
+.expo-close{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);background:var(--paper);padding:8px 14px;cursor:pointer}
+.expo-close:hover{color:var(--ink);border-color:var(--gray)}
+.expo iframe{flex:1;width:100%;border:none;background:var(--paper)}
+/* --- capabilities --- */
+.capgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.capcol{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--green);padding:20px 22px}
+.capcol.um{border-top-color:var(--umber)}
+.capcol h3{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);margin-bottom:12px}
+.capcol ul{list-style:none;margin:0;padding:0}
+.capcol li{font-size:13.5px;color:var(--graphite);line-height:1.5;padding:7px 0;border-top:1px solid var(--line)}
+.capcol li:first-child{border-top:none;padding-top:0}
+@media(max-width:1024px){.capgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.capgrid{grid-template-columns:1fr}}
+</style>
+<style>
+/* case-card images (static, non-zoom) */
+.gcard.hasimg{padding:0;overflow:hidden}
+.gcard.hasimg .cbody{padding:22px 24px}
+.cimg{display:block;width:100%;height:auto;border-bottom:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cfig{margin:18px 0 0}
+.cfig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:2px;background:var(--card);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cfig figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.cthumbs{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cthumbs figure{margin:0;flex:1 1 0;min-width:132px}
+.cthumbs figure img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--card);border-radius:2px;pointer-events:none;-webkit-user-select:none;user-select:none}
+.cthumbs figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+</style>
+<style>
+/* channel launcher + overlay */
+.chanX{display:block;cursor:pointer;margin-top:8px}
+.chanX:focus-visible{outline:2px solid var(--green2);outline-offset:3px}
+.chanbar{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid var(--line);border-left:3px solid var(--green);background:var(--card);padding:20px 24px;transition:box-shadow .16s ease}
+.chanX:hover .chanbar{box-shadow:0 10px 26px rgba(24,27,26,.10)}
+.chan-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--umber);margin-bottom:8px}
+.chan-h{font-family:var(--disp);font-weight:600;font-size:clamp(18px,2.4vw,23px);line-height:1.12;color:var(--ink);max-width:48ch;text-wrap:balance}
+.chan-cta{flex:none;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);border:1px solid var(--line);padding:12px 16px;white-space:nowrap;transition:background .16s,color .16s}
+.chanX:hover .chan-cta{background:var(--greenwash);color:var(--green)}
+.chan-cta span{font-size:14px}
+@media(max-width:640px){.chanbar{flex-direction:column;align-items:flex-start;gap:14px}}
+.cexpo{position:fixed;inset:0;z-index:80;background:var(--paper);display:none;flex-direction:column}
+.cexpo[data-open="true"]{display:flex}
+.cexpo-bar{display:flex;align-items:center;justify-content:space-between;padding:11px 20px;border-bottom:1px solid var(--line);background:var(--card);flex:none}
+.cexpo-t{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--ink)}
+.cexpo-close{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);background:var(--paper);padding:8px 14px;cursor:pointer}
+.cexpo-close:hover{color:var(--ink);border-color:var(--gray)}
+.cexpo iframe{flex:1;width:100%;border:none;background:var(--paper)}
+</style>
+<style>
+/* expandable case cards + modal */
+.casecard{cursor:pointer;transition:box-shadow .15s ease}
+.casecard:hover{box-shadow:0 10px 26px rgba(24,27,26,.08)}
+.casecard:focus-visible{outline:2px solid var(--green2);outline-offset:2px}
+.cardmore{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green2);margin-top:16px}
+.casecard.um .cardmore{color:var(--umber2)}
+.cardmore span{font-size:13px}
+.casemodal{position:fixed;inset:0;z-index:90;display:none;justify-content:center;align-items:flex-start;background:rgba(24,27,26,.5);padding:36px 18px;overflow-y:auto}
+.casemodal[data-open="true"]{display:flex}
+.casebox{background:var(--card);border:1px solid var(--line);max-width:780px;width:100%;padding:30px 34px 36px;position:relative;margin:auto}
+.cm-close{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--line);background:var(--paper);padding:6px 12px;cursor:pointer;color:var(--gray)}
+.cm-close:hover{color:var(--ink);border-color:var(--gray)}
+.cm-content .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cm-content .client{font-family:var(--mono);font-size:12px;color:var(--umber);letter-spacing:.02em;margin:0 0 8px}
+.cm-content h3{font-family:var(--disp);font-weight:600;font-size:26px;line-height:1.1;margin:0 0 16px;text-wrap:balance;max-width:34ch}
+.cm-content p{font-size:15px;line-height:1.62;color:var(--graphite);margin:0 0 14px}
+.cm-hero{display:block;width:100%;height:auto;border:1px solid var(--line);margin:4px 0 18px;pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-fig{margin:8px 0 18px}
+.cm-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-fig figcaption{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:8px}
+.cm-figrow{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 4px}
+.cm-figrow figure{margin:0;flex:1;min-width:190px}
+.cm-figrow img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-figrow figcaption{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-top:6px}
+</style>
+<style>#shift .shift-pov{margin-top:34px}</style>
 </head>
 <body>
 
@@ -217,37 +325,57 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
 </header>
 
 <!-- THESIS -->
-<section id="thesis">
+<!-- THE SHIFT (interactive-led; merged thesis + walkthrough) -->
+<section id="shift">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow g">The thesis</div>
-      <h2>What's changed, and what to do about it.</h2>
-      <p class="sub">Why the traditional professional-services playbook is not delivering like it used to, the model that works instead, and how I would build and run it.</p>
+      <h2>The shift, in three panels.</h2>
+      <p class="sub">Why the traditional professional-services playbook is not delivering like it used to, the model that works instead, and how I would build and run it. Open the walkthrough for the full step-through, with the infographics behind each move.</p>
     </div>
-    <div class="pov">
+    <div class="triX" id="triLaunch" role="button" tabindex="0" aria-label="Open the full three-panel walkthrough">
+      <div class="tri" aria-label="The walkthrough, in three panels">
+        <div class="tri-panel p1">
+          <div class="tri-eyebrow">Current state</div>
+          <div class="tri-viz">
+            <svg viewBox="0 0 150 96" class="tv" role="img" aria-label="A high target line with a low current result">
+              <rect class="card" x="10" y="12" width="130" height="70" rx="4"/>
+              <line class="dash um" x1="30" y1="30" x2="120" y2="30"/>
+              <rect class="bar" x="58" y="62" width="34" height="16"/>
+            </svg>
+          </div>
+          <h3 class="tri-h">The effort going in is the same, but less comes back</h3>
+        </div>
+        <div class="tri-arrow" aria-hidden="true"><svg viewBox="0 0 12 22"><path d="M2 3 l7 8 -7 8"/></svg></div>
+        <div class="tri-panel p2">
+          <div class="tri-eyebrow">The path forward</div>
+          <div class="tri-viz">
+            <svg viewBox="0 0 150 96" class="tv" role="img" aria-label="Ascending bars, a method building results">
+              <rect class="card" x="10" y="12" width="130" height="70" rx="4"/>
+              <rect class="b1" x="34" y="54" width="24" height="22" rx="2"/>
+              <rect class="b2" x="63" y="44" width="24" height="32" rx="2"/>
+              <rect class="b3" x="92" y="32" width="24" height="44" rx="2"/>
+            </svg>
+          </div>
+          <h3 class="tri-h">An intelligence engine behind the motion</h3>
+        </div>
+        <div class="tri-arrow" aria-hidden="true"><svg viewBox="0 0 12 22"><path d="M2 3 l7 8 -7 8"/></svg></div>
+        <div class="tri-panel p3">
+          <div class="tri-eyebrow">Future state</div>
+          <div class="tri-viz">
+            <svg viewBox="0 0 150 96" class="tv" role="img" aria-label="A high result meeting the target line">
+              <rect class="card" x="10" y="12" width="130" height="70" rx="4"/>
+              <line class="dash gr" x1="30" y1="34" x2="120" y2="34"/>
+              <rect class="bar" x="58" y="40" width="34" height="38"/>
+            </svg>
+          </div>
+          <h3 class="tri-h">Same people, same effort, aimed better</h3>
+        </div>
+      </div>
+      <div class="tri-cta">See the full three-panel walkthrough <span aria-hidden="true">&rarr;</span></div>
+    </div>
+    <div class="pov shift-pov">
       <p>The doer-seller model rested on a bet that the network would keep renewing itself through sheer presence. That bet is failing. Buyers self-educate, arrive late, and decide early, and the seller with an existing relationship inside the account wins before the formal process starts. Effort alone does not fix a coverage and timing problem, and adding headcount just multiplies the same manual limits.</p>
-    </div>
-
-    <div class="compare-lead">The solve is a system that is sustainable and compounds value across the firm.</div>
-    <div class="compare">
-      <div class="col old">
-        <div class="clab">The doer-seller default</div>
-        <ul class="cl">
-          <li>Growth rests on one or two rainmakers, and leaves when they do.</li>
-          <li>Little tooling. Under pressure it reverts to the same familiar contacts and cold, generic outreach.</li>
-          <li>No strategic read on which accounts, clients, or signals to pursue.</li>
-          <li>Warm paths stumbled upon rather than identified and plotted.</li>
-        </ul>
-      </div>
-      <div class="col sys">
-        <div class="clab">The system I design and run</div>
-        <ul class="cl">
-          <li>Predictable across the firm's collective network, not resting on any one person or happenstance.</li>
-          <li>AI, data, and automation drive targeting and timing, scored against ideal account, client, and signal profiles.</li>
-          <li>Warm paths surfaced from where clients and colleagues have moved.</li>
-          <li>Person to person at the point of contact, by the owner of the connection. The relationship stays respected and protected.</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -280,6 +408,79 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
         <div class="tag">Origin &middot; the field guide</div>
         <h3>The Account Services method</h3>
         <p>The consultative approach I authored and coached to a business-development team: how buyers actually choose, where a seller earns trusted-advisor status, and why the work is won before the buying cycle starts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The capabilities</div>
+      <h2>Using AI and automation to hunt and build pipeline smarter.</h2>
+      <p class="sub">The specific work I design, build, and run so finite selling time lands on the accounts nearest a real opening.</p>
+    </div>
+    <div class="capgrid">
+      <div class="capcol">
+        <h3>Signal and targeting intelligence</h3>
+        <ul>
+          <li>Ideal account, client, and signal profile definition and refinement</li>
+          <li>Buying-signal taxonomy design and continuous monitoring</li>
+          <li>Account prioritization and territory scoring</li>
+          <li>Competitive and defensive signal monitoring</li>
+          <li>Expansion-signal detection for customer success and account teams</li>
+        </ul>
+      </div>
+      <div class="capcol um">
+        <h3>Outreach and GTM infrastructure</h3>
+        <ul>
+          <li>CRM automation, enrichment, and data hygiene</li>
+          <li>Multichannel outreach across email, LinkedIn, and social</li>
+          <li>Outreach and sequence infrastructure</li>
+          <li>List building and multi-source enrichment</li>
+          <li>Enforced output schemas and QA on agentic runs</li>
+        </ul>
+      </div>
+      <div class="capcol">
+        <h3>RevOps and AI system design</h3>
+        <ul>
+          <li>RevOps architecture and stack consolidation</li>
+          <li>AI and Clay infrastructure design and implementation</li>
+          <li>Cross-functional alignment and roadmap integration</li>
+          <li>Operator documentation, safety gates, and enablement</li>
+        </ul>
+      </div>
+      <div class="capcol um">
+        <h3>Consultative discovery and facilitation</h3>
+        <ul>
+          <li>Exploratory, investigative discovery that surfaces the real problem and the opportunity under the stated ask</li>
+          <li>Collaborative working sessions facilitated to move a group to decisions and approvals</li>
+          <li>Co-creation, so stakeholders defend the direction they helped shape</li>
+          <li>Shaping scope and a path forward when the engagement opens from ambiguity or uncertainty</li>
+          <li>Business cases and value framing that give executives a reason to act</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CHANNEL INTELLIGENCE -->
+<section id="channel">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow g">Perspective</div>
+      <h2>AI intelligence systems in the channel.</h2>
+      <p class="sub">In an enterprise deal a handful of partners, competing systems integrators, and the customer's own buying center all shape the outcome, and they all talk to each other. This is the intelligence system I build to sit at the center of that board, target the right accounts, and time each move to the signal that makes it ripe.</p>
+    </div>
+    <div class="chanX" id="chanLaunch" role="button" tabindex="0" aria-label="Open the channel intelligence walkthrough">
+      <div class="chanbar">
+        <div>
+          <div class="chan-eyebrow">Problem &rarr; the system running</div>
+          <div class="chan-h">Read the contested board from a live signal, find the account, the partner already inside it, and the moment to move, ahead of the competing SIs.</div>
+        </div>
+        <div class="chan-cta">Open the walkthrough <span aria-hidden="true">&rarr;</span></div>
       </div>
     </div>
   </div>
@@ -327,6 +528,17 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
         <p>Communications agency pitching to clients, media, and industry analysts; then the consultative services sale; then the AI-native execution layer. The discipline held and developed over time. The recent tooling enhanced it rather than replacing it.</p>
       </div>
 
+      <div class="gcard casecard" role="button" tabindex="0" data-case="sephora" aria-haspopup="dialog">
+        <div class="tag">Consultative facilitation &middot; Propeller</div>
+        <h3>Ran the discovery that set a retailer's priorities</h3>
+        <p>Across five cross-functional initiatives at Sephora, I facilitated the value-discovery and prioritization work that clarified the real problem behind each and produced the recommendation reports leadership set its roadmap from. The engagement expanded into follow-on work the firm won.</p>
+        <div class="metrics">
+          <div class="metric"><b>5</b><span>Cross-functional initiatives</span></div>
+          <div class="metric"><b>Follow-on won</b><span>Expanded the engagement</span></div>
+        </div>
+        <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -360,5 +572,73 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
   </div>
 </footer>
 
+
+<div class="expo" id="expOvl" aria-hidden="true" role="dialog" aria-label="How I would build and run it">
+  <div class="expo-bar"><span class="expo-t">How I would build and run it</span><button class="expo-close" id="expClose">Close &times;</button></div>
+  <iframe id="expFrame" title="Three-panel walkthrough" loading="lazy"></iframe>
+</div>
+<script>
+(function(){
+  var t=document.getElementById('triLaunch'),ovl=document.getElementById('expOvl'),
+      fr=document.getElementById('expFrame'),cl=document.getElementById('expClose');
+  if(!t||!ovl) return; var loaded=false;
+  function open(){ if(!loaded){fr.src='experience.html';loaded=true;} ovl.setAttribute('data-open','true'); ovl.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; cl.focus(); }
+  function close(){ ovl.removeAttribute('data-open'); ovl.setAttribute('aria-hidden','true'); document.body.style.overflow=''; t.focus(); }
+  t.addEventListener('click',open);
+  t.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
+  cl.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ovl.getAttribute('data-open')==='true')close(); });
+})();
+</script>
+
+<div class="cexpo" id="chanOvl" aria-hidden="true" role="dialog" aria-label="AI intelligence systems in the channel">
+  <div class="cexpo-bar"><span class="cexpo-t">AI intelligence systems in the channel</span><button class="cexpo-close" id="chanClose">Close &times;</button></div>
+  <iframe id="chanFrame" title="Channel intelligence walkthrough" loading="lazy"></iframe>
+</div>
+<script>
+(function(){
+  var t=document.getElementById('chanLaunch'),ovl=document.getElementById('chanOvl'),
+      fr=document.getElementById('chanFrame'),cl=document.getElementById('chanClose');
+  if(!t||!ovl) return; var loaded=false;
+  function open(){ if(!loaded){fr.src='channel.html';loaded=true;} ovl.setAttribute('data-open','true'); ovl.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; cl.focus(); }
+  function close(){ ovl.removeAttribute('data-open'); ovl.setAttribute('aria-hidden','true'); document.body.style.overflow=''; t.focus(); }
+  t.addEventListener('click',open);
+  t.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
+  cl.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&ovl.getAttribute('data-open')==='true')close(); });
+})();
+</script>
+
+<div class="casemodal" id="caseModal" role="dialog" aria-modal="true" aria-label="Case study">
+  <div class="casebox"><button class="cm-close">Close &times;</button><div class="cm-content"></div></div>
+</div>
+<div hidden id="caseSources">
+<div class="casesrc" id="case-sephora">
+  <div class="tag">Consultative facilitation &middot; Propeller</div>
+  <h3>Ran the discovery that set a retailer's priorities</h3>
+  <img class="cm-hero" src="assets/img/seph_activities.png" alt="The assessment and facilitation process, from assessing materials through workshops to recommendation reports">
+  <p>Rapid growth had outpaced the retailer's processes. Across five cross-functional initiatives, I ran the value-discovery and prioritization work: the assessment and workshops that clarified the real problem behind each and produced the recommendation reports leadership set its roadmap from.</p>
+  <p>The engagement expanded into follow-on work the firm won.</p>
+  <div class="cm-figrow">
+    <figure><img src="assets/img/seph_journey.png" alt="Change activation journey model"><figcaption>Activation journey</figcaption></figure>
+    <figure><img src="assets/img/seph_impact.png" alt="Change impact assessment overview"><figcaption>Impact assessment</figcaption></figure>
+    <figure><img src="assets/img/seph_tools.png" alt="Recommended activation tools and tactics"><figcaption>Tools &amp; tactics</figcaption></figure>
+  </div>
+</div></div>
+<script>
+(function(){
+  var modal=document.getElementById('caseModal'); if(!modal) return;
+  var box=modal.querySelector('.cm-content'), closeBtn=modal.querySelector('.cm-close'), lastFocus=null;
+  function open(id){var src=document.getElementById('case-'+id); if(!src)return; box.innerHTML=src.innerHTML; modal.setAttribute('data-open','true'); document.body.style.overflow='hidden'; closeBtn.focus();}
+  function close(){modal.removeAttribute('data-open'); document.body.style.overflow=''; box.innerHTML=''; if(lastFocus)lastFocus.focus();}
+  document.querySelectorAll('.casecard').forEach(function(c){
+    c.addEventListener('click',function(){lastFocus=c; open(c.getAttribute('data-case'));});
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();lastFocus=c;open(c.getAttribute('data-case'));}});
+  });
+  modal.addEventListener('click',function(e){if(e.target===modal||e.target===closeBtn)close();});
+  closeBtn.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.getAttribute('data-open')==='true')close();});
+})();
+</script>
 </body>
 </html>

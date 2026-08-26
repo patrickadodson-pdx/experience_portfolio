@@ -167,6 +167,61 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
   .povlist li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;background:var(--green);border-radius:50%}
   .client{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--umber);margin:0 0 8px}
 </style>
+<style>
+/* case-card images (static, non-zoom) */
+.gcard.hasimg{padding:0;overflow:hidden}
+.gcard.hasimg .cbody{padding:22px 24px}
+.cimg{display:block;width:100%;height:auto;border-bottom:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cfig{margin:18px 0 0}
+.cfig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:2px;background:var(--card);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cfig figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.cthumbs{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cthumbs figure{margin:0;flex:1 1 0;min-width:132px}
+.cthumbs figure img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--card);border-radius:2px;pointer-events:none;-webkit-user-select:none;user-select:none}
+.cthumbs figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+</style>
+<style>
+/* expandable case cards + modal */
+.casecard{cursor:pointer;transition:box-shadow .15s ease}
+.casecard:hover{box-shadow:0 10px 26px rgba(24,27,26,.08)}
+.casecard:focus-visible{outline:2px solid var(--green2);outline-offset:2px}
+.cardmore{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green2);margin-top:16px}
+.casecard.um .cardmore{color:var(--umber2)}
+.cardmore span{font-size:13px}
+.casemodal{position:fixed;inset:0;z-index:90;display:none;justify-content:center;align-items:flex-start;background:rgba(24,27,26,.5);padding:36px 18px;overflow-y:auto}
+.casemodal[data-open="true"]{display:flex}
+.casebox{background:var(--card);border:1px solid var(--line);max-width:780px;width:100%;padding:30px 34px 36px;position:relative;margin:auto}
+.cm-close{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--line);background:var(--paper);padding:6px 12px;cursor:pointer;color:var(--gray)}
+.cm-close:hover{color:var(--ink);border-color:var(--gray)}
+.cm-content .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cm-content .client{font-family:var(--mono);font-size:12px;color:var(--umber);letter-spacing:.02em;margin:0 0 8px}
+.cm-content h3{font-family:var(--disp);font-weight:600;font-size:26px;line-height:1.1;margin:0 0 16px;text-wrap:balance;max-width:34ch}
+.cm-content p{font-size:15px;line-height:1.62;color:var(--graphite);margin:0 0 14px}
+.cm-hero{display:block;width:100%;height:auto;border:1px solid var(--line);margin:4px 0 18px;pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-fig{margin:8px 0 18px}
+.cm-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-fig figcaption{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:8px}
+.cm-figbig{margin:14px 0 4px}
+.cm-figbig img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-figbig figcaption{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:8px}
+.cm-figrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 4px}.cm-figrow.two{grid-template-columns:repeat(2,1fr)}@media(max-width:560px){.cm-figrow{grid-template-columns:repeat(2,1fr)}}
+.cm-figrow figure{margin:0}
+.cm-figrow img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-figrow figcaption{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-top:6px}
+</style>
+<style>.nb{white-space:nowrap}</style>
+<style>
+.cm-role{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--umber);margin:0 0 16px}
+.cm-row{margin:0 0 14px}
+.cm-row .cm-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--umber2);display:block;margin-bottom:3px}
+.cm-row p{margin:0}
+.cm-quote{border-left:3px solid var(--green);background:var(--greenwash);padding:14px 18px;margin:8px 0 16px;font-style:italic;color:var(--graphite)}
+.cm-pipeline{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:8px 0 18px}
+.cm-pnode{border:1px solid var(--line);background:var(--paper);border-radius:3px;padding:8px 12px;min-width:92px}
+.cm-pnm{font-family:var(--disp);font-weight:600;font-size:13px;color:var(--ink)}
+.cm-pnd{font-family:var(--mono);font-size:9px;color:var(--gray);margin-top:2px}
+.cm-parw{display:flex;align-items:center;color:var(--umber2);font-size:14px}
+</style>
 </head>
 <body>
 
@@ -242,21 +297,23 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
     </div>
     <div class="grid">
 
-      <div class="gcard">
+      <div class="gcard casecard" role="button" tabindex="0" data-case="semi-lifecycle" aria-haspopup="dialog">
         <div class="tag">Process mapping &amp; activation</div>
         <p class="client">Leading semiconductor manufacturer</p>
         <h3>Mapping the flagship product-launch lifecycle for the first time</h3>
         <p>A decades-old, three-to-five-year launch lifecycle mapped end to end for the first time, current and future state across every marketing function, with ownership gaps closed and new behaviors embedded through an interactive decision toolkit.</p>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
-      <div class="gcard um">
+      <div class="gcard um casecard" role="button" tabindex="0" data-case="semi-decision" aria-haspopup="dialog">
         <div class="tag">Process redesign &amp; decision rights</div>
         <p class="client">Leading semiconductor manufacturer &middot; internal marketing, post-reorg</p>
         <h3>Rebuilding decision rights after a reorganization</h3>
         <p>After a new CMO reorganized marketing, a rebuilt campaign-execution process with RAPID decision rights the new organization could actually use, delivered as a digital toolkit of roles, responsibilities, and decision points.</p>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
-      <div class="gcard">
+      <div class="gcard casecard" role="button" tabindex="0" data-case="lowes" aria-haspopup="dialog">
         <div class="tag">Change-agent network &amp; activation</div>
         <p class="client">Lowe's &middot; customer experience transformation</p>
         <h3>Turning 161,000 employees into creators</h3>
@@ -265,30 +322,34 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
           <div class="metric"><b>1,710</b><span>Stores reached</span></div>
           <div class="metric"><b>161,000</b><span>Employees activated</span></div>
         </div>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
-      <div class="gcard um">
+      <div class="gcard um casecard" role="button" tabindex="0" data-case="icann-trust" aria-haspopup="dialog">
         <div class="tag">Buy-in &amp; participatory facilitation</div>
         <p class="client">ICANN &middot; internet naming &amp; numbering governance</p>
         <h3>Trust in a change-fatigued community</h3>
         <p>Earning trust across a factional, change-fatigued global community by showing unfinished work and inviting them to shape it, then translating adopted bylaw text into visualized process maps through an iterative socialization process that built genuine alignment.</p>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
-      <div class="gcard">
+      <div class="gcard casecard" role="button" tabindex="0" data-case="ai-operator" aria-haspopup="dialog">
         <div class="tag">AI-native operating systems</div>
-        <p class="client">AI in daily practice &middot; field enablement &amp; go-to-market</p>
+        <p class="client">AI in daily practice &middot; field enablement &amp; <span class="nb">go-to-market</span></p>
         <h3>One operator, an agentic team</h3>
         <p>A single senior operator directing an agentic team across research, enrichment, content, and outreach, work that would otherwise have required a team of specialists. This is the hands-on grounding under everything else on this page: I build with these tools to know what they actually do.</p>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
-      <div class="gcard um">
+      <div class="gcard um casecard" role="button" tabindex="0" data-case="footwear" aria-haspopup="dialog">
         <div class="tag">Portfolio governance &amp; prioritization</div>
         <p class="client">Fortune 500 footwear &amp; apparel brand &middot; product-development transformation</p>
         <h3>Eight critical builds at once</h3>
         <p>Eight interdependent, mission-critical product builds kept moving through one visible weekly operating rhythm, with executive-facing status reporting and an integrated roadmap prioritized against both strategy and operating budget.</p>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
-      <div class="gcard">
+      <div class="gcard casecard" role="button" tabindex="0" data-case="university" aria-haspopup="dialog">
         <div class="tag">Adoption &amp; sustainment</div>
         <p class="client">Large for-profit university system &middot; enterprise IT migration</p>
         <h3>Adoption that outlived the project</h3>
@@ -297,13 +358,31 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
           <div class="metric"><b>80</b><span>Campuses, 17 states</span></div>
           <div class="metric"><b>70,000+</b><span>Students affected</span></div>
         </div>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
-      <div class="gcard um">
+      <div class="gcard um casecard" role="button" tabindex="0" data-case="ip-frameworks" aria-haspopup="dialog">
         <div class="tag">IP contributions &amp; frameworks</div>
         <p class="client">XPLANE &middot; strategy-activation IP</p>
         <h3>Frameworks and tools I helped build</h3>
         <p>The strategy-activation frameworks and diagnostics I helped create and still put to work, the Adoption Curve, the Change Lever, and the DNA of Change among them, developed on the leadership team that repositioned the firm around strategy activation and organizational performance.</p>
+              <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
+      </div>
+
+      <div class="gcard casecard" role="button" tabindex="0" data-case="icann" aria-haspopup="dialog">
+        <div class="tag">Executive facilitation &amp; alignment</div>
+        <p class="client">ICANN &middot; meetings strategy working group</p>
+        <h3>Breaking a stalled working group to a Board-adopted recommendation</h3>
+        <p>A 21-person multistakeholder group, a year in and unable to converge on how the in-person meetings program should evolve. I designed and facilitated the sessions that moved them from scattered positions to a single framework, carried it through community review across successive global meetings, and delivered the final recommendation the Board adopted.</p>
+        <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
+      </div>
+
+      <div class="gcard um casecard" role="button" tabindex="0" data-case="sephora" aria-haspopup="dialog">
+        <div class="tag">Change readiness &amp; prioritization</div>
+        <p class="client">Sephora &middot; five cross-functional initiatives</p>
+        <h3>Clarifying and prioritizing a cross-functional change portfolio</h3>
+        <p>Across five strategic initiatives spanning multiple functions, I designed and facilitated the workshops that clarified the real problem behind each, assessed organizational readiness and change risk, and delivered the recommendation reports that set the client's priorities. The work secured organizational prioritization and converted into follow-on workstreams the firm won.</p>
+        <div class="cardmore">View the work <span aria-hidden="true">&rarr;</span></div>
       </div>
 
     </div>
@@ -339,5 +418,36 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
   </div>
 </footer>
 
+
+<div class="casemodal" id="caseModal" role="dialog" aria-modal="true" aria-label="Case study">
+  <div class="casebox"><button class="cm-close">Close &times;</button><div class="cm-content"></div></div>
+</div>
+<div hidden id="caseSources">
+<div class="casesrc" id="case-icann"><div class="tag">Executive facilitation &amp; alignment</div><p class="client">ICANN · meetings strategy working group</p><h3>Breaking a stalled working group to a Board-adopted recommendation</h3><p>ICANN's multistakeholder working group had spent roughly a year trying to agree how the in-person meetings program should evolve, and had stalled. The questions were real, the stakeholders many, and the group could not converge on a way forward.</p><p>I designed and facilitated the working sessions that moved a 21-person group from scattered positions to a single framework, then carried that framework through community review across successive global meetings so it held up in public before it ever reached the Board.</p><p>The Board adopted the final recommendation, including a regional-rotation schedule and an evolved public-forum structure for the meetings program.</p><div class="cm-figrow two"><figure><img src="assets/img/icann_hero.jpg" alt="Facilitated multistakeholder working session"><figcaption>Facilitating the multistakeholder working sessions</figcaption></figure><figure><img src="assets/img/icann_reco.png" alt="The regional-rotation meetings schedule the Board adopted"><figcaption>The meetings rotation the Board adopted at ICANN50</figcaption></figure></div></div>
+<div class="casesrc" id="case-sephora"><div class="tag">Change readiness &amp; prioritization</div><p class="client">Sephora · five cross-functional initiatives</p><h3>Clarifying and prioritizing a cross-functional change portfolio</h3><p>Rapid growth had outpaced the organization's processes, and leadership needed to decide which initiatives would most improve how its people work, and in what order.</p><p>Across five cross-functional initiatives, I designed and facilitated the assessment and the workshops that clarified the real problem behind each, read organizational readiness and change risk, and produced the recommendation reports leadership set its priorities from.</p><p>The work secured organizational prioritization and converted into follow-on workstreams the firm won.</p><div class="cm-figrow"><figure><img src="assets/img/seph_journey.png" alt="Change activation journey model"><figcaption>Activation journey</figcaption></figure><figure><img src="assets/img/seph_impact.png" alt="Change impact assessment overview"><figcaption>Impact assessment</figcaption></figure><figure><img src="assets/img/seph_tools.png" alt="Recommended activation tools and tactics"><figcaption>Tools &amp; tactics</figcaption></figure></div><figure class="cm-figbig"><img src="assets/img/seph_activities.png" alt="The assessment and facilitation process"><figcaption>Assessment and facilitation process</figcaption></figure></div>
+<div class="casesrc" id="case-semi-lifecycle"><div class="tag">Process mapping &amp; activation</div><p class="client">Leading Semiconductor Manufacturer · marketing lifecycle for flagship product launches</p><h3>Mapping the flagship product-launch lifecycle for the first time</h3><p class="cm-role">Role · account and program lead, and delivery team member</p><div class="cm-row"><span class="cm-label">Problem</span><p>The company's marketing for flagship product launches ran on a lifecycle that cascaded three to five years across more than a dozen functions. When one function raised a flag, no one, including the CMO, could tell whether it was recoverable inside the launch window or a real threat to being ready when the product shipped. Ownership was unclear from function to function, no one owned the whole process end-to-end, (and we found a six-month stretch with no one minding the process at all).</p></div><div class="cm-row"><span class="cm-label">Complexity</span><p>A decades-old methodology executed through habit and tribal knowledge, carried in people's heads across a massive staff ecosystem, with hand-offs, gives and gets, and dependencies that had never been made explicit.</p></div><div class="cm-row"><span class="cm-label">What I did</span><p>Mapped the entire lifecycle end to end for the first time, stage by stage, through every marketing function, with the people who run it. Clarified groups, milestones, roles, and interdependencies at every stage, and defined the paths connecting each marketer with those before and after them. Built a department alignment kit with online and offline resource planning and training, plus a visual vocabulary, activation tools, templates, and playbooks to embed the new behaviors.</p></div><div class="cm-row"><span class="cm-label">How it stuck</span><p>An online knowledge-sharing portal grounded the change so teams found the process at the moment they needed it, not in a binder they would never open.</p></div><div class="cm-row"><span class="cm-label">Result</span><p>Delivered visibility into entire process across a massive staff ecosystem for the first time, shifting a decades-old methodology. Broke down silos from product inception through campaigns and launch, and improved the ability to spot bottlenecks, balance workload, and escalate material issues to executive leadership.</p></div><div class="cm-figrow two"><figure><img src="assets/img/semi_lifecycle_1.jpg" alt="Process maps and activation tools on the wall"><figcaption>A visual vocabulary, activation tools, templates, and playbooks to embed new behaviors.</figcaption></figure><figure><img src="assets/img/semi_lifecycle_2.jpg" alt="Knowledge-sharing portal screens"><figcaption>An online knowledge-sharing portal to ground the change in daily practice.</figcaption></figure></div></div>
+<div class="casesrc" id="case-semi-decision"><div class="tag">Process redesign &amp; decision rights</div><p class="client">Leading Semiconductor Manufacturer · internal marketing function, following a reorganization under a new CMO</p><h3>Rebuilding decision rights after a reorganization</h3><p class="cm-role">Role · account and program lead, and delivery team member</p><div class="cm-row"><span class="cm-label">Problem</span><p>A new CMO reorganized the marketing function, and campaign execution needed a consistent process and clear decision-making to match the new structure. Without it, the reorganization would leave people unsure who decided what, and the launch machine would stall on ambiguity.</p></div><div class="cm-row"><span class="cm-label">Complexity</span><p>The redesign had to span all marketing functions and supporting departments at once, and land a new decision model people would actually use in daily work, not just a diagram on a wall.</p></div><div class="cm-row"><span class="cm-label">What I did</span><p>Mapped current and future state across all marketing functions and supporting departments, and applied a RAPID decision model so every step of the new process carried a clear recommend, agree, perform, input, and decide. Built an interactive digital toolkit depicting roles, responsibilities, efforts, and decision points across the new operating process, so the reorganized team could see exactly how work and decisions now flowed.</p></div><div class="cm-row"><span class="cm-label">How it stuck</span><p>The interactive toolkit gave the reorganized function a shared, navigable reference for the new way of working, tied to the new structure rather than the habits of the old one.</p></div><div class="cm-row"><span class="cm-label">Result</span><p>A consistent campaign-execution process aligned to the reorganized marketing organization, with decision rights made explicit at every stage and a living reference the team could navigate.</p></div><figure class="cm-figbig"><img src="assets/img/semi_decision_1.jpg" alt="RAPID decision-rights card opened on the campaign process map"><figcaption>A stage of the redesigned process with its RAPID card opened, showing who recommends, agrees, performs, inputs, and decides.</figcaption></figure></div>
+<div class="casesrc" id="case-lowes"><div class="tag">Behavior change at scale</div><p class="client">Lowe's · customer experience transformation</p><h3>Turning 161,000 employees into creators</h3><p class="cm-role">Role · account and program lead, and delivery team member</p><div class="cm-row"><span class="cm-label">Problem</span><p>Lowe's set out to deliver a new customer experience across its stores, which meant moving frontline employees from an order-taker mindset to a creator mindset. The scale was the challenge: 1,710 stores, 161,000 employees, and 14 million customers.</p></div><div class="cm-row"><span class="cm-label">Complexity</span><p>A behavior change reaching every store and every employee segment, with no lever except influence, where success depended on frontline associates actually adopting a new way of working with customers.</p></div><div class="cm-row"><span class="cm-label">What I did</span><p>Established the organizational foundation for change. Audited current state to inform a current-to-future-state strategy, behavioral standards, and guidelines; built an employee engagement framework and a phased communications roadmap reaching every store; created an education program and an engagement toolkit of alignment maps, learning tools, in-store signage, playbooks, and executive presentations; produced a two-minute Creator Mindset animation and leadership learning maps; mapped the ideal customer experience at home, on the go, in-store, and in the contact center; and reinforced the behaviors with table tents in break rooms and cafeterias.</p></div><div class="cm-row"><span class="cm-label">How it stuck</span><p>Created a network of change agents, equipped and authorized to drive the new customer-facing behaviors, who became the leaders driving the initiative across every store.</p></div><div class="cm-row"><span class="cm-label">Result</span><p>The organizational foundation for change established across 1,710 stores and 161,000 employees, with a change-agent network carrying the new behaviors into daily store operations.</p></div><div class="cm-figrow"><figure><img src="assets/img/lowes_1.jpg" alt="Changing the associate's mindset sketch"><figcaption>Changing the associate's mindset, from order-taker to creator, sketched with the team.</figcaption></figure><figure><img src="assets/img/lowes_2.jpg" alt="Creator Mindset animation still"><figcaption>A two-minute Creator Mindset animation set expectations for the new way of working.</figcaption></figure></div><figure class="cm-figbig"><img src="assets/img/lowes_3.jpg" alt="Inspiring Creators customer experience map"><figcaption>Customer experience mapping: the ideal outcome at home, on the go, in-store, and in the contact center.</figcaption></figure></div>
+<div class="casesrc" id="case-icann-trust"><div class="tag">Trust &amp; participatory change</div><p class="client">ICANN · the body coordinating and managing the internet's naming and numbering system</p><h3>Trust in a change-fatigued community</h3><p class="cm-role">Role · account and program lead, and active member of the delivery team</p><div class="cm-row"><span class="cm-label">Problem</span><p>ICANN needed to move its global multistakeholder community and its own organization through significant change in a very short timeframe. The community was factional and openly suspicious of incoming leadership. The roughly 400-person staff carried low morale and change fatigue from earlier efforts that never landed.</p></div><div class="cm-row"><span class="cm-label">Complexity</span><p>No single party had authority over the outcome. Trust had to be earned across groups with competing interests, and a new CEO's credibility was on the line before he had a track record to stand on.</p></div><div class="cm-row"><span class="cm-label">What I did</span><p>Where the usual move was to produce a finished visual in weeks that could be used for communicating a strategy, we worked with the incoming CEO to take a wholly different approach: creating partially-developed concepts and ideas and generating deliberately unfinished, blueprint-level drafts that signaled his understanding was still forming and invited the community to shape it rather than judge it. I helped design and run that participatory process, including multiple input and collaboration sessions with ICANN staff and Community Leaders, and even a single community input session with more than 800 attendees at a global ICANN meeting. The results of those efforts drove production of finished visual infographic maps from the community's own inputs. In parallel I designed and help lead a culture assessment for the core organization: one-on-one interviews with executives and board members, a working session with staff, and a Culture and Change report and strategic narrative that paired current and future-state maps with a specific change case, including surfaced obstacles, and recommendation approaches to address them.</p></div><div class="cm-row"><span class="cm-label">How it stuck</span><p>Showing unfinished work turned stakeholders into participants and changed judgment into contribution. The process itself became the vehicle for building trust that carried into later change efforts. This is why we refer to the deliverables as artifacts: they are what is left behind that represents a change in how a team engages and solves sticky or complex challenges.</p></div><div class="cm-row"><span class="cm-label">Result</span><p>A shared framework of understanding across factions, and a repeatable participatory model the organization reused as it worked through its most consequential transitions.</p></div><blockquote class="cm-quote">"We count on this partnership to help us navigate along the path of change."</blockquote><div class="cm-figrow"><figure><img src="assets/img/icann_trust_2.jpg" alt="Working group facilitation sessions"><figcaption>Facilitating alignment across working groups and stakeholder communities.</figcaption></figure><figure><img src="assets/img/icann_trust_3.jpg" alt="Who Runs the Internet map built with the community"><figcaption>Maps built from the community's own inputs became shared reference points and frameworks for understanding and evaluating change progress, not top-down pronouncements that miss the mark.</figcaption></figure></div><figure class="cm-figbig"><img src="assets/img/icann_trust_1.jpg" alt="Culture change workshops and current-to-future-state maps"><figcaption>Culture Change Initiative: interviews, working sessions, paired current and future-state maps, and a culture change assessment for the executive leadership team.</figcaption></figure></div>
+<div class="casesrc" id="case-ai-operator"><div class="tag">AI-native operating systems</div><p class="client">AI in daily practice · field enablement and go-to-market</p><h3>One operator, an agentic team</h3><p class="cm-role">Role · principal, built and operated end to end</p><div class="cm-row"><span class="cm-label">Problem</span><p>A market and channel development team ran an under-resourced field force that had to identify ideal-profile independent agencies for a professional employer offering, with limited tooling for the research.</p></div><div class="cm-row"><span class="cm-label">Complexity</span><p>The sourcing and qualification work was manual, slow, and hard to reproduce consistently across a field team, which put the burden on individual judgment rather than a repeatable rule.</p></div><div class="cm-row"><span class="cm-label">What I did</span><p>Built an operating engine, not a headcount. Claude and Clay for sourcing and enrichment, MCP integrations to bring local data files and web tools into the workflow, and generated outputs the field team could act on. From an 831-row licensing seed I narrowed to 398 verified independent agencies by territory and name-pattern rules, then scored to a 57-agency priority tier, and codified it as a portable playbook for other metros.</p></div><div class="cm-row"><span class="cm-label">Measured &amp; modeled</span><p>The row counts above are actuals. On effort, I built a bottom-up model, labeled as a model, that set a 4.5-hour-per-contact manual baseline and put a 600-contact run at roughly 2,700 hours of displaced manual effort against about four hours of engineering and human oversight.</p></div><div class="cm-row"><span class="cm-label">On my own engine</span><p>Same pattern for my own go-to-market work, with a quality-assurance step for sequences before outreach, and Claude, Figma, and GitHub to build proposal and pipeline engagements. Work that would have required a team of four, a marketing manager, an information and graphic designer, a UI and UX developer, and a content writer, I directed as a single senior operator running a comparable team of agentic members.</p></div><div class="cm-row"><span class="cm-label">The point</span><p>The staffing savings were real but beside the point for a bootstrapped operator. The breakthrough was cadence. What once took weeks now takes days; what took days now takes hours. Two purposeful years in the tools taught me what these systems actually do, so I can tell an organization what is worth implementing, and why, before it starts "flinging AI" at problems out of FOMO.</p></div><div class="cm-pipeline"><div class="cm-pnode"><div class="cm-pnm">Source &amp; enrich</div><div class="cm-pnd">Claude + Clay</div></div><div class="cm-parw">&rarr;</div><div class="cm-pnode"><div class="cm-pnm">Integrate</div><div class="cm-pnd">MCP: local files + web tools</div></div><div class="cm-parw">&rarr;</div><div class="cm-pnode"><div class="cm-pnm">Score &amp; rule</div><div class="cm-pnd">territory + pattern rules, priority tiers</div></div><div class="cm-parw">&rarr;</div><div class="cm-pnode"><div class="cm-pnm">Generate</div><div class="cm-pnd">field-ready outputs &amp; surfaces</div></div><div class="cm-parw">&rarr;</div><div class="cm-pnode"><div class="cm-pnm">Oversee</div><div class="cm-pnd">QA + human judgment</div></div></div></div>
+<div class="casesrc" id="case-footwear"><div class="tag">Portfolio governance</div><p class="client">Fortune 500 footwear and apparel brand · product-development transformation</p><h3>Eight critical builds at once</h3><p class="cm-role">Role · program lead, portfolio governance</p><div class="cm-row"><span class="cm-label">Problem</span><p>The brand was building a suite of eight distinct but interrelated, mission-critical product-development tools to replace legacy systems, each sponsored inside a complex organization with competing priorities.</p></div><div class="cm-row"><span class="cm-label">Complexity</span><p>Concurrent workstreams with different owners and dependencies. Left implicit, collisions and trade-offs surface late, and decisions get made reactively, late, and often absent of strategic context.</p></div><div class="cm-row"><span class="cm-label">What I did</span><p>I designed and facilitated a day-long strategy and planning session for the entire 35-plus-member team across all eight products, surfacing opportunities and tension points for the team to address together and align on the strategy. From there I made the work visible: an interactive dashboard shown on a large screen in the weekly team stand-up, with a multi-step escalation framework and, for each step, the associated content and the actions for remedy or resolution. Every workstream, its timing, dependencies, and benefits, was on the wall for everyone to see and reference.</p></div><div class="cm-row"><span class="cm-label">How it worked</span><p>When collisions surfaced, leaders made informed trade-offs together, aligned to the primary strategy, and everyone understood the reasoning behind a decision. The discipline was to keep the conversation about getting the answer right, not about individual or functional agendas, which only holds when everyone is bought into the strategy first.</p></div><div class="cm-row"><span class="cm-label">Result</span><p>A running operating rhythm that surfaced trade-offs early and resolved them in the open, across eight interdependent builds.</p></div></div>
+<div class="casesrc" id="case-university"><div class="tag">Enterprise adoption</div><p class="client">Large for-profit university system · enterprise IT migration</p><h3>Adoption that outlived the project</h3><p class="cm-role">Role · account and program lead</p><div class="cm-row"><span class="cm-label">Problem</span><p>A migration to a new enterprise IT platform across 80 campuses in 17 states, affecting more than 70,000 students. Success depended on staff actually adopting new roles, workflows, and behaviors, not just the system going live.</p></div><div class="cm-row"><span class="cm-label">Complexity</span><p>The technical implementers owned the detailed, largely impenetrable training content for every process. Left there, adoption would stall on material no one could use day to day.</p></div><div class="cm-row"><span class="cm-label">What I did</span><p>Ran a gap analysis between current state and the target vision to surface barriers, clarified the value proposition to secure buy-in, and focused on the 100 most common use cases, turning dense content into accessible visual desk references for each of the six student-facing departments on every campus. Built a train-the-trainer ambassador network to create advocates, set behavior and performance standards by employee segment across more than 100 new processes, and stood up a dashboard to monitor and optimize the rollout.</p></div><div class="cm-row"><span class="cm-label">How it stuck</span><p>The ambassador and champion network stayed in place after launch to drive adoption and keep people supported and accountable, so the new way of working held rather than the effort ending at go-live.</p></div><div class="cm-row"><span class="cm-label">Result</span><p>Staff adoption across nearly 100 processes and a successful 18-month program with very high satisfaction.</p></div><div class="cm-figrow"><figure><img src="assets/img/university_2.jpg" alt="Accessible visual desk reference for a process"><figcaption>Dense process content turned into accessible visual desk references for the most common use cases.</figcaption></figure><figure><img src="assets/img/university_3.jpg" alt="18-month activation roadmap across stakeholder tiers"><figcaption>An 18-month activation roadmap sequencing awareness, training, and go-live support across every stakeholder tier.</figcaption></figure></div><figure class="cm-figbig"><img src="assets/img/university_1.jpg" alt="Change initiative journey map"><figcaption>The change journey mapped for staff: a phased path from preview and inform, through training, to go-live.</figcaption></figure></div>
+<div class="casesrc" id="case-ip-frameworks"><div class="tag">IP contributions &amp; frameworks</div><p class="client">Frameworks and diagnostics I helped create at XPLANE and regularly put to work</p><h3>Frameworks and tools I helped build</h3><p class="cm-role">Role · co-author and practitioner</p><div class="cm-row"><span class="cm-label">In practice</span><p>A method is only as good as its adoption, so I lean on a core set of frameworks and tools that make change legible to the people living through it. I helped build these during my time at XPLANE, and I still reach for them.</p></div><div class="cm-figrow"><figure><img src="assets/img/ip_frameworks_1.jpg" alt="Adoption Curve"><figcaption>The Adoption Curve: moving people from Hear it, to Believe it, to Live it, tracked as degree of support over time.</figcaption></figure><figure><img src="assets/img/ip_frameworks_2.jpg" alt="Change Lever"><figcaption>The Change Lever: strategy and tactics move an organization from current to future state, with capacity for change as the fulcrum.</figcaption></figure><figure><img src="assets/img/ip_frameworks_3.jpg" alt="DNA of Change eight design principles"><figcaption>DNA of Change: eight design principles for organizational transformation.</figcaption></figure><figure><img src="assets/img/ip_frameworks_4.jpg" alt="Barriers to Behavior Change diagnostic"><figcaption>Barriers to Behavior Change: a user-centered diagnostic for surfacing where resistance actually lives.</figcaption></figure><figure><img src="assets/img/ip_frameworks_5.jpg" alt="Change framework comparison across major change models"><figcaption>A comparison of the major change models, from Lewin and Kotter to Prosci and BJ Fogg, mapped to common phases. I work across them rather than pledging to one.</figcaption></figure><figure><img src="assets/img/ip_frameworks_6.jpg" alt="Process improvement methods compared: Lean, Six Sigma, and Visual Process Innovation"><figcaption>Visual Process Innovation mapped against the major process-improvement methods, showing where Lean, Six Sigma, and the rest each fit.</figcaption></figure><figure><img src="assets/img/ip_frameworks_7.jpg" alt="Six core principles of Visual Process Innovation"><figcaption>The six core principles of Visual Process Innovation.</figcaption></figure></div></div>
+</div>
+<script>
+(function(){
+  var modal=document.getElementById('caseModal'); if(!modal) return;
+  var box=modal.querySelector('.cm-content'), closeBtn=modal.querySelector('.cm-close'), lastFocus=null;
+  function open(id){var src=document.getElementById('case-'+id); if(!src)return; box.innerHTML=src.innerHTML; modal.setAttribute('data-open','true'); document.body.style.overflow='hidden'; closeBtn.focus();}
+  function close(){modal.removeAttribute('data-open'); document.body.style.overflow=''; box.innerHTML=''; if(lastFocus)lastFocus.focus();}
+  document.querySelectorAll('.casecard').forEach(function(c){
+    c.addEventListener('click',function(){lastFocus=c; open(c.getAttribute('data-case'));});
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();lastFocus=c;open(c.getAttribute('data-case'));}});
+  });
+  modal.addEventListener('click',function(e){if(e.target===modal||e.target===closeBtn)close();});
+  closeBtn.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.getAttribute('data-open')==='true')close();});
+})();
+</script>
 </body>
 </html>
