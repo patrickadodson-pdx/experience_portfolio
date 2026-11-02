@@ -11,24 +11,24 @@
 <style>
 /* ===== Perspective Suite shared shell (inlined; source: assets/suite.css) ===== */
 /* ============================================================
-   Perspective Suite - shared shell
-   Paper-and-forest design system. One frame, every page inherits.
-   Page-specific diagram CSS lives in each page's own <style> block.
-   ============================================================ */
+ Perspective Suite - shared shell
+ Paper-and-forest design system. One frame, every page inherits.
+ Page-specific diagram CSS lives in each page's own <style> block.
+ ============================================================ */
 
 :root{
-  --ink:#181b1a; --graphite:#2b302e; --gray:#5b6360; --muted:#79817d;
-  --paper:#e9ebe9; --card:#ffffff; --line:#d4d8d5;
-  --green:#1e4d34; --green2:#2c6a48; --greenwash:#eef3ef; --greenline:#cde0d3;
-  --umber:#824f30; --umber2:#9c6741; --umberwash:#f2ebe3; --umberline:#e3d3c4;
-  --disp:"Barlow Condensed",Arial,sans-serif;
-  --body:"Inter",Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
+ --ink:#181b1a; --graphite:#2b302e; --gray:#5b6360; --muted:#79817d;
+ --paper:#e9ebe9; --card:#ffffff; --line:#d4d8d5;
+ --green:#1e4d34; --green2:#2c6a48; --greenwash:#eef3ef; --greenline:#cde0d3;
+ --umber:#824f30; --umber2:#9c6741; --umberwash:#f2ebe3; --umberline:#e3d3c4;
+ --disp:"Barlow Condensed",Arial,sans-serif;
+ --body:"Inter",Arial,sans-serif;
+ --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
-  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+ font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
 a{color:var(--green2);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
@@ -39,7 +39,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 
 /* ---- top bar: shared brand + suite nav ---- */
 .top{position:sticky;top:0;z-index:40;background:rgba(233,235,233,.9);
-  backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+ backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
 .brand{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink);font-weight:500;white-space:nowrap}
 .brand b{color:var(--green)}
@@ -55,15 +55,15 @@ p{margin:0 0 16px;text-wrap:pretty}
 /* "Other perspectives" dropdown (no-JS, touch-safe via <details>) */
 .drop{position:relative;margin-left:20px}
 .drop>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--gray);white-space:nowrap}
+ text-transform:uppercase;color:var(--gray);white-space:nowrap}
 .drop>summary::-webkit-details-marker{display:none}
 .drop>summary::after{content:" \25BE";color:var(--umber);margin-left:3px}
 .drop>summary:hover{color:var(--ink)}
 .drop.hascur>summary{color:var(--green);font-weight:500}
 .dropmenu{position:absolute;right:0;top:calc(100% + 12px);background:var(--card);border:1px solid var(--line);
-  min-width:210px;padding:6px 0;box-shadow:0 8px 28px rgba(24,27,26,.12);z-index:50}
+ min-width:210px;padding:6px 0;box-shadow:0 8px 28px rgba(24,27,26,.12);z-index:50}
 .dropmenu a{display:block;margin:0;padding:10px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
-  text-transform:uppercase;color:var(--gray)}
+ text-transform:uppercase;color:var(--gray)}
 .dropmenu a:hover{background:var(--greenwash);color:var(--ink);text-decoration:none}
 .dropmenu a.here{color:var(--green);font-weight:500}
 @media(max-width:900px){.drop{margin-left:14px}.drop>summary{font-size:11px}}
@@ -77,7 +77,7 @@ p{margin:0 0 16px;text-wrap:pretty}
 .hero .rule{width:60px;height:3px;background:var(--umber);margin:26px 0 0}
 .hero .disciplines{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
 .hero .disciplines span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);
-  background:var(--card);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
+ background:var(--card);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
 
 /* ---- section shell ---- */
 section{padding:62px 0;border-bottom:1px solid var(--line)}
@@ -162,246 +162,246 @@ footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
 
 </style>
 <style>
-  /* enterprise AI stack, single-column layer diagram (observer map) */
-  .estack{display:flex;flex-direction:column;gap:8px}
-  .elyr{background:var(--paper);border:1px solid var(--line);border-left-width:3px;border-left-style:solid;padding:14px 18px}
-  .elyr .lh{display:flex;align-items:baseline;gap:11px;margin-bottom:5px;flex-wrap:wrap}
-  .elyr .ln{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
-  .elyr .ln2{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink)}
-  .elyr .ld{font-size:13px;color:var(--gray);line-height:1.45;margin-bottom:9px;max-width:76ch}
-  .e-applied{border-left-color:var(--green);background:var(--greenwash);border-color:var(--greenline)}
-  .e-applied .ln2{color:var(--green)}
-  .e-assist{border-left-color:var(--green2)}
-  .e-apps{border-left-color:var(--gray)}
-  .e-ai{border-left-color:var(--umber2)}
-  .e-data{border-left-color:var(--gray)}
-  .e-cloud{border-left-color:var(--umber);background:var(--umberwash);border-color:var(--umberline)}
-  .e-cloud .ln2{color:var(--umber)}
-  .e-sec{border-left-color:var(--muted)}
-  .fnote{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:auto}
-  .band{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-  @media(max-width:680px){.band{grid-template-columns:1fr}}
-  .bcard{background:var(--paper);border:1px solid var(--line);padding:20px 22px}
-  .bcard.a{border-left:3px solid var(--umber);background:var(--umberwash)}
-  .bcard.b{border-left:3px solid var(--gray)}
-  .bcard b{font-family:var(--disp);font-weight:600;font-size:16px}
-  .bcard.a b{color:var(--umber)}
-  .bcard p{font-size:13.5px;color:var(--graphite);line-height:1.55;margin:6px 0 0}
+ /* enterprise AI stack, single-column layer diagram (observer map) */
+ .estack{display:flex;flex-direction:column;gap:8px}
+ .elyr{background:var(--paper);border:1px solid var(--line);border-left-width:3px;border-left-style:solid;padding:14px 18px}
+ .elyr .lh{display:flex;align-items:baseline;gap:11px;margin-bottom:5px;flex-wrap:wrap}
+ .elyr .ln{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+ .elyr .ln2{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink)}
+ .elyr .ld{font-size:13px;color:var(--gray);line-height:1.45;margin-bottom:9px;max-width:76ch}
+ .e-applied{border-left-color:var(--green);background:var(--greenwash);border-color:var(--greenline)}
+ .e-applied .ln2{color:var(--green)}
+ .e-assist{border-left-color:var(--green2)}
+ .e-apps{border-left-color:var(--gray)}
+ .e-ai{border-left-color:var(--umber2)}
+ .e-data{border-left-color:var(--gray)}
+ .e-cloud{border-left-color:var(--umber);background:var(--umberwash);border-color:var(--umberline)}
+ .e-cloud .ln2{color:var(--umber)}
+ .e-sec{border-left-color:var(--muted)}
+ .fnote{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+ .band{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+ @media(max-width:680px){.band{grid-template-columns:1fr}}
+ .bcard{background:var(--paper);border:1px solid var(--line);padding:20px 22px}
+ .bcard.a{border-left:3px solid var(--umber);background:var(--umberwash)}
+ .bcard.b{border-left:3px solid var(--gray)}
+ .bcard b{font-family:var(--disp);font-weight:600;font-size:16px}
+ .bcard.a b{color:var(--umber)}
+ .bcard p{font-size:13.5px;color:var(--graphite);line-height:1.55;margin:6px 0 0}
 </style>
 </head>
 <body>
 
 <div class="top">
-  <div class="wrap">
-    <div class="brand"><a href="index.html">Patrick&nbsp;Dodson&nbsp;<b>/</b>&nbsp;Experience&nbsp;Portfolio</a></div>
-    <nav class="nav">
-      <a href="adoption-change.html">Adoption &amp; Change</a>
-      <a href="gtm-bizdev.html">GTM &amp; BizDev</a>
-      <details class="drop hascur">
-        <summary>Exposure &amp; Perspective</summary>
-        <div class="dropmenu">
-          <a href="data-analytics.html">Data &amp; Analytics</a>
-          <a href="ai-factory.html">AI Factory</a>
-          <a href="enterprise-ai-stack.html" class="here">Enterprise AI Stack</a>
-        </div>
-      </details>
-      <a href="index.html" class="hub">Hub</a>
-    </nav>
-  </div>
+ <div class="wrap">
+ <div class="brand"><a href="index.html">Patrick&nbsp;Dodson&nbsp;<b>/</b>&nbsp;Experience&nbsp;Portfolio</a></div>
+ <nav class="nav">
+ <a href="adoption-change.html">Adoption &amp; Change</a>
+ <a href="gtm-bizdev.html">GTM &amp; BizDev</a>
+ <details class="drop hascur">
+ <summary>Insights</summary>
+ <div class="dropmenu">
+ <a href="data-analytics.html">Data &amp; Analytics</a>
+ <a href="ai-factory.html">AI Factory</a>
+ <a href="enterprise-ai-stack.html" class="here">Enterprise AI Stack</a>
+ </div>
+ </details>
+ <a href="index.html" class="hub">Hub</a>
+ </nav>
+ </div>
 </div>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="wrap">
-    <div class="kicker">Enterprise AI Stack &middot; Exposure &amp; perspective</div>
-    <h1>The platform gets licensed. The work never changes.</h1>
-    <p class="lede">The industry is buying the enterprise AI stack at speed: cloud platforms, data platforms, model gateways, copilots, and the agents built on top. The engineering is real and the spend is enormous. The value keeps stalling one layer above the license, where a bought capability has to become adopted practice a business runs and finance can measure.</p>
-    <p class="lede2">I build with parts of this stack hands-on and track the rest of it closely. What I do not do is administer or architect these enterprise platforms; I am not a cloud engineer or a platform admin. What I bring sits at the layer above the platform, where licensed capability has to turn into a way of working people keep and an outcome the business can see. That is exactly where this spend keeps stalling and putting the investment beneath it at risk.</p>
-    <div class="rule"></div>
-  </div>
+ <div class="wrap">
+ <div class="kicker">Enterprise AI Stack &middot; Insights</div>
+ <h1>The platform gets licensed. The work never changes.</h1>
+ <p class="lede">The industry is buying the enterprise AI stack at speed: cloud platforms, data platforms, model gateways, copilots, and the agents built on top. The engineering is real and the spend is enormous. The value keeps stalling one layer above the license, where a bought capability has to become adopted practice a business runs and finance can measure.</p>
+ <p class="lede2">I build with parts of this stack hands-on and track the rest of it closely. What I do not do is administer or architect these enterprise platforms; I am not a cloud engineer or a platform admin. What I bring sits at the layer above the platform, where licensed capability has to turn into a way of working people keep and an outcome the business can see. That is exactly where this spend keeps stalling and putting the investment beneath it at risk.</p>
+ <div class="rule"></div>
+ </div>
 </header>
 
 <!-- 1 - HOW THE SPACE WORKS -->
 <section id="stack">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">The terrain, described neutrally</div>
-      <h2>The stack, by layer.</h2>
-      <p class="sub">This is the enterprise AI stack as the market frames it, read from the applied outcome at the top down to the platform and the security that carry it. I am describing what each layer does and naming players across vendors as a sense-making exercise, not a build recommendation. The pattern that assembles it is integration-led: whichever vendor already owns your identity, data, and security tends to win the next layer up.</p>
-    </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <div class="eyebrow">The terrain, described neutrally</div>
+ <h2>The stack, by layer.</h2>
+ <p class="sub">This is the enterprise AI stack as the market frames it, read from the applied outcome at the top down to the platform and the security that carry it. I am describing what each layer does and naming players across vendors as a sense-making exercise, not a build recommendation. The pattern that assembles it is integration-led: whichever vendor already owns your identity, data, and security tends to win the next layer up.</p>
+ </div>
 
-    <div class="dwrap">
-      <div class="dcap">Figure 1 &middot; <b>The enterprise AI stack</b>, applied outcome down to platform and security</div>
-      <div class="estack">
+ <div class="dwrap">
+ <div class="dcap">Figure 1 &middot; <b>The enterprise AI stack</b>, applied outcome down to platform and security</div>
+ <div class="estack">
 
-        <div class="elyr e-applied">
-          <div class="lh"><span class="ln">L7</span><span class="ln2">Applied outcome</span><span class="fnote">Where value is made or lost</span></div>
-          <div class="ld">Where potential becomes result: a decision made faster, a process automated, a customer handled better, a cost taken out. Everything below exists to serve this layer, and it is the one the market funds the least deliberately.</div>
-        </div>
+ <div class="elyr e-applied">
+ <div class="lh"><span class="ln">L7</span><span class="ln2">Applied outcome</span><span class="fnote">Where value is made or lost</span></div>
+ <div class="ld">Where potential becomes result: a decision made faster, a process automated, a customer handled better, a cost taken out. Everything below exists to serve this layer, and it is the one the market funds the least deliberately.</div>
+ </div>
 
-        <div class="elyr e-assist">
-          <div class="lh"><span class="ln">L6</span><span class="ln2">Workforce assistants &amp; copilots</span></div>
-          <div class="ld">The AI that sits inside the tools people already use all day, drafting, summarizing, and answering against the organization's own content. The layer nearly every knowledge worker touches, and the front door to most AI programs.</div>
-          <div class="pills"><span class="pill">Microsoft 365 Copilot</span><span class="pill">Google Gemini</span><span class="pill">ChatGPT Enterprise</span><span class="pill">Claude Enterprise</span></div>
-        </div>
+ <div class="elyr e-assist">
+ <div class="lh"><span class="ln">L6</span><span class="ln2">Workforce assistants &amp; copilots</span></div>
+ <div class="ld">The AI that sits inside the tools people already use all day, drafting, summarizing, and answering against the organization's own content. The layer nearly every knowledge worker touches, and the front door to most AI programs.</div>
+ <div class="pills"><span class="pill">Microsoft 365 Copilot</span><span class="pill">Google Gemini</span><span class="pill">ChatGPT Enterprise</span><span class="pill">Claude Enterprise</span></div>
+ </div>
 
-        <div class="elyr e-apps">
-          <div class="lh"><span class="ln">L5</span><span class="ln2">Business applications &amp; low-code</span></div>
-          <div class="ld">CRM, ERP, and service platforms where AI meets an actual business process, plus the low-code tools that let non-developers build apps, automations, and agents on top.</div>
-          <div class="pills"><span class="pill">Dynamics 365</span><span class="pill">Salesforce</span><span class="pill">SAP</span><span class="pill">ServiceNow</span><span class="pill">Power Platform</span></div>
-        </div>
+ <div class="elyr e-apps">
+ <div class="lh"><span class="ln">L5</span><span class="ln2">Business applications &amp; low-code</span></div>
+ <div class="ld">CRM, ERP, and service platforms where AI meets an actual business process, plus the low-code tools that let non-developers build apps, automations, and agents on top.</div>
+ <div class="pills"><span class="pill">Dynamics 365</span><span class="pill">Salesforce</span><span class="pill">SAP</span><span class="pill">ServiceNow</span><span class="pill">Power Platform</span></div>
+ </div>
 
-        <div class="elyr e-ai">
-          <div class="lh"><span class="ln">L4</span><span class="ln2">AI platform &amp; agents</span></div>
-          <div class="ld">Where an organization builds its own AI: a governed gateway to many models, retrieval over private data, and the runtime that lets agents take actions. The Model Context Protocol is becoming the standard wiring between them.</div>
-          <div class="pills"><span class="pill">Azure AI Foundry</span><span class="pill">AWS Bedrock</span><span class="pill">Google Vertex AI</span><span class="pill">MCP</span></div>
-        </div>
+ <div class="elyr e-ai">
+ <div class="lh"><span class="ln">L4</span><span class="ln2">AI platform &amp; agents</span></div>
+ <div class="ld">Where an organization builds its own AI: a governed gateway to many models, retrieval over private data, and the runtime that lets agents take actions. The Model Context Protocol is becoming the standard wiring between them.</div>
+ <div class="pills"><span class="pill">Azure AI Foundry</span><span class="pill">AWS Bedrock</span><span class="pill">Google Vertex AI</span><span class="pill">MCP</span></div>
+ </div>
 
-        <div class="elyr e-data">
-          <div class="lh"><span class="ln">L3</span><span class="ln2">Data platform</span></div>
-          <div class="ld">The fuel. Where data is unified, governed, and made ready, because every layer above is only as good as the data beneath it. The unglamorous prerequisite the AI work quietly depends on.</div>
-          <div class="pills"><span class="pill">Microsoft Fabric</span><span class="pill">Databricks</span><span class="pill">Snowflake</span><span class="pill">BigQuery</span></div>
-        </div>
+ <div class="elyr e-data">
+ <div class="lh"><span class="ln">L3</span><span class="ln2">Data platform</span></div>
+ <div class="ld">The fuel. Where data is unified, governed, and made ready, because every layer above is only as good as the data beneath it. The unglamorous prerequisite the AI work quietly depends on.</div>
+ <div class="pills"><span class="pill">Microsoft Fabric</span><span class="pill">Databricks</span><span class="pill">Snowflake</span><span class="pill">BigQuery</span></div>
+ </div>
 
-        <div class="elyr e-cloud">
-          <div class="lh"><span class="ln">L2</span><span class="ln2">Cloud platform</span><span class="fnote">Where consumption concentrates</span></div>
-          <div class="ld">The rented compute, storage, and networking everything else runs on. Metered by usage, and the layer where the largest committed spend lands.</div>
-          <div class="pills"><span class="pill">Microsoft Azure</span><span class="pill">AWS</span><span class="pill">Google Cloud</span></div>
-        </div>
+ <div class="elyr e-cloud">
+ <div class="lh"><span class="ln">L2</span><span class="ln2">Cloud platform</span><span class="fnote">Where consumption concentrates</span></div>
+ <div class="ld">The rented compute, storage, and networking everything else runs on. Metered by usage, and the layer where the largest committed spend lands.</div>
+ <div class="pills"><span class="pill">Microsoft Azure</span><span class="pill">AWS</span><span class="pill">Google Cloud</span></div>
+ </div>
 
-        <div class="elyr e-sec">
-          <div class="lh"><span class="ln">L1</span><span class="ln2">Security &amp; governance</span></div>
-          <div class="ld">Identity, data protection, threat detection, and compliance. Drawn as the foundation because it gates every layer above it: nothing reaches production, and no AI touches company data, without it.</div>
-          <div class="pills"><span class="pill">Microsoft Defender</span><span class="pill">Sentinel</span><span class="pill">CrowdStrike</span><span class="pill">Purview</span></div>
-        </div>
+ <div class="elyr e-sec">
+ <div class="lh"><span class="ln">L1</span><span class="ln2">Security &amp; governance</span></div>
+ <div class="ld">Identity, data protection, threat detection, and compliance. Drawn as the foundation because it gates every layer above it: nothing reaches production, and no AI touches company data, without it.</div>
+ <div class="pills"><span class="pill">Microsoft Defender</span><span class="pill">Sentinel</span><span class="pill">CrowdStrike</span><span class="pill">Purview</span></div>
+ </div>
 
-      </div>
+ </div>
 
-      <div class="band">
-        <div class="bcard b">
-          <b>How the market sells it</b>
-          <p>The pitch is rarely that a product is best in its category; in most of these layers a specialist is rated at least as highly. The pitch is integration: the vendor already inside your identity, data, and security wins the next layer by making it the path of least resistance.</p>
-        </div>
-        <div class="bcard a">
-          <b>Where the spend concentrates</b>
-          <p>On licenses, seats, and cloud consumption, the vendor bill that scales with the estate. The adoption work that turns any of it into an outcome a business can measure gets the least deliberate budget.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="band">
+ <div class="bcard b">
+ <b>How the market sells it</b>
+ <p>The pitch is rarely that a product is best in its category; in most of these layers a specialist is rated at least as highly. The pitch is integration: the vendor already inside your identity, data, and security wins the next layer by making it the path of least resistance.</p>
+ </div>
+ <div class="bcard a">
+ <b>Where the spend concentrates</b>
+ <p>On licenses, seats, and cloud consumption, the vendor bill that scales with the estate. The adoption work that turns any of it into an outcome a business can measure gets the least deliberate budget.</p>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- 2 - WHERE THE INDUSTRY MISSTEPS -->
 <section id="gap">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Where the industry missteps</div>
-      <h2>The platform-to-adoption gap.</h2>
-      <p class="sub">The stack above is the market's map, described as I find it. What follows is my perspective on the state of play in this environment.</p>
-    </div>
-    <div class="pov">
-      <p>Follow the money and the shape is familiar. The spend concentrates on the license and the consumption, the seats provisioned and the cloud committed, because that is the part a vendor can invoice. The value is claimed at the top, the applied outcome, in the launch email and the board deck. In between sits the gap where the outcome is actually made, and no additional seat count closes it, because it was never a licensing problem.</p>
-      <div class="povmark">
-        <p>The buyer licenses the platform and assumes the outcome will follow. It does not. The same thing happens here that happens with the data platform and the AI factory beneath it: the capability gets bought, and nobody translated it into adopted practice a business runs and finance can measure.</p>
-      </div>
-      <p>The evidence is not subtle. A typical copilot deployment reaches a fraction of the seats it was bought for, and a large share of organizations discover, only after switching it on, that it surfaces whatever data a user could already reach, exposing years of quiet permission sprawl. Neither of those is a model problem or a capacity problem. They are governance and adoption problems, and they live in the layer the budget skips.</p>
-      <p>What moves the outcome is people working differently because of what the platform makes possible, and the governance and measurement that let the change hold and show up in a number. Those are practices a business runs, not modules a vendor ships. That translation, from licensed capability to an outcome the C-suite recognizes, is where my work sits: a career spent getting organizations to actually change how they work, now paired with two years building on these tools closely enough to tell what is real from what is merely sold.</p>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <div class="eyebrow">Where the industry missteps</div>
+ <h2>The platform-to-adoption gap.</h2>
+ <p class="sub">The stack above is the market's map, described as I find it. What follows is my perspective on the state of play in this environment.</p>
+ </div>
+ <div class="pov">
+ <p>Follow the money and the shape is familiar. The spend concentrates on the license and the consumption, the seats provisioned and the cloud committed, because that is the part a vendor can invoice. The value is claimed at the top, the applied outcome, in the launch email and the board deck. In between sits the gap where the outcome is actually made, and no additional seat count closes it, because it was never a licensing problem.</p>
+ <div class="povmark">
+ <p>The buyer licenses the platform and assumes the outcome will follow. It does not. The same thing happens here that happens with the data platform and the AI factory beneath it: the capability gets bought, and nobody translated it into adopted practice a business runs and finance can measure.</p>
+ </div>
+ <p>The evidence is not subtle. A typical copilot deployment reaches a fraction of the seats it was bought for, and a large share of organizations discover, only after switching it on, that it surfaces whatever data a user could already reach, exposing years of quiet permission sprawl. Neither of those is a model problem or a capacity problem. They are governance and adoption problems, and they live in the layer the budget skips.</p>
+ <p>What moves the outcome is people working differently because of what the platform makes possible, and the governance and measurement that let the change hold and show up in a number. Those are practices a business runs, not modules a vendor ships. That translation, from licensed capability to an outcome the C-suite recognizes, is where my work sits: a career spent getting organizations to actually change how they work, now paired with two years building on these tools closely enough to tell what is real from what is merely sold.</p>
+ </div>
+ </div>
 </section>
 
 <!-- 3 - READINESS LADDER -->
 <section id="readiness">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow g">Where you are</div>
-      <h2>From licensed to measurably improving the business.</h2>
-      <p class="sub">A readiness ladder for the same terrain, framed by what is actually true of the outcome rather than what was purchased. Most reported spend clusters on the earliest rungs; most claimed value is asserted at the final one; the deliberate work happens on the middle rungs, which stay ambiguous and under-addressed.</p>
-    </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <div class="eyebrow g">Where you are</div>
+ <h2>From licensed to measurably improving the business.</h2>
+ <p class="sub">A readiness ladder for the same terrain, framed by what is actually true of the outcome rather than what was purchased. Most reported spend clusters on the earliest rungs; most claimed value is asserted at the final one; the deliberate work happens on the middle rungs, which stay ambiguous and under-addressed.</p>
+ </div>
 
-    <div class="dwrap">
-      <div class="dcap">Figure 2 &middot; <b>Enterprise AI readiness</b>, capability licensed to business improved</div>
-      <div class="mat">
-        <div class="stage">
-          <div class="sn">1</div>
-          <div>
-            <div class="sname">Licensed</div>
-            <p class="slook">The seats and the consumption are bought. The platform exists on the contract and in the admin console. The narrative is rollout and scale.</p>
-            <div class="snext"><b>To advance:</b> the platform turned on and wired in, with identity, permissions, and governance actually in place.</div>
-          </div>
-        </div>
-        <div class="stage">
-          <div class="sn">2</div>
-          <div>
-            <div class="sname">Enabled</div>
-            <p class="slook">The platform runs. It is integrated, governed, and available to users, and IT can point to a live deployment rather than a trial.</p>
-            <div class="snext"><b>To advance:</b> real people using it on real work, past the pilot and the enthusiast few.</div>
-          </div>
-        </div>
-        <div class="stage">
-          <div class="sn">3</div>
-          <div>
-            <div class="sname">Used</div>
-            <p class="slook">Production use touches real work. Something a team does is now done with AI in the loop, not in a demo.</p>
-            <div class="snext"><b>To advance:</b> the rung the market skips, where the people whose work it touches adopt it as the default rather than the exception.</div>
-          </div>
-        </div>
-        <div class="stage">
-          <div class="sn">4</div>
-          <div>
-            <div class="sname">Adopted</div>
-            <p class="slook">The new way is the default. The workforce changed how it works, the old workaround is gone, and the change held past the launch.</p>
-            <div class="snext"><b>To advance:</b> the measurement that lets finance connect the adoption to a number, not an anecdote.</div>
-          </div>
-        </div>
-        <div class="stage top">
-          <div class="sn">5</div>
-          <div>
-            <div class="sname">Measurably improving the business</div>
-            <p class="slook">The outcome shows up where a CFO looks: cost, cycle time, revenue, risk. The platform stops being a license line and becomes an engine with a clear path back to the spend.</p>
-            <div class="snext"><b>The frontier that matters:</b> almost all reported investment sits at rungs one and two, the value is claimed at rung five, and rungs three and four, the adoption work, are where the gap actually lives.</div>
-          </div>
-        </div>
-      </div>
-      <p class="note">This ladder describes the path to business value, not the platform underneath it. It is the frame I would use with a business audience to locate where a stalled AI investment is actually stuck, which is almost never the layer getting the most budget.</p>
-    </div>
-  </div>
+ <div class="dwrap">
+ <div class="dcap">Figure 2 &middot; <b>Enterprise AI readiness</b>, capability licensed to business improved</div>
+ <div class="mat">
+ <div class="stage">
+ <div class="sn">1</div>
+ <div>
+ <div class="sname">Licensed</div>
+ <p class="slook">The seats and the consumption are bought. The platform exists on the contract and in the admin console. The narrative is rollout and scale.</p>
+ <div class="snext"><b>To advance:</b> the platform turned on and wired in, with identity, permissions, and governance actually in place.</div>
+ </div>
+ </div>
+ <div class="stage">
+ <div class="sn">2</div>
+ <div>
+ <div class="sname">Enabled</div>
+ <p class="slook">The platform runs. It is integrated, governed, and available to users, and IT can point to a live deployment rather than a trial.</p>
+ <div class="snext"><b>To advance:</b> real people using it on real work, past the pilot and the enthusiast few.</div>
+ </div>
+ </div>
+ <div class="stage">
+ <div class="sn">3</div>
+ <div>
+ <div class="sname">Used</div>
+ <p class="slook">Production use touches real work. Something a team does is now done with AI in the loop, not in a demo.</p>
+ <div class="snext"><b>To advance:</b> the rung the market skips, where the people whose work it touches adopt it as the default rather than the exception.</div>
+ </div>
+ </div>
+ <div class="stage">
+ <div class="sn">4</div>
+ <div>
+ <div class="sname">Adopted</div>
+ <p class="slook">The new way is the default. The workforce changed how it works, the old workaround is gone, and the change held past the launch.</p>
+ <div class="snext"><b>To advance:</b> the measurement that lets finance connect the adoption to a number, not an anecdote.</div>
+ </div>
+ </div>
+ <div class="stage top">
+ <div class="sn">5</div>
+ <div>
+ <div class="sname">Measurably improving the business</div>
+ <p class="slook">The outcome shows up where a CFO looks: cost, cycle time, revenue, risk. The platform stops being a license line and becomes an engine with a clear path back to the spend.</p>
+ <div class="snext"><b>The frontier that matters:</b> almost all reported investment sits at rungs one and two, the value is claimed at rung five, and rungs three and four, the adoption work, are where the gap actually lives.</div>
+ </div>
+ </div>
+ </div>
+ <p class="note">This ladder describes the path to business value, not the platform underneath it. It is the frame I would use with a business audience to locate where a stalled AI investment is actually stuck, which is almost never the layer getting the most budget.</p>
+ </div>
+ </div>
 </section>
 
 <!-- WHERE TO GO -->
 <section id="talk">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Where to go</div>
-      <h2>Want to go further?</h2>
-    </div>
-    <div class="routes">
-      <div class="route umber">
-        <h3>The same gap, one layer down</h3>
-        <p>The AI factory page runs the identical argument at the infrastructure level: the capacity gets procured, and the outcome stalls one layer above the hardware.</p>
-        <a class="go" href="ai-factory.html">AI factory stack &rarr;</a>
-      </div>
-      <div class="route green">
-        <h3>Where the change discipline comes from</h3>
-        <p>The change and adoption record this whole argument stands on: fifteen years making complex change land inside enterprises.</p>
-        <a class="go" href="adoption-change.html">AI adoption &amp; change &rarr;</a>
-      </div>
-    </div>
-    <div class="routes" style="margin-top:16px">
-      <div class="route umber">
-        <h3>Open a conversation</h3>
-        <p>If you are selling or standing up the enterprise AI stack and the question underneath the deal is whether the customer will adopt it and prove it moved the business, that translation is where I would be a useful contributor.</p>
-        <a class="go" href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com &rarr;</a>
-      </div>
-    </div>
-  </div>
+ <div class="wrap">
+ <div class="sec-head">
+ <div class="eyebrow">Where to go</div>
+ <h2>Want to go further?</h2>
+ </div>
+ <div class="routes">
+ <div class="route umber">
+ <h3>The same gap, one layer down</h3>
+ <p>The AI factory page runs the identical argument at the infrastructure level: the capacity gets procured, and the outcome stalls one layer above the hardware.</p>
+ <a class="go" href="ai-factory.html">AI factory stack &rarr;</a>
+ </div>
+ <div class="route green">
+ <h3>Where the change discipline comes from</h3>
+ <p>The change and adoption record this whole argument stands on: fifteen years making complex change land inside enterprises.</p>
+ <a class="go" href="adoption-change.html">AI adoption &amp; change &rarr;</a>
+ </div>
+ </div>
+ <div class="routes" style="margin-top:16px">
+ <div class="route umber">
+ <h3>Open a conversation</h3>
+ <p>If you are selling or standing up the enterprise AI stack and the question underneath the deal is whether the customer will adopt it and prove it moved the business, that translation is where I would be a useful contributor.</p>
+ <a class="go" href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com &rarr;</a>
+ </div>
+ </div>
+ </div>
 </section>
 
 <footer>
-  <div class="wrap fx">
-    <div class="fname">Patrick Dodson</div>
-    <div class="fmeta">Portland, OR &middot; <a href="https://www.linkedin.com/in/patrickdodson" target="_blank" rel="noopener">linkedin.com/in/patrickdodson</a> &middot; <a href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com</a></div>
-  </div>
+ <div class="wrap fx">
+ <div class="fname">Patrick Dodson</div>
+ <div class="fmeta">Portland, OR &middot; <a href="https://www.linkedin.com/in/patrickdodson" target="_blank" rel="noopener">linkedin.com/in/patrickdodson</a> &middot; <a href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com</a></div>
+ </div>
 </footer>
 
 </body>
