@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick Dodson, ICANN: Strategy Activation and Governance, 2012 to 2018</title>
+<meta name="description" content="Three years of strategy activation, facilitation, and information design with ICANN and its global multistakeholder community, 2012 to 2018.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Perspective Suite shared shell (inlined; source: assets/suite.css) ===== */
+/* ============================================================
+ Perspective Suite - shared shell
+ Paper-and-forest design system. One frame, every page inherits.
+ Page-specific diagram CSS lives in each page's own <style> block.
+ ============================================================ */
+
+:root{
+ --ink:#181b1a; --graphite:#2b302e; --gray:#5b6360; --muted:#79817d;
+ --paper:#e9ebe9; --card:#ffffff; --line:#d4d8d5;
+ --green:#1e4d34; --green2:#2c6a48; --greenwash:#eef3ef; --greenline:#cde0d3;
+ --umber:#824f30; --umber2:#9c6741; --umberwash:#f2ebe3; --umberline:#e3d3c4;
+ --disp:"Barlow Condensed",Arial,sans-serif;
+ --body:"Inter",Arial,sans-serif;
+ --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+ font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--green2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;line-height:1.06;letter-spacing:.01em;margin:0;text-wrap:balance}
+p{margin:0 0 16px;text-wrap:pretty}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin:0 0 14px}
+.eyebrow.g{color:var(--green2)}
+
+/* ---- top bar: shared brand + suite nav ---- */
+.top{position:sticky;top:0;z-index:40;background:rgba(233,235,233,.9);
+ backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink);font-weight:500;white-space:nowrap}
+.brand b{color:var(--green)}
+.brand a{color:inherit}
+.brand a:hover{text-decoration:none}
+.nav{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);margin-left:20px}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a.here{color:var(--green);font-weight:500}
+.nav a.hub{color:var(--umber)}
+@media(max-width:900px){.nav a{margin-left:14px;font-size:11px}}
+
+/* "Other perspectives" dropdown (no-JS, touch-safe via <details>) */
+.drop{position:relative;margin-left:20px}
+.drop>summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+ text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.drop>summary::-webkit-details-marker{display:none}
+.drop>summary::after{content:" \25BE";color:var(--umber);margin-left:3px}
+.drop>summary:hover{color:var(--ink)}
+.drop.hascur>summary{color:var(--green);font-weight:500}
+.dropmenu{position:absolute;right:0;top:calc(100% + 12px);background:var(--card);border:1px solid var(--line);
+ min-width:210px;padding:6px 0;box-shadow:0 8px 28px rgba(24,27,26,.12);z-index:50}
+.dropmenu a{display:block;margin:0;padding:10px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+ text-transform:uppercase;color:var(--gray)}
+.dropmenu a:hover{background:var(--greenwash);color:var(--ink);text-decoration:none}
+.dropmenu a.here{color:var(--green);font-weight:500}
+@media(max-width:900px){.drop{margin-left:14px}.drop>summary{font-size:11px}}
+
+/* ---- hero ---- */
+.hero{padding:70px 0 54px;border-bottom:1px solid var(--line)}
+.hero .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--umber);margin-bottom:20px}
+.hero h1{font-size:clamp(34px,5.6vw,58px);font-weight:700;letter-spacing:0;max-width:20ch}
+.hero .lede{font-size:19px;max-width:66ch;margin-top:22px;color:var(--graphite)}
+.hero .lede2{font-size:16px;max-width:66ch;margin-top:14px;color:var(--gray)}
+.hero .rule{width:60px;height:3px;background:var(--umber);margin:26px 0 0}
+.hero .disciplines{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.hero .disciplines span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);
+ background:var(--card);border:1px solid var(--line);border-radius:2px;padding:5px 11px}
+
+/* ---- section shell ---- */
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+.sec-head{max-width:80ch;margin-bottom:32px}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:600}
+.sec-head .sub{color:var(--gray);margin-top:12px;font-size:16.5px;max-width:72ch}
+
+/* ---- diagram shell (site convention) ---- */
+.dwrap{border:1px solid var(--line);background:var(--card);padding:26px 26px 28px;margin:6px 0 4px}
+.dcap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:22px}
+.dcap b{color:var(--umber)}
+.note{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;margin-top:20px;max-width:72ch;line-height:1.6}
+
+/* ---- reusable POV callout pair (opinionated vs observer) ---- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+@media(max-width:680px){.pair{grid-template-columns:1fr}}
+.pcard{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--green);padding:20px 22px}
+.pcard.um{border-top-color:var(--umber)}
+.pcard .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pcard h4{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:8px}
+.pcard p{font-size:14px;color:var(--graphite);line-height:1.55;margin:0}
+.implic{margin-top:16px;background:var(--umberwash);border:1px solid var(--umberline);border-radius:2px;padding:22px 26px}
+.implic .lab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--umber);margin-bottom:8px}
+.implic p{font-size:15px;color:var(--graphite);line-height:1.6;margin:0}
+.implic.g{background:var(--greenwash);border-color:var(--greenline)}
+.implic.g .lab{color:var(--green2)}
+
+/* ---- the POV "sermon" block (first-person, opinionated) ---- */
+.pov{max-width:76ch}
+.pov p{font-size:17px;color:var(--graphite);margin:0 0 18px}
+.pov p strong{color:var(--ink);font-weight:600}
+.povmark{border-left:3px solid var(--umber);background:var(--umberwash);padding:20px 24px;margin:8px 0 24px}
+.povmark p{margin:0;font-size:17px;color:var(--graphite)}
+.povmark.g{border-left-color:var(--green);background:var(--greenwash)}
+
+/* ---- reusable maturity / readiness ladder ---- */
+.mat{display:flex;flex-direction:column;gap:6px}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--paper);border:1px solid var(--line);padding:16px 18px;align-items:start}
+.stage .sn{font-family:var(--disp);font-weight:700;font-size:26px;color:var(--muted);line-height:1;text-align:center}
+.stage .sname{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--ink);margin-bottom:4px}
+.stage .slook{font-size:14px;color:var(--graphite);line-height:1.5;margin:0 0 8px}
+.stage .snext{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--gray);line-height:1.45}
+.stage .snext b{color:var(--umber);font-weight:500}
+.stage.top{border-color:var(--greenline);background:var(--greenwash);border-left:3px solid var(--green)}
+.stage.top .sn{color:var(--green)}
+.stage.top .snext b{color:var(--green2)}
+
+/* ---- generic content cards (record, method) ---- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.gcard{border:1px solid var(--line);background:var(--card);border-top:3px solid var(--green);padding:22px 24px}
+.gcard.um{border-top-color:var(--umber)}
+.gcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.gcard h3{font-family:var(--disp);font-weight:600;font-size:21px;color:var(--ink);margin-bottom:8px}
+.gcard p{font-size:14.5px;color:var(--graphite);line-height:1.55;margin:0}
+.gcard .metrics{display:flex;gap:24px;margin-top:16px;flex-wrap:wrap}
+.gcard .metric b{font-family:var(--disp);font-weight:700;font-size:22px;color:var(--green);display:block;line-height:1.1}
+.gcard.um .metric b{color:var(--umber)}
+.gcard .metric span{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- where to go ---- */
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:680px){.routes{grid-template-columns:1fr}}
+.route{border:1px solid var(--line);background:var(--card);padding:24px}
+.route.umber{border-top:3px solid var(--umber)}
+.route.green{border-top:3px solid var(--green)}
+.route h3{font-family:var(--disp);font-weight:600;font-size:22px;margin-bottom:8px}
+.route p{font-size:15px;color:var(--gray);margin-bottom:16px}
+.route .go{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2)}
+
+/* ---- footer ---- */
+footer{padding:40px 0 60px}
+footer .fx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:baseline}
+footer .fname{font-family:var(--disp);font-weight:600;font-size:20px;color:var(--ink)}
+footer .fmeta{font-family:var(--mono);font-size:12px;color:var(--gray)}
+
+/* ---- shared pill component (layer stacks) ---- */
+.pills{display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-family:var(--body);font-size:11.5px;padding:3px 9px;border-radius:2px;background:var(--card);color:var(--graphite);border:1px solid var(--line)}
+.pill.hl{background:var(--umberwash);border-color:var(--umberline);color:var(--umber);font-weight:600}
+.pill.g{background:var(--greenwash);border-color:var(--greenline);color:var(--green);font-weight:600}
+
+</style>
+<style>
+ .povlist{margin:0 0 18px;padding:0;list-style:none;max-width:74ch}
+ .povlist li{position:relative;padding-left:22px;margin-bottom:10px;font-size:16.5px;color:var(--graphite);line-height:1.55}
+ .povlist li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;background:var(--green);border-radius:50%}
+ .client{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--umber);margin:0 0 8px}
+</style>
+<style>
+/* case-card images (static, non-zoom) */
+.gcard.hasimg{padding:0;overflow:hidden}
+.gcard.hasimg .cbody{padding:22px 24px}
+.cimg{display:block;width:100%;height:auto;border-bottom:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cfig{margin:18px 0 0}
+.cfig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:2px;background:var(--card);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cfig figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.cthumbs{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.cthumbs figure{margin:0;flex:1 1 0;min-width:132px}
+.cthumbs figure img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--card);border-radius:2px;pointer-events:none;-webkit-user-select:none;user-select:none}
+.cthumbs figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+</style>
+<style>
+/* expandable case cards + modal */
+.casecard{cursor:pointer;transition:box-shadow .15s ease}
+.casecard:hover{box-shadow:0 10px 26px rgba(24,27,26,.08)}
+.casecard:focus-visible{outline:2px solid var(--green2);outline-offset:2px}
+.cardmore{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green2);margin-top:16px}
+.casecard.um .cardmore{color:var(--umber2)}
+.cardmore span{font-size:13px}
+.casemodal{position:fixed;inset:0;z-index:90;display:none;justify-content:center;align-items:flex-start;background:rgba(24,27,26,.5);padding:36px 18px;overflow-y:auto}
+.casemodal[data-open="true"]{display:flex}
+.casebox{background:var(--card);border:1px solid var(--line);max-width:780px;width:100%;padding:30px 34px 36px;position:relative;margin:auto}
+.cm-close{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--line);background:var(--paper);padding:6px 12px;cursor:pointer;color:var(--gray)}
+.cm-close:hover{color:var(--ink);border-color:var(--gray)}
+.cm-content .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cm-content .client{font-family:var(--mono);font-size:12px;color:var(--umber);letter-spacing:.02em;margin:0 0 8px}
+.cm-content h3{font-family:var(--disp);font-weight:600;font-size:26px;line-height:1.1;margin:0 0 16px;text-wrap:balance;max-width:34ch}
+.cm-content p{font-size:15px;line-height:1.62;color:var(--graphite);margin:0 0 14px}
+.cm-hero{display:block;width:100%;height:auto;border:1px solid var(--line);margin:4px 0 18px;pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-fig{margin:8px 0 18px}
+.cm-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-fig figcaption{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:8px}
+.cm-figbig{margin:14px 0 4px}
+.cm-figbig img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-figbig figcaption{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:8px}
+.cm-figrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 4px}.cm-figrow.two{grid-template-columns:repeat(2,1fr)}@media(max-width:560px){.cm-figrow{grid-template-columns:repeat(2,1fr)}}
+.cm-figrow figure{margin:0}
+.cm-figrow img{display:block;width:100%;height:auto;border:1px solid var(--line);pointer-events:none;-webkit-user-select:none;user-select:none}
+.cm-figrow figcaption{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-top:6px}
+</style>
+<style>.nb{white-space:nowrap}</style>
+<style>
+.cm-role{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--umber);margin:0 0 16px}
+.cm-row{margin:0 0 14px}
+.cm-row .cm-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--umber2);display:block;margin-bottom:3px}
+.cm-row p{margin:0}
+.cm-quote{border-left:3px solid var(--green);background:var(--greenwash);padding:14px 18px;margin:8px 0 16px;font-style:italic;color:var(--graphite)}
+.cm-pipeline{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:8px 0 18px}
+.cm-pnode{border:1px solid var(--line);background:var(--paper);border-radius:3px;padding:8px 12px;min-width:92px}
+.cm-pnm{font-family:var(--disp);font-weight:600;font-size:13px;color:var(--ink)}
+.cm-pnd{font-family:var(--mono);font-size:9px;color:var(--gray);margin-top:2px}
+.cm-parw{display:flex;align-items:center;color:var(--umber2);font-size:14px}
+</style>
+<style>
+.cm-content p.cm-hint{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2);margin:-4px 0 10px!important}
+.cm-content p.cm-more{margin:18px 0 0!important;font-family:var(--mono);font-size:12px;letter-spacing:.03em}
+</style>
+</head>
+<body>
+
+<div class="top">
+ <div class="wrap">
+ <div class="brand"><a href="index.html">Patrick&nbsp;Dodson&nbsp;<b>/</b>&nbsp;Experience&nbsp;Portfolio</a></div>
+ <nav class="nav">
+ <a href="adoption-change.html" class="here">Adoption &amp; Change</a>
+ <a href="gtm-bizdev.html">GTM &amp; BizDev</a>
+ <details class="drop">
+ <summary>Insights</summary>
+ <div class="dropmenu">
+ <a href="data-analytics.html">Data &amp; Analytics</a>
+ <a href="ai-factory.html">AI Factory</a>
+ <a href="enterprise-ai-stack.html">Enterprise AI Stack</a>
+ </div>
+ </details>
+ <a href="index.html" class="hub">Hub</a>
+ </nav>
+ </div>
+</div>
+
+<header class="hero">
+ <div class="wrap">
+ <div class="kicker">AI Adoption &amp; Change &middot; ICANN, 2012 to 2018</div>
+ <h1>Six years helping ICANN through change.</h1>
+ <p class="lede">Strategy activation, facilitation, and information design with ICANN's staff, Board, and global multistakeholder community, through a new CEO, a new strategic plan, the transition of IANA stewardship, and the new bylaws that followed it.</p>
+ <div class="rule"></div>
+ </div>
+</header>
+<section id="intro">
+ <div class="wrap">
+ <div class="ic-intro">
+ <div>
+ <p>From late 2012 to 2016, XPLANE worked alongside ICANN through one of the most consequential stretches in its history. I led the account, grew it to more than $1M a year in billings, and worked on the delivery team. The work below is the team's, collected from the executive ebook we produced for ICANN in 2016. In late 2016 I joined ICANN as a Senior Strategic Program Manager, and the final section is work I led from inside the organization.</p>
+ <p>Much of it was deliberately unfinished when it first met its audience: napkin sketches and blueprint-level drafts that invited the community to shape the result rather than judge it. That is how the maps earned trust across groups with competing interests.</p>
+ <blockquote class="cm-quote">"We count on this partnership to help us navigate along the path of change." <span class="ic-attr">Fadi Chehad&eacute;, ICANN CEO</span></blockquote>
+ </div>
+ <div class="ic-book" data-lbopen="icann" data-idx="0" role="button" tabindex="0">
+ <img src="assets/img/icann/icann_01_t.jpg" alt="Three Years of Strategic Design at ICANN, cover">
+ <div class="ic-bookcta">Page through the full ebook, 28 spreads &rarr;</div>
+ </div>
+ </div>
+ </div>
+</section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">Late 2012 to 2013</div><h2>Aligning a community around new leadership</h2></div>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="1"><img loading="lazy" src="assets/img/icann/icann_02_t.jpg" alt="One World, One Internet"></figure></div><div class="ic-txt"><h3>One World, One Internet</h3><p>ICANN's incoming CEO, Fadi Chehad&eacute;, wanted clear visual tools to introduce himself to a community spanning governments, business, and technical experts. We built two: an infographic of the internet governance ecosystem and a map of ICANN's own ecosystem, developed through a phased, iterative process with stakeholder groups reviewing at every step. A re-rendered version has been in use since 2015.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="2"><img loading="lazy" src="assets/img/icann/icann_03_t.jpg" alt="Who Runs the Internet?"></figure></div><div class="ic-txt"><h3>Who Runs the Internet?</h3><p>Built from low-fidelity napkin sketches so the wider ecosystem could shape how it was represented before anything was finished. ICANN chose to keep the hand-drawn version to signal that the ecosystem is still evolving, and it was featured on Wikipedia's internet governance article from January 2013.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="3"><img loading="lazy" src="assets/img/icann/icann_04_t.jpg" alt="Culture Change Initiative"></figure></div><div class="ic-txt"><h3>Culture Change Initiative</h3><p>One-on-one interviews with key executives and board members, then a one-day workshop with selected staff, synthesized against the CEO's goals into a 30-page Culture Assessment and Change report. Paired maps showed current and future structure with responsibilities and friction points, and every recommendation carried its own case, goals, obstacles, and actionable tasks.</p></div></article>
+ </div>
+ </section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">2013 to 2016</div><h2>Making complex work legible</h2></div>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="4"><img loading="lazy" src="assets/img/icann/icann_05_t.jpg" alt="Security Map"></figure></div><div class="ic-txt"><h3>Security Map</h3><p>One of the first internal teams to ask for visual support: a map of the security team's scope of services and its role in coordinating stakeholders around security events.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="5"><img loading="lazy" src="assets/img/icann/icann_06_t.jpg" alt="Domain Name Industry"></figure></div><div class="ic-txt"><h3>Domain Name Industry</h3><p>A loosely organized industry that needed to organize more effectively. A facilitated session in New York City produced the visual frameworks the group aligned around.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="6"><img loading="lazy" src="assets/img/icann/icann_07_t.jpg" alt="ASO Map: Internet number resource policy life cycle"></figure></div><div class="ic-txt"><h3>ASO Map</h3><p>A one-day design sprint with former IANA General Manager Barbara Roseman produced a napkin-level sketch of the numbers policy life cycle. She socialized it over several months, ending in a working session with the Numbers Community at ICANN49 in Singapore.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="7"><img loading="lazy" src="assets/img/icann/icann_08_t.jpg" alt="Internet Governance strategy panel"></figure></div><div class="ic-txt"><h3>Internet Governance</h3><p>Frameworks, sketches, and prototypes that helped a panel of industry and government leaders explore what 21st century governance of the internet could look like.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="8"><img loading="lazy" src="assets/img/icann/icann_09_t.jpg" alt="Public Responsibility"></figure></div><div class="ic-txt"><h3>Public Responsibility</h3><p>A map for the new Development and Public Responsibility Department showing global newcomers where they can engage, first in 2014 and updated in 2016 as the programs grew.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="9"><img loading="lazy" src="assets/img/icann/icann_10_t.jpg" alt="Accountability Mechanisms"></figure></div><div class="ic-txt"><h3>Accountability Mechanisms</h3><p>Working with ICANN's legal team to map key accountability use cases to the mechanisms that address them, so the community could see when it had standing and which mechanism to use.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="10"><img loading="lazy" src="assets/img/icann/icann_11_t.jpg" alt="The Root Zone"></figure></div><div class="ic-txt"><h3>The Root Zone</h3><p>An infographic explaining how the root zone is managed, maintained, and secured, previewed with stakeholder groups at ICANN50 in London for accuracy before publication on icann.org. Precise enough for technical experts, readable for newcomers.</p></div></article>
+ </div>
+ </section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">2014 to 2015</div><h2>Brand for a new division</h2></div>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="11"><img loading="lazy" src="assets/img/icann/icann_12_t.jpg" alt="GDD Brand Foundation and Visual Identity Guidelines"></figure></div><div class="ic-txt"><h3>GDD Brand Foundation and Visual Identity Guidelines</h3><p>A brand strategy engagement for the newly formed Generic Domains Division: a two-day workshop in Los Angeles co-created its Brand Foundation, covering essence, audience, story, values, personality, and tone. A companion effort set visual identity guidelines for the ICANN master brand.</p></div></article>
+ </div>
+ </section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">2013 to 2015</div><h2>Moving groups to decisions</h2></div>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="12"><img loading="lazy" src="assets/img/icann/icann_13_t.jpg" alt="Meetings Strategy Working Group, 2013 to 2014"></figure></div><div class="ic-txt"><h3>Meetings Strategy Working Group</h3><p>A Board-created multistakeholder working group, a year in and stalled on how ICANN's meetings should evolve. Workshops, executive interviews, and community discussions across ICANN47, 48, and 49 led to a final report and a Board decision at ICANN50 in London.</p></div></article>
+ <article class="ic-entry lbable multi"><div class="ic-figs"><figure data-lbset="icann" data-idx="16"><img loading="lazy" src="assets/img/icann/icann_17_t.jpg" alt="Strategic Plan FY16 to FY20: launch and public input"></figure><figure data-lbset="icann" data-idx="17"><img loading="lazy" src="assets/img/icann/icann_18_t.jpg" alt="Strategic Plan FY16 to FY20: drafts and strategy panels"></figure><figure data-lbset="icann" data-idx="18"><img loading="lazy" src="assets/img/icann/icann_19_t.jpg" alt="Strategic Plan FY16 to FY20: the adopted plan"></figure></div><div class="ic-txt"><h3>Strategic Plan FY16 to FY20</h3><p>A bottom-up, multilingual planning process that opened with a teaser animation at ICANN46 in Beijing, gathered public input across eight strategic areas through facilitated sessions, and ended with the Board adopting the plan in late 2014. We designed the interactive plan document, a four-minute narrative animation, and posters for ICANN52.</p></div></article>
+ </div>
+ </section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">ICANN47 to ICANN54</div><h2>Shaping the CEO's story</h2></div>
+ <article class="ic-entry lbable multi"><div class="ic-figs"><figure data-lbset="icann" data-idx="13"><img loading="lazy" src="assets/img/icann/icann_14_t.jpg" alt="CEO keynotes: ICANN47, Durban"></figure><figure data-lbset="icann" data-idx="14"><img loading="lazy" src="assets/img/icann/icann_15_t.jpg" alt="CEO keynotes: ICANN48 to ICANN51"></figure><figure data-lbset="icann" data-idx="15"><img loading="lazy" src="assets/img/icann/icann_16_t.jpg" alt="CEO keynotes: ICANN52 to ICANN54"></figure></div><div class="ic-txt"><h3>Opening ceremony keynotes</h3><p>From Durban in 2013 through Dublin in 2015, we worked with the CEO and his communications team on every opening keynote, shaping the narrative and translating it into visuals. Much of it was built on site in the days before each ceremony, as events unfolded.</p></div></article>
+ </div>
+ </section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">2014 to 2016</div><h2>Through the IANA stewardship transition</h2></div>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="19"><img loading="lazy" src="assets/img/icann/icann_20_t.jpg" alt="IANA Stewardship Transition"></figure></div><div class="ic-txt"><h3>IANA Stewardship Transition</h3><p>The most significant change in ICANN's history: the US government's oversight role would pass to the global community. Working groups had to design what would replace it, and for the Names community the stakes were highest.</p></div></article>
+ <article class="ic-entry lbable multi"><div class="ic-figs"><figure data-lbset="icann" data-idx="20"><img loading="lazy" src="assets/img/icann/icann_21_t.jpg" alt="Cross-Community Working Group on Enhancing Accountability"></figure><figure data-lbset="icann" data-idx="21"><img loading="lazy" src="assets/img/icann/icann_22_t.jpg" alt="IANA Transition and CCWG-Accountability, to the final report"></figure></div><div class="ic-txt"><h3>Enhancing Accountability</h3><p>In parallel, the CCWG-Accountability had to evolve existing mechanisms and define new ones. We facilitated working sessions in Istanbul, Paris, Los Angeles, and at ICANN meetings, and created visual summaries of each proposal so people could understand them without parsing long, dense documents.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="22"><img loading="lazy" src="assets/img/icann/icann_23_t.jpg" alt="Global Multistakeholder Community"></figure></div><div class="ic-txt"><h3>Global Multistakeholder Community</h3><p>A short presentation that equipped staff to explain who participates in the community, where, and how, mapping broad stakeholder categories into ICANN's supporting organizations and advisory committees.</p></div></article>
+ <article class="ic-entry lbable"><div class="ic-figs"><figure data-lbset="icann" data-idx="23"><img loading="lazy" src="assets/img/icann/icann_24_t.jpg" alt="ICANN Reviews"></figure></div><div class="ic-txt"><h3>ICANN Reviews</h3><p>Information design to build understanding of, and participation in, the Organizational Reviews program, starting with a presentation for ICANN55 in Marrakech.</p></div></article>
+ </div>
+ </section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">2015 to 2016</div><h2>Explaining digital governance</h2></div>
+ <article class="ic-entry lbable multi"><div class="ic-figs"><figure data-lbset="icann" data-idx="24"><img loading="lazy" src="assets/img/icann/icann_25_t.jpg" alt="Digital Governance: the three layers"></figure><figure data-lbset="icann" data-idx="25"><img loading="lazy" src="assets/img/icann/icann_26_t.jpg" alt="Digital Governance: the logical layer"></figure><figure data-lbset="icann" data-idx="26"><img loading="lazy" src="assets/img/icann/icann_27_t.jpg" alt="Digital Governance: the economic and societal layer"></figure></div><div class="ic-txt"><h3>The Three Layers of Digital Governance</h3><p>Most people did not understand ICANN's limited role in internet governance, and scrutiny rose after the 2014 transition announcement. Synthesizing existing models, we worked with ICANN to describe digital governance in three layers: infrastructure, logical, and economic and societal. Detailed views of the logical layer, where ICANN sits, and of the economic and societal layer followed.</p></div></article>
+ </div>
+ </section>
+ <section class="ic-sec">
+ <div class="wrap">
+ <div class="sec-head"><div class="eyebrow">At ICANN, 2017 to 2018</div><h2>Making governance usable</h2></div>
+ <article class="ic-entry ic-ec"><div class="ic-txt"><h3>Empowered Community powers</h3><p>The bylaws adopted with the IANA stewardship transition gave the community new powers to hold ICANN's Board and organization accountable, written in dense legal text few people could follow. As Program Lead for governance activation, I designed and facilitated in-person and virtual workshops that turned the bylaw language into step-by-step process maps, and refined them through iterative review until every stakeholder group was aligned. Published in October 2017 alongside text handbooks, they became the community's visual toolkit for exercising its powers: who acts, in what order, by when, and where a petition ends.</p></div>
+ <div class="ec-grid lbable"><figure data-lbset="ec" data-idx="0"><img loading="lazy" src="assets/img/ec/approval-actions-1_t.jpg" alt="Approve Approval Actions flowchart"><figcaption>Approve Approval Actions<span>4 pages</span></figcaption></figure><figure data-lbset="ec" data-idx="4"><img loading="lazy" src="assets/img/ec/rejection-actions-1_t.jpg" alt="Reject budgets, plans, and bylaw amendments flowchart"><figcaption>Reject budgets, plans, and bylaw amendments<span>6 pages</span></figcaption></figure><figure data-lbset="ec" data-idx="10"><img loading="lazy" src="assets/img/ec/recall-board-1_t.jpg" alt="Recall the Board flowchart"><figcaption>Recall the Board<span>6 pages</span></figcaption></figure><figure data-lbset="ec" data-idx="16"><img loading="lazy" src="assets/img/ec/remove-nomcom-directors-1_t.jpg" alt="Remove Nominating Committee directors flowchart"><figcaption>Remove Nominating Committee directors<span>7 pages</span></figcaption></figure><figure data-lbset="ec" data-idx="23"><img loading="lazy" src="assets/img/ec/remove-soac-directors-1_t.jpg" alt="Remove SO/AC-appointed directors flowchart"><figcaption>Remove SO/AC-appointed directors<span>6 pages</span></figcaption></figure><figure data-lbset="ec" data-idx="29"><img loading="lazy" src="assets/img/ec/irp-1_t.jpg" alt="Initiate a Community IRP flowchart"><figcaption>Initiate a Community IRP<span>6 pages</span></figcaption></figure><figure data-lbset="ec" data-idx="35"><img loading="lazy" src="assets/img/ec/reconsideration-1_t.jpg" alt="Initiate a Community Reconsideration Request flowchart"><figcaption>Initiate a Community Reconsideration Request<span>6 pages</span></figcaption></figure><figure data-lbset="ec" data-idx="41"><img loading="lazy" src="assets/img/ec/mediation-1_t.jpg" alt="Initiate mediation flowchart"><figcaption>Initiate mediation<span>3 pages</span></figcaption></figure></div></article>
+ <article class="ic-entry ic-ec"><div class="ic-txt"><h3>Process Documentation Initiative</h3><p>The same approach, applied to how ICANN's core processes actually run. Starting in January 2017, I produced process flow maps for organizational and specific reviews, the GNSO, ccNSO, and ASO policy development processes, GAC and ALAC advice, Board advice, and correspondence, each showing roles, responsibilities, timeframes, and the points where confusion or impasse tends to arise. Drafts were reviewed with the community at ICANN59 in Johannesburg before publication with companion handbooks. The Board advice map shown is ICANN's 2023 revision of the original.</p></div>
+ <div class="ec-grid lbable"><figure data-lbset="pd" data-idx="0"><img loading="lazy" src="assets/img/pd/specific-reviews-1_t.jpg" alt="Specific Reviews flowchart"><figcaption>Specific Reviews<span>7 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="7"><img loading="lazy" src="assets/img/pd/org-reviews-1_t.jpg" alt="Organizational Reviews flowchart"><figcaption>Organizational Reviews<span>9 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="16"><img loading="lazy" src="assets/img/pd/gnso-pdp-01_t.jpg" alt="GNSO policy development flowchart"><figcaption>GNSO policy development<span>12 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="28"><img loading="lazy" src="assets/img/pd/ccnso-pdp-01_t.jpg" alt="ccNSO policy development flowchart"><figcaption>ccNSO policy development<span>10 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="38"><img loading="lazy" src="assets/img/pd/aso-pdp-1_t.jpg" alt="ASO global policy development flowchart"><figcaption>ASO global policy development<span>7 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="45"><img loading="lazy" src="assets/img/pd/gac-advice-1_t.jpg" alt="GAC advice consideration flowchart"><figcaption>GAC advice consideration<span>5 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="50"><img loading="lazy" src="assets/img/pd/alac-advice-1_t.jpg" alt="ALAC advice flowchart"><figcaption>ALAC advice<span>3 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="53"><img loading="lazy" src="assets/img/pd/board-advice-1_t.jpg" alt="Board advice (2023 revision) flowchart"><figcaption>Board advice (2023 revision)<span>5 pages</span></figcaption></figure><figure data-lbset="pd" data-idx="58"><img loading="lazy" src="assets/img/pd/icann-correspondence-1_t.jpg" alt="ICANN correspondence flowchart"><figcaption>ICANN correspondence<span>3 pages</span></figcaption></figure></div></article>
+ </div>
+ </section>
+<section id="rights">
+ <div class="wrap">
+ <p class="ic-rights">Designed by XPLANE in assignment by ICANN. ICANN published many of these works for public use under Creative Commons licenses, for example Who Runs the Internet (CC BY-SA 3.0) and the Three Layers of Digital Governance (CC BY-NC). The 2017 to 2018 process flowcharts were published by ICANN under CC BY-NC, credited to ICANN Communications. Shown here with attribution for non-commercial portfolio use. <a href="adoption-change.html">Back to Adoption &amp; Change &rarr;</a></p>
+ </div>
+</section>
+<footer>
+ <div class="wrap fx">
+ <div class="fname">Patrick Dodson</div>
+ <div class="fmeta">Portland, OR &middot; <a href="https://www.linkedin.com/in/patrickdodson" target="_blank" rel="noopener">linkedin.com/in/patrickdodson</a> &middot; <a href="mailto:patrick.a.dodson@gmail.com">patrick.a.dodson@gmail.com</a></div>
+ </div>
+</footer>
+<style>
+.ic-intro{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:start;padding:8px 0 10px}
+.ic-intro p{color:var(--graphite)}
+.ic-attr{display:block;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--umber);margin-top:6px}
+.ic-book{cursor:pointer;background:var(--card);border:1px solid var(--line);padding:10px}
+.ic-book:hover{border-color:var(--gray)}
+.ic-book img{display:block;width:100%;height:auto}
+.ic-bookcta{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--green2);margin-top:10px}
+.ic-sec{padding:34px 0 8px}
+.ic-entry{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;background:var(--card);border:1px solid var(--line);padding:20px;margin:0 0 16px;align-items:start}
+.ic-entry.multi .ic-figs{display:grid;gap:8px}
+.ic-figs figure{margin:0}
+.ic-figs img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.ic-txt h3{font-size:24px;margin:2px 0 10px}
+.ic-txt p{font-size:15.5px;color:var(--graphite);margin:0}
+.ic-rights{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:var(--gray);border-top:1px solid var(--line);padding-top:18px;margin:26px 0 10px}
+.cm-quote{border-left:3px solid var(--green);background:var(--greenwash);padding:14px 18px;margin:8px 0 16px;font-style:italic;color:var(--graphite)}
+@media(max-width:820px){.ic-intro,.ic-entry{grid-template-columns:1fr}}
+.ic-entry.ic-ec{grid-template-columns:1fr;gap:18px}
+.ec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ec-grid figure{margin:0}
+.ec-grid img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.ec-grid figcaption{font-family:var(--mono);font-size:10.5px;line-height:1.4;letter-spacing:.03em;text-transform:uppercase;color:var(--graphite);margin-top:7px}
+.ec-grid figcaption span{display:block;color:var(--muted);margin-top:2px}
+@media(max-width:820px){.ec-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+<script>window.LB_SETS={ec:[{src:"assets/img/ec/approval-actions-1.jpg",thumb:"assets/img/ec/approval-actions-1_t.jpg",cap:"Approve Approval Actions, page 1 of 4",group:"Approve Approval Actions"},{src:"assets/img/ec/approval-actions-2.jpg",thumb:"assets/img/ec/approval-actions-2_t.jpg",cap:"Approve Approval Actions, page 2 of 4",group:"Approve Approval Actions"},{src:"assets/img/ec/approval-actions-3.jpg",thumb:"assets/img/ec/approval-actions-3_t.jpg",cap:"Approve Approval Actions, page 3 of 4",group:"Approve Approval Actions"},{src:"assets/img/ec/approval-actions-4.jpg",thumb:"assets/img/ec/approval-actions-4_t.jpg",cap:"Approve Approval Actions, page 4 of 4",group:"Approve Approval Actions"},{src:"assets/img/ec/rejection-actions-1.jpg",thumb:"assets/img/ec/rejection-actions-1_t.jpg",cap:"Reject budgets, plans, and bylaw amendments, page 1 of 6",group:"Reject budgets, plans, and bylaw amendments"},{src:"assets/img/ec/rejection-actions-2.jpg",thumb:"assets/img/ec/rejection-actions-2_t.jpg",cap:"Reject budgets, plans, and bylaw amendments, page 2 of 6",group:"Reject budgets, plans, and bylaw amendments"},{src:"assets/img/ec/rejection-actions-3.jpg",thumb:"assets/img/ec/rejection-actions-3_t.jpg",cap:"Reject budgets, plans, and bylaw amendments, page 3 of 6",group:"Reject budgets, plans, and bylaw amendments"},{src:"assets/img/ec/rejection-actions-4.jpg",thumb:"assets/img/ec/rejection-actions-4_t.jpg",cap:"Reject budgets, plans, and bylaw amendments, page 4 of 6",group:"Reject budgets, plans, and bylaw amendments"},{src:"assets/img/ec/rejection-actions-5.jpg",thumb:"assets/img/ec/rejection-actions-5_t.jpg",cap:"Reject budgets, plans, and bylaw amendments, page 5 of 6",group:"Reject budgets, plans, and bylaw amendments"},{src:"assets/img/ec/rejection-actions-6.jpg",thumb:"assets/img/ec/rejection-actions-6_t.jpg",cap:"Reject budgets, plans, and bylaw amendments, page 6 of 6",group:"Reject budgets, plans, and bylaw amendments"},{src:"assets/img/ec/recall-board-1.jpg",thumb:"assets/img/ec/recall-board-1_t.jpg",cap:"Recall the Board, page 1 of 6",group:"Recall the Board"},{src:"assets/img/ec/recall-board-2.jpg",thumb:"assets/img/ec/recall-board-2_t.jpg",cap:"Recall the Board, page 2 of 6",group:"Recall the Board"},{src:"assets/img/ec/recall-board-3.jpg",thumb:"assets/img/ec/recall-board-3_t.jpg",cap:"Recall the Board, page 3 of 6",group:"Recall the Board"},{src:"assets/img/ec/recall-board-4.jpg",thumb:"assets/img/ec/recall-board-4_t.jpg",cap:"Recall the Board, page 4 of 6",group:"Recall the Board"},{src:"assets/img/ec/recall-board-5.jpg",thumb:"assets/img/ec/recall-board-5_t.jpg",cap:"Recall the Board, page 5 of 6",group:"Recall the Board"},{src:"assets/img/ec/recall-board-6.jpg",thumb:"assets/img/ec/recall-board-6_t.jpg",cap:"Recall the Board, page 6 of 6",group:"Recall the Board"},{src:"assets/img/ec/remove-nomcom-directors-1.jpg",thumb:"assets/img/ec/remove-nomcom-directors-1_t.jpg",cap:"Remove Nominating Committee directors, page 1 of 7",group:"Remove Nominating Committee directors"},{src:"assets/img/ec/remove-nomcom-directors-2.jpg",thumb:"assets/img/ec/remove-nomcom-directors-2_t.jpg",cap:"Remove Nominating Committee directors, page 2 of 7",group:"Remove Nominating Committee directors"},{src:"assets/img/ec/remove-nomcom-directors-3.jpg",thumb:"assets/img/ec/remove-nomcom-directors-3_t.jpg",cap:"Remove Nominating Committee directors, page 3 of 7",group:"Remove Nominating Committee directors"},{src:"assets/img/ec/remove-nomcom-directors-4.jpg",thumb:"assets/img/ec/remove-nomcom-directors-4_t.jpg",cap:"Remove Nominating Committee directors, page 4 of 7",group:"Remove Nominating Committee directors"},{src:"assets/img/ec/remove-nomcom-directors-5.jpg",thumb:"assets/img/ec/remove-nomcom-directors-5_t.jpg",cap:"Remove Nominating Committee directors, page 5 of 7",group:"Remove Nominating Committee directors"},{src:"assets/img/ec/remove-nomcom-directors-6.jpg",thumb:"assets/img/ec/remove-nomcom-directors-6_t.jpg",cap:"Remove Nominating Committee directors, page 6 of 7",group:"Remove Nominating Committee directors"},{src:"assets/img/ec/remove-nomcom-directors-7.jpg",thumb:"assets/img/ec/remove-nomcom-directors-7_t.jpg",cap:"Remove Nominating Committee directors, page 7 of 7",group:"Remove Nominating Committee directors"},{src:"assets/img/ec/remove-soac-directors-1.jpg",thumb:"assets/img/ec/remove-soac-directors-1_t.jpg",cap:"Remove SO/AC-appointed directors, page 1 of 6",group:"Remove SO/AC-appointed directors"},{src:"assets/img/ec/remove-soac-directors-2.jpg",thumb:"assets/img/ec/remove-soac-directors-2_t.jpg",cap:"Remove SO/AC-appointed directors, page 2 of 6",group:"Remove SO/AC-appointed directors"},{src:"assets/img/ec/remove-soac-directors-3.jpg",thumb:"assets/img/ec/remove-soac-directors-3_t.jpg",cap:"Remove SO/AC-appointed directors, page 3 of 6",group:"Remove SO/AC-appointed directors"},{src:"assets/img/ec/remove-soac-directors-4.jpg",thumb:"assets/img/ec/remove-soac-directors-4_t.jpg",cap:"Remove SO/AC-appointed directors, page 4 of 6",group:"Remove SO/AC-appointed directors"},{src:"assets/img/ec/remove-soac-directors-5.jpg",thumb:"assets/img/ec/remove-soac-directors-5_t.jpg",cap:"Remove SO/AC-appointed directors, page 5 of 6",group:"Remove SO/AC-appointed directors"},{src:"assets/img/ec/remove-soac-directors-6.jpg",thumb:"assets/img/ec/remove-soac-directors-6_t.jpg",cap:"Remove SO/AC-appointed directors, page 6 of 6",group:"Remove SO/AC-appointed directors"},{src:"assets/img/ec/irp-1.jpg",thumb:"assets/img/ec/irp-1_t.jpg",cap:"Initiate a Community IRP, page 1 of 6",group:"Initiate a Community IRP"},{src:"assets/img/ec/irp-2.jpg",thumb:"assets/img/ec/irp-2_t.jpg",cap:"Initiate a Community IRP, page 2 of 6",group:"Initiate a Community IRP"},{src:"assets/img/ec/irp-3.jpg",thumb:"assets/img/ec/irp-3_t.jpg",cap:"Initiate a Community IRP, page 3 of 6",group:"Initiate a Community IRP"},{src:"assets/img/ec/irp-4.jpg",thumb:"assets/img/ec/irp-4_t.jpg",cap:"Initiate a Community IRP, page 4 of 6",group:"Initiate a Community IRP"},{src:"assets/img/ec/irp-5.jpg",thumb:"assets/img/ec/irp-5_t.jpg",cap:"Initiate a Community IRP, page 5 of 6",group:"Initiate a Community IRP"},{src:"assets/img/ec/irp-6.jpg",thumb:"assets/img/ec/irp-6_t.jpg",cap:"Initiate a Community IRP, page 6 of 6",group:"Initiate a Community IRP"},{src:"assets/img/ec/reconsideration-1.jpg",thumb:"assets/img/ec/reconsideration-1_t.jpg",cap:"Initiate a Community Reconsideration Request, page 1 of 6",group:"Initiate a Community Reconsideration Request"},{src:"assets/img/ec/reconsideration-2.jpg",thumb:"assets/img/ec/reconsideration-2_t.jpg",cap:"Initiate a Community Reconsideration Request, page 2 of 6",group:"Initiate a Community Reconsideration Request"},{src:"assets/img/ec/reconsideration-3.jpg",thumb:"assets/img/ec/reconsideration-3_t.jpg",cap:"Initiate a Community Reconsideration Request, page 3 of 6",group:"Initiate a Community Reconsideration Request"},{src:"assets/img/ec/reconsideration-4.jpg",thumb:"assets/img/ec/reconsideration-4_t.jpg",cap:"Initiate a Community Reconsideration Request, page 4 of 6",group:"Initiate a Community Reconsideration Request"},{src:"assets/img/ec/reconsideration-5.jpg",thumb:"assets/img/ec/reconsideration-5_t.jpg",cap:"Initiate a Community Reconsideration Request, page 5 of 6",group:"Initiate a Community Reconsideration Request"},{src:"assets/img/ec/reconsideration-6.jpg",thumb:"assets/img/ec/reconsideration-6_t.jpg",cap:"Initiate a Community Reconsideration Request, page 6 of 6",group:"Initiate a Community Reconsideration Request"},{src:"assets/img/ec/mediation-1.jpg",thumb:"assets/img/ec/mediation-1_t.jpg",cap:"Initiate mediation, page 1 of 3",group:"Initiate mediation"},{src:"assets/img/ec/mediation-2.jpg",thumb:"assets/img/ec/mediation-2_t.jpg",cap:"Initiate mediation, page 2 of 3",group:"Initiate mediation"},{src:"assets/img/ec/mediation-3.jpg",thumb:"assets/img/ec/mediation-3_t.jpg",cap:"Initiate mediation, page 3 of 3",group:"Initiate mediation"}],pd:[{src:"assets/img/pd/specific-reviews-1.jpg",thumb:"assets/img/pd/specific-reviews-1_t.jpg",cap:"Specific Reviews, page 1 of 7",group:"Specific Reviews"},{src:"assets/img/pd/specific-reviews-2.jpg",thumb:"assets/img/pd/specific-reviews-2_t.jpg",cap:"Specific Reviews, page 2 of 7",group:"Specific Reviews"},{src:"assets/img/pd/specific-reviews-3.jpg",thumb:"assets/img/pd/specific-reviews-3_t.jpg",cap:"Specific Reviews, page 3 of 7",group:"Specific Reviews"},{src:"assets/img/pd/specific-reviews-4.jpg",thumb:"assets/img/pd/specific-reviews-4_t.jpg",cap:"Specific Reviews, page 4 of 7",group:"Specific Reviews"},{src:"assets/img/pd/specific-reviews-5.jpg",thumb:"assets/img/pd/specific-reviews-5_t.jpg",cap:"Specific Reviews, page 5 of 7",group:"Specific Reviews"},{src:"assets/img/pd/specific-reviews-6.jpg",thumb:"assets/img/pd/specific-reviews-6_t.jpg",cap:"Specific Reviews, page 6 of 7",group:"Specific Reviews"},{src:"assets/img/pd/specific-reviews-7.jpg",thumb:"assets/img/pd/specific-reviews-7_t.jpg",cap:"Specific Reviews, page 7 of 7",group:"Specific Reviews"},{src:"assets/img/pd/org-reviews-1.jpg",thumb:"assets/img/pd/org-reviews-1_t.jpg",cap:"Organizational Reviews, page 1 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-2.jpg",thumb:"assets/img/pd/org-reviews-2_t.jpg",cap:"Organizational Reviews, page 2 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-3.jpg",thumb:"assets/img/pd/org-reviews-3_t.jpg",cap:"Organizational Reviews, page 3 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-4.jpg",thumb:"assets/img/pd/org-reviews-4_t.jpg",cap:"Organizational Reviews, page 4 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-5.jpg",thumb:"assets/img/pd/org-reviews-5_t.jpg",cap:"Organizational Reviews, page 5 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-6.jpg",thumb:"assets/img/pd/org-reviews-6_t.jpg",cap:"Organizational Reviews, page 6 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-7.jpg",thumb:"assets/img/pd/org-reviews-7_t.jpg",cap:"Organizational Reviews, page 7 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-8.jpg",thumb:"assets/img/pd/org-reviews-8_t.jpg",cap:"Organizational Reviews, page 8 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/org-reviews-9.jpg",thumb:"assets/img/pd/org-reviews-9_t.jpg",cap:"Organizational Reviews, page 9 of 9",group:"Organizational Reviews"},{src:"assets/img/pd/gnso-pdp-01.jpg",thumb:"assets/img/pd/gnso-pdp-01_t.jpg",cap:"GNSO policy development, page 1 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-02.jpg",thumb:"assets/img/pd/gnso-pdp-02_t.jpg",cap:"GNSO policy development, page 2 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-03.jpg",thumb:"assets/img/pd/gnso-pdp-03_t.jpg",cap:"GNSO policy development, page 3 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-04.jpg",thumb:"assets/img/pd/gnso-pdp-04_t.jpg",cap:"GNSO policy development, page 4 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-05.jpg",thumb:"assets/img/pd/gnso-pdp-05_t.jpg",cap:"GNSO policy development, page 5 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-06.jpg",thumb:"assets/img/pd/gnso-pdp-06_t.jpg",cap:"GNSO policy development, page 6 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-07.jpg",thumb:"assets/img/pd/gnso-pdp-07_t.jpg",cap:"GNSO policy development, page 7 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-08.jpg",thumb:"assets/img/pd/gnso-pdp-08_t.jpg",cap:"GNSO policy development, page 8 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-09.jpg",thumb:"assets/img/pd/gnso-pdp-09_t.jpg",cap:"GNSO policy development, page 9 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-10.jpg",thumb:"assets/img/pd/gnso-pdp-10_t.jpg",cap:"GNSO policy development, page 10 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-11.jpg",thumb:"assets/img/pd/gnso-pdp-11_t.jpg",cap:"GNSO policy development, page 11 of 12",group:"GNSO policy development"},{src:"assets/img/pd/gnso-pdp-12.jpg",thumb:"assets/img/pd/gnso-pdp-12_t.jpg",cap:"GNSO policy development, page 12 of 12",group:"GNSO policy development"},{src:"assets/img/pd/ccnso-pdp-01.jpg",thumb:"assets/img/pd/ccnso-pdp-01_t.jpg",cap:"ccNSO policy development, page 1 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-02.jpg",thumb:"assets/img/pd/ccnso-pdp-02_t.jpg",cap:"ccNSO policy development, page 2 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-03.jpg",thumb:"assets/img/pd/ccnso-pdp-03_t.jpg",cap:"ccNSO policy development, page 3 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-04.jpg",thumb:"assets/img/pd/ccnso-pdp-04_t.jpg",cap:"ccNSO policy development, page 4 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-05.jpg",thumb:"assets/img/pd/ccnso-pdp-05_t.jpg",cap:"ccNSO policy development, page 5 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-06.jpg",thumb:"assets/img/pd/ccnso-pdp-06_t.jpg",cap:"ccNSO policy development, page 6 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-07.jpg",thumb:"assets/img/pd/ccnso-pdp-07_t.jpg",cap:"ccNSO policy development, page 7 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-08.jpg",thumb:"assets/img/pd/ccnso-pdp-08_t.jpg",cap:"ccNSO policy development, page 8 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-09.jpg",thumb:"assets/img/pd/ccnso-pdp-09_t.jpg",cap:"ccNSO policy development, page 9 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/ccnso-pdp-10.jpg",thumb:"assets/img/pd/ccnso-pdp-10_t.jpg",cap:"ccNSO policy development, page 10 of 10",group:"ccNSO policy development"},{src:"assets/img/pd/aso-pdp-1.jpg",thumb:"assets/img/pd/aso-pdp-1_t.jpg",cap:"ASO global policy development, page 1 of 7",group:"ASO global policy development"},{src:"assets/img/pd/aso-pdp-2.jpg",thumb:"assets/img/pd/aso-pdp-2_t.jpg",cap:"ASO global policy development, page 2 of 7",group:"ASO global policy development"},{src:"assets/img/pd/aso-pdp-3.jpg",thumb:"assets/img/pd/aso-pdp-3_t.jpg",cap:"ASO global policy development, page 3 of 7",group:"ASO global policy development"},{src:"assets/img/pd/aso-pdp-4.jpg",thumb:"assets/img/pd/aso-pdp-4_t.jpg",cap:"ASO global policy development, page 4 of 7",group:"ASO global policy development"},{src:"assets/img/pd/aso-pdp-5.jpg",thumb:"assets/img/pd/aso-pdp-5_t.jpg",cap:"ASO global policy development, page 5 of 7",group:"ASO global policy development"},{src:"assets/img/pd/aso-pdp-6.jpg",thumb:"assets/img/pd/aso-pdp-6_t.jpg",cap:"ASO global policy development, page 6 of 7",group:"ASO global policy development"},{src:"assets/img/pd/aso-pdp-7.jpg",thumb:"assets/img/pd/aso-pdp-7_t.jpg",cap:"ASO global policy development, page 7 of 7",group:"ASO global policy development"},{src:"assets/img/pd/gac-advice-1.jpg",thumb:"assets/img/pd/gac-advice-1_t.jpg",cap:"GAC advice consideration, page 1 of 5",group:"GAC advice consideration"},{src:"assets/img/pd/gac-advice-2.jpg",thumb:"assets/img/pd/gac-advice-2_t.jpg",cap:"GAC advice consideration, page 2 of 5",group:"GAC advice consideration"},{src:"assets/img/pd/gac-advice-3.jpg",thumb:"assets/img/pd/gac-advice-3_t.jpg",cap:"GAC advice consideration, page 3 of 5",group:"GAC advice consideration"},{src:"assets/img/pd/gac-advice-4.jpg",thumb:"assets/img/pd/gac-advice-4_t.jpg",cap:"GAC advice consideration, page 4 of 5",group:"GAC advice consideration"},{src:"assets/img/pd/gac-advice-5.jpg",thumb:"assets/img/pd/gac-advice-5_t.jpg",cap:"GAC advice consideration, page 5 of 5",group:"GAC advice consideration"},{src:"assets/img/pd/alac-advice-1.jpg",thumb:"assets/img/pd/alac-advice-1_t.jpg",cap:"ALAC advice, page 1 of 3",group:"ALAC advice"},{src:"assets/img/pd/alac-advice-2.jpg",thumb:"assets/img/pd/alac-advice-2_t.jpg",cap:"ALAC advice, page 2 of 3",group:"ALAC advice"},{src:"assets/img/pd/alac-advice-3.jpg",thumb:"assets/img/pd/alac-advice-3_t.jpg",cap:"ALAC advice, page 3 of 3",group:"ALAC advice"},{src:"assets/img/pd/board-advice-1.jpg",thumb:"assets/img/pd/board-advice-1_t.jpg",cap:"Board advice (2023 revision), page 1 of 5",group:"Board advice (2023 revision)"},{src:"assets/img/pd/board-advice-2.jpg",thumb:"assets/img/pd/board-advice-2_t.jpg",cap:"Board advice (2023 revision), page 2 of 5",group:"Board advice (2023 revision)"},{src:"assets/img/pd/board-advice-3.jpg",thumb:"assets/img/pd/board-advice-3_t.jpg",cap:"Board advice (2023 revision), page 3 of 5",group:"Board advice (2023 revision)"},{src:"assets/img/pd/board-advice-4.jpg",thumb:"assets/img/pd/board-advice-4_t.jpg",cap:"Board advice (2023 revision), page 4 of 5",group:"Board advice (2023 revision)"},{src:"assets/img/pd/board-advice-5.jpg",thumb:"assets/img/pd/board-advice-5_t.jpg",cap:"Board advice (2023 revision), page 5 of 5",group:"Board advice (2023 revision)"},{src:"assets/img/pd/icann-correspondence-1.jpg",thumb:"assets/img/pd/icann-correspondence-1_t.jpg",cap:"ICANN correspondence, page 1 of 3",group:"ICANN correspondence"},{src:"assets/img/pd/icann-correspondence-2.jpg",thumb:"assets/img/pd/icann-correspondence-2_t.jpg",cap:"ICANN correspondence, page 2 of 3",group:"ICANN correspondence"},{src:"assets/img/pd/icann-correspondence-3.jpg",thumb:"assets/img/pd/icann-correspondence-3_t.jpg",cap:"ICANN correspondence, page 3 of 3",group:"ICANN correspondence"}],icann:[{src:"assets/img/icann/icann_01.jpg",thumb:"assets/img/icann/icann_01_t.jpg",cap:"Three Years of Strategic Design at ICANN, cover"},{src:"assets/img/icann/icann_02.jpg",thumb:"assets/img/icann/icann_02_t.jpg",cap:"One World, One Internet"},{src:"assets/img/icann/icann_03.jpg",thumb:"assets/img/icann/icann_03_t.jpg",cap:"Who Runs the Internet?"},{src:"assets/img/icann/icann_04.jpg",thumb:"assets/img/icann/icann_04_t.jpg",cap:"Culture Change Initiative"},{src:"assets/img/icann/icann_05.jpg",thumb:"assets/img/icann/icann_05_t.jpg",cap:"Security Map"},{src:"assets/img/icann/icann_06.jpg",thumb:"assets/img/icann/icann_06_t.jpg",cap:"Domain Name Industry"},{src:"assets/img/icann/icann_07.jpg",thumb:"assets/img/icann/icann_07_t.jpg",cap:"ASO Map: Internet number resource policy life cycle"},{src:"assets/img/icann/icann_08.jpg",thumb:"assets/img/icann/icann_08_t.jpg",cap:"Internet Governance strategy panel"},{src:"assets/img/icann/icann_09.jpg",thumb:"assets/img/icann/icann_09_t.jpg",cap:"Public Responsibility"},{src:"assets/img/icann/icann_10.jpg",thumb:"assets/img/icann/icann_10_t.jpg",cap:"Accountability Mechanisms"},{src:"assets/img/icann/icann_11.jpg",thumb:"assets/img/icann/icann_11_t.jpg",cap:"The Root Zone"},{src:"assets/img/icann/icann_12.jpg",thumb:"assets/img/icann/icann_12_t.jpg",cap:"GDD Brand Foundation and Visual Identity Guidelines"},{src:"assets/img/icann/icann_13.jpg",thumb:"assets/img/icann/icann_13_t.jpg",cap:"Meetings Strategy Working Group, 2013 to 2014"},{src:"assets/img/icann/icann_14.jpg",thumb:"assets/img/icann/icann_14_t.jpg",cap:"CEO keynotes: ICANN47, Durban"},{src:"assets/img/icann/icann_15.jpg",thumb:"assets/img/icann/icann_15_t.jpg",cap:"CEO keynotes: ICANN48 to ICANN51"},{src:"assets/img/icann/icann_16.jpg",thumb:"assets/img/icann/icann_16_t.jpg",cap:"CEO keynotes: ICANN52 to ICANN54"},{src:"assets/img/icann/icann_17.jpg",thumb:"assets/img/icann/icann_17_t.jpg",cap:"Strategic Plan FY16 to FY20: launch and public input"},{src:"assets/img/icann/icann_18.jpg",thumb:"assets/img/icann/icann_18_t.jpg",cap:"Strategic Plan FY16 to FY20: drafts and strategy panels"},{src:"assets/img/icann/icann_19.jpg",thumb:"assets/img/icann/icann_19_t.jpg",cap:"Strategic Plan FY16 to FY20: the adopted plan"},{src:"assets/img/icann/icann_20.jpg",thumb:"assets/img/icann/icann_20_t.jpg",cap:"IANA Stewardship Transition"},{src:"assets/img/icann/icann_21.jpg",thumb:"assets/img/icann/icann_21_t.jpg",cap:"Cross-Community Working Group on Enhancing Accountability"},{src:"assets/img/icann/icann_22.jpg",thumb:"assets/img/icann/icann_22_t.jpg",cap:"IANA Transition and CCWG-Accountability, to the final report"},{src:"assets/img/icann/icann_23.jpg",thumb:"assets/img/icann/icann_23_t.jpg",cap:"Global Multistakeholder Community"},{src:"assets/img/icann/icann_24.jpg",thumb:"assets/img/icann/icann_24_t.jpg",cap:"ICANN Reviews"},{src:"assets/img/icann/icann_25.jpg",thumb:"assets/img/icann/icann_25_t.jpg",cap:"Digital Governance: the three layers"},{src:"assets/img/icann/icann_26.jpg",thumb:"assets/img/icann/icann_26_t.jpg",cap:"Digital Governance: the logical layer"},{src:"assets/img/icann/icann_27.jpg",thumb:"assets/img/icann/icann_27_t.jpg",cap:"Digital Governance: the economic and societal layer"},{src:"assets/img/icann/icann_28.jpg",thumb:"assets/img/icann/icann_28_t.jpg",cap:"Closing page"}]};</script>
+<style>
+/* ---- figure lightbox + paged viewer ---- */
+.cm-content figure,.lbable figure{cursor:zoom-in;position:relative}
+.cm-content figure:hover img,.lbable figure:hover img{border-color:var(--gray)}
+.cm-content figure[data-lbhint]::after,.lbable figure[data-lbhint]::after{content:attr(data-lbhint);position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;background:var(--green);color:#fff;padding:3px 7px;pointer-events:none}
+.lb{position:fixed;inset:0;z-index:120;display:none;flex-direction:column;background:rgba(18,21,20,.94);color:#e9ebe9}
+.lb[data-open="true"]{display:flex}
+.lb-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;flex:none}
+.lb-count{color:#aab2ae;min-width:64px}
+.lb-cap{flex:1;color:#e9ebe9;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb button{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:transparent;color:#e9ebe9;border:1px solid #4a524e;padding:6px 11px;cursor:pointer}
+.lb button:hover{border-color:#e9ebe9}
+.lb-stage{flex:1;min-height:0;overflow:auto;display:flex;align-items:center;justify-content:center;position:relative;cursor:zoom-in}
+.lb-stage img{display:block;max-width:calc(100vw - 120px);max-height:100%;width:auto;height:auto;background:#fff;-webkit-user-select:none;user-select:none}
+.lb.zoomed .lb-stage{align-items:flex-start;justify-content:flex-start;cursor:zoom-out}
+.lb.zoomed .lb-stage img{max-width:none;max-height:none;margin:0 auto}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);font-size:22px!important;padding:14px 12px!important;background:rgba(18,21,20,.6)!important;z-index:2}
+.lb-prev{left:10px}.lb-next{right:10px}
+.lb-strip{flex:none;display:flex;gap:6px;overflow-x:auto;padding:8px 16px 12px}
+.lb-strip:empty{display:none}
+.lb-strip img{height:58px;width:auto;border:2px solid transparent;opacity:.6;cursor:pointer;flex:none;background:#fff}
+.lb-strip img.cur{border-color:#e9ebe9;opacity:1}
+.lb-strip .lb-sep{flex:none;align-self:center;font-family:var(--mono);font-size:10px;color:#aab2ae;padding:0 6px;text-transform:uppercase}
+@media(max-width:640px){.lb-stage img{max-width:100vw}.lb-cap{white-space:normal}.lb-nav{padding:10px 8px!important}}
+</style>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+ <div class="lb-bar"><span class="lb-count"></span><span class="lb-cap"></span><button class="lb-zoom" type="button">Zoom</button><button class="lb-x" type="button">Close &times;</button></div>
+ <div class="lb-stage"><img alt=""></div>
+ <button class="lb-nav lb-prev" type="button" aria-label="Previous">&lsaquo;</button><button class="lb-nav lb-next" type="button" aria-label="Next">&rsaquo;</button>
+ <div class="lb-strip"></div>
+</div>
+<script>
+(function(){
+ var G=window.LB_SETS||{}, lb=document.getElementById('lb'); if(!lb)return;
+ var img=lb.querySelector('.lb-stage img'), stage=lb.querySelector('.lb-stage'), cap=lb.querySelector('.lb-cap'), cnt=lb.querySelector('.lb-count'), strip=lb.querySelector('.lb-strip'), prev=lb.querySelector('.lb-prev'), next=lb.querySelector('.lb-next');
+ var items=[], i=0, prevOverflow='', opener=null;
+ function show(k){
+  i=(k+items.length)%items.length; var it=items[i];
+  lb.classList.remove('zoomed'); img.src=it.src; img.alt=it.cap||''; cap.textContent=it.cap||''; cnt.textContent=(i+1)+' / '+items.length;
+  var multi=items.length>1; prev.style.display=next.style.display=multi?'':'none';
+  var ts=strip.querySelectorAll('img'); for(var n=0;n<ts.length;n++){ts[n].classList.toggle('cur',+ts[n].dataset.k===i);}
+  var c=strip.querySelector('img.cur'); if(c)c.scrollIntoView({block:'nearest',inline:'center'});
+  stage.scrollTop=0; stage.scrollLeft=0;
+ }
+ function open(list,k,from){
+  items=list; opener=from||null; strip.innerHTML='';
+  if(list.length>8){ var lastGroup=null; list.forEach(function(it,n){ if(it.group&&it.group!==lastGroup){var s=document.createElement('span');s.className='lb-sep';s.textContent=it.group;strip.appendChild(s);lastGroup=it.group;} var t=document.createElement('img'); t.loading='lazy'; t.src=it.thumb||it.src; t.alt=''; t.dataset.k=n; strip.appendChild(t);}); }
+  prevOverflow=document.body.style.overflow; document.body.style.overflow='hidden'; lb.setAttribute('data-open','true'); show(k||0); lb.querySelector('.lb-x').focus();
+ }
+ function close(){ lb.removeAttribute('data-open'); img.removeAttribute('src'); document.body.style.overflow=prevOverflow; if(opener&&opener.focus)opener.focus(); }
+ function fromFigure(fig){
+  if(fig.dataset.lbset&&G[fig.dataset.lbset]) return {list:G[fig.dataset.lbset],k:+(fig.dataset.idx||0)};
+  var scope=fig.closest('.cm-content,.lbgroup')||fig.parentNode, figs=[].slice.call(scope.querySelectorAll('figure')).filter(function(f){return !f.dataset.lbset&&f.querySelector('img');});
+  var list=figs.map(function(f){var im=f.querySelector('img'), fc=f.querySelector('figcaption'); return {src:f.dataset.full||im.getAttribute('src'),cap:fc?fc.textContent:(im.alt||'')};});
+  return {list:list,k:Math.max(0,figs.indexOf(fig))};
+ }
+ document.addEventListener('click',function(e){
+  var fig=e.target.closest&&e.target.closest('.cm-content figure,.lbable figure,[data-lbopen]'); if(!fig||lb.contains(fig))return;
+  if(fig.hasAttribute('data-lbopen')){e.preventDefault(); var s=G[fig.getAttribute('data-lbopen')]; if(s)open(s,+(fig.dataset.idx||0),fig); return;}
+  if(!fig.querySelector('img'))return; e.stopPropagation(); var r=fromFigure(fig); open(r.list,r.k,fig);
+ });
+ strip.addEventListener('click',function(e){ if(e.target.dataset&&e.target.dataset.k!=null)show(+e.target.dataset.k); });
+ prev.addEventListener('click',function(){show(i-1);}); next.addEventListener('click',function(){show(i+1);});
+ lb.querySelector('.lb-x').addEventListener('click',close);
+ lb.querySelector('.lb-zoom').addEventListener('click',function(){lb.classList.toggle('zoomed');});
+ stage.addEventListener('click',function(e){ if(e.target===img)lb.classList.toggle('zoomed'); else if(!lb.classList.contains('zoomed'))close(); });
+ window.addEventListener('keydown',function(e){
+  if(lb.getAttribute('data-open')!=='true')return;
+  if(e.key==='Escape'){e.stopPropagation();e.preventDefault();close();}
+  else if(e.key==='ArrowRight'){e.stopPropagation();show(i+1);} else if(e.key==='ArrowLeft'){e.stopPropagation();show(i-1);}
+ },true);
+})();
+</script>
+<script>document.querySelectorAll("[data-lbopen]").forEach(function(b){b.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();b.click();}});});</script>
+</body>
+</html>
